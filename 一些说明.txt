@@ -1,0 +1,7 @@
+其中 C 代表类, AC 代表抽象类, I 代表接口 
+
+com.dute.officialNetwork.controller 目录主要负责页面访问控制
+com.dute.officialNetwork.service 目录主要是业务类代码
+com.dute.officialNetwork.domain 目录主要用于实体(Entity)与数据访问层(Repository)
+
+C CustomerInformation 字段有 ID 名字 手机号 房屋面积 问题描述 楼盘名称
