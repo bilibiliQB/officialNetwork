@@ -1,26 +1,26 @@
-spring:  
-  thymeleaf:  
-    cache: true  
-    check-template-location: true  
-    content-type: text/html  
-    enabled: true  
-    encoding: utf-8  
-    mode: HTML5  
-    prefix: classpath:/templates/  
-    suffix: .html  
-    excluded-view-names:  
-    template-resolver-order:  
-  datasource:  
-      driver-class-name: com.mysql.jdbc.Driver  
-      url: jdbc:mysql://47.104.139.79:3306/test?useUnicode=true&characterEncoding=utf-8  
-      username: root  
-      password: ~h~4FcwoPd4$  
-      initialize: true  
-  init-db: true  
-  jpa:  
-      database: mysql  
-      show-sql: true  
+spring:
+  thymeleaf:
+    cache: true
+    check-template-location: true
+    content-type: text/html
+    enabled: true
+    encoding: utf-8
+    mode: HTML5
+    prefix: classpath:/templates/
+    suffix: .html
+    excluded-view-names:
+    template-resolver-order:
+  datasource:
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://47.104.139.79:3306/officialnetwork?useUnicode=true&characterEncoding=utf-8
+      username: root
+      password: ~h~4FcwoPd4$
+      initialize: true
+  init-db: true
+  jpa:
+      database: mysql
+      show-sql: true
       hibernate:  
-        ddl-auto: update  
-        naming:  
+        ddl-auto: update
+        naming:
           strategy: org.hibernate.cfg.ImprovedNamingStrategy
