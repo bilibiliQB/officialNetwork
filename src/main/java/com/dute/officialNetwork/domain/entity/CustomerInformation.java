@@ -1,17 +1,22 @@
 package com.dute.officialNetwork.domain.entity;
 
 import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 
 @Entity
+@Table(name = "customerinformation")
 public class CustomerInformation {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id", updatable = false)
 	private Long id;// ID
+	
+	@Column(nullable = false,name = "ip")
+	private String IP;// IP地址
 	
 	@Column(nullable = true,name = "name")
 	private String name;// 客户姓名
@@ -31,14 +36,24 @@ public class CustomerInformation {
 	public CustomerInformation() {
 	}
 
-	public CustomerInformation(Long id, String name, String phoneNumber, String problemDescription, Integer houseArea,
-			String propertyName) {
+	public CustomerInformation(Long id, String IP, String name, String phoneNumber, String problemDescription,
+			Integer houseArea, String propertyName) {
+		super();
 		this.id = id;
+		this.IP = IP;
 		this.name = name;
 		this.phoneNumber = phoneNumber;
 		this.problemDescription = problemDescription;
 		this.houseArea = houseArea;
 		this.propertyName = propertyName;
+	}
+
+	public String getIP() {
+		return IP;
+	}
+
+	public void setIP(String IP) {
+		this.IP = IP;
 	}
 
 	public Long getId() {
