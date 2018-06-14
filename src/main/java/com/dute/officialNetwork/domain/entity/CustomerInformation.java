@@ -7,8 +7,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 
+// 客户信息
 @Entity
-@Table(name = "customerinformation")
+@Table(name = "customer_information")
 public class CustomerInformation {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,23 +22,23 @@ public class CustomerInformation {
 	@Column(nullable = true,name = "name")
 	private String name;// 客户姓名
 	
-	@Column(nullable = false,name = "phonenumber")
+	@Column(nullable = false,name = "phone_number")
 	private String phoneNumber;// 客户手机号
 	
-	@Column(nullable = true,name = "problemdescription")
+	@Column(nullable = true,name = "problem_description")
 	private String problemDescription;// 问题描述
 	
-	@Column(nullable = true,name = "housearea")
+	@Column(nullable = true,name = "house_area")
 	private Integer houseArea;// 房屋面积
 	
-	@Column(nullable = true,name = "propertyname")
-	private String propertyName;// 楼盘名称
+	@Column(nullable = true,name = "houses_name")
+	private String housesName;// 楼盘名称
 
 	public CustomerInformation() {
 	}
 
 	public CustomerInformation(Long id, String IP, String name, String phoneNumber, String problemDescription,
-			Integer houseArea, String propertyName) {
+			Integer houseArea, String housesName) {
 		super();
 		this.id = id;
 		this.IP = IP;
@@ -45,7 +46,7 @@ public class CustomerInformation {
 		this.phoneNumber = phoneNumber;
 		this.problemDescription = problemDescription;
 		this.houseArea = houseArea;
-		this.propertyName = propertyName;
+		this.housesName = housesName;
 	}
 
 	public String getIP() {
@@ -96,11 +97,11 @@ public class CustomerInformation {
 		this.houseArea = houseArea;
 	}
 
-	public String getPropertyName() {
-		return propertyName;
+	public String getHousesName() {
+		return housesName;
 	}
 
-	public void setPropertyName(String propertyName) {
-		this.propertyName = propertyName;
+	public void setHousesName(String housesName) {
+		this.housesName = housesName;
 	}
 }
