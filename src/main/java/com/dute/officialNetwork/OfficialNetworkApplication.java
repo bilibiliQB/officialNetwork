@@ -3,6 +3,11 @@ package com.dute.officialNetwork;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.validation.Validation;
+import javax.validation.Validator;
+import javax.validation.ValidatorFactory;
+
+import org.hibernate.validator.HibernateValidator;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.http.HttpMessageConverters;
@@ -17,6 +22,7 @@ import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
 @SpringBootApplication
 public class OfficialNetworkApplication {
 
+	// 配置Fastjson支持
 	@Bean
 	public HttpMessageConverters fastJsonHttpMessageConverters() {
 		// 1、需先定义一个convert 转换消息对象
@@ -37,6 +43,17 @@ public class OfficialNetworkApplication {
 		HttpMessageConverter<?> converter = fastConverter;
 		return new HttpMessageConverters(converter);
 	}
+	
+	// 配置hibernate Validator为快速失败返回模式
+	@Bean
+    public Validator validator(){
+        ValidatorFactory validatorFactory = Validation.byProvider(HibernateValidator.class )
+                .configure()
+                .addProperty( "hibernate.validator.fail_fast", "true" )
+                .buildValidatorFactory();
+        Validator validator = validatorFactory.getValidator();
+        return validator;
+    }
 
 	public static void main(String[] args) {
 		SpringApplication.run(OfficialNetworkApplication.class, args);
