@@ -31,7 +31,7 @@ public class IndexController {
 	 * 接口访问成功，resultData.setStatus(true);返回数据全部创建 response 对象，并给response对象属性添加注释，
 	 * 接口访问失败或者中途出现异常，resultData.setStatus(false);将发生错误的信息设置在 message 中
 	 */
-	@PostMapping("test")
+	@PostMapping("/test")
 	@ResponseBody
 	public ResultData<List<TestResponse>> testInter(TestRequest request){
 		ResultData<List<TestResponse>> resultData = new ResultData<>();
