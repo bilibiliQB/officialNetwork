@@ -20,37 +20,37 @@ import javax.persistence.GenerationType;
 public class CustomerInformation {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id", updatable = false)
-	@ApiModelProperty("编号")
+	@Column(name = "ci_id", updatable = false)
+	@ApiModelProperty("编号[系统生成]")
 	private Long id;// ID
 
-	@Column(name = "ip")
-	@ApiModelProperty("IP地址")
+	@Column(name = "ci_ip")
+	@ApiModelProperty("IP地址[系统生成]")
 	private String IP;// IP地址
 
-	@Column(name = "name")
+	@Column(name = "ci_name")
 	@ApiModelProperty("客户姓名")
 	private String name;// 客户姓名
 
-	@Column(name = "phone_number")
-	@ApiModelProperty("客户手机号")
+	@Column(name = "ci_phone_number")
+	@ApiModelProperty("客户手机号[必填]")
 	private String phoneNumber;// 客户手机号
 
-	@Column(name = "problem_description")
+	@Column(name = "ci_problem_description")
 	@ApiModelProperty("问题描述")
 	private String problemDescription;// 问题描述
 
-	@Column(name = "house_area")
+	@Column(name = "ci_house_area")
 	@ApiModelProperty("房屋面积")
 	private String houseArea;// 房屋面积
 
-	@Column(name = "houses_name")
+	@Column(name = "ci_houses_name")
 	@ApiModelProperty("楼盘名称")
 	private String housesName;// 楼盘名称
 
 	@JSONField(format = "yyyyMMddHHmmss")
-	@Column(name = "create_time")
-	@ApiModelProperty("创建时间")
+	@Column(name = "ci_create_time")
+	@ApiModelProperty("创建时间[系统生成]")
 	private Date createTime; // 创建时间
 
 	public CustomerInformation() {

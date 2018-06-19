@@ -18,7 +18,7 @@ import java.util.List;
 @Controller
 @RequestMapping("web/index")
 // 测试
-public class IndexController {
+public class TestController {
 
 	@ApiOperation("首页测试")
 	@PostMapping("/")

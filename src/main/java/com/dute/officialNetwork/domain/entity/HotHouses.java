@@ -13,7 +13,7 @@ import javax.persistence.Table;
 public class HotHouses {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id", updatable = false)
+	@Column(name = "hh_id", updatable = false)
 	private Long id;// ID
 
 	public Long getId() {
