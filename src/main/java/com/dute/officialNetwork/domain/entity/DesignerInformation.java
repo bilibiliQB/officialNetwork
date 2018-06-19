@@ -11,24 +11,27 @@ import javax.persistence.Table;
 
 import com.alibaba.fastjson.annotation.JSONField;
 
-// 案例的结构[一室一厅，两室一厅......]
+// 设计师
 @Entity
-@Table(name = "product_case_structure")
-public class ProductCaseStructure {
+@Table(name = "designer_information")
+public class DesignerInformation {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "pcs_id", updatable = false)
-	private Long id;// ID
+	@Column(name = "di_id", updatable = false)
+	private Long id;// 设计师ID
 
-	@Column(name = "pcs_name", nullable = false)
-	private String name; // 风格名称
+	@Column(name = "di_name")
+	private String name; // 设计师姓名
 
-	@Column(name = "pcs_create_time")
+	@Column(name = "di_introduction")
+	private String introduction; // 设计师简介
+
 	@JSONField(format = "yyyyMMddHHmmss")
+	@Column(name = "di_create_time")
 	private Date createTime; // 创建时间
 
-	@Column(name = "pcs_modify_time")
 	@JSONField(format = "yyyyMMddHHmmss")
+	@Column(name = "di_modify_time")
 	private Date modifyTime; // 修改时间
 
 	public Long getId() {
@@ -45,6 +48,14 @@ public class ProductCaseStructure {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getIntroduction() {
+		return introduction;
+	}
+
+	public void setIntroduction(String introduction) {
+		this.introduction = introduction;
 	}
 
 	public Date getCreateTime() {

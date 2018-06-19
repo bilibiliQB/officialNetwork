@@ -32,7 +32,7 @@ public class CustomerInformation {
 	@ApiModelProperty("客户姓名")
 	private String name;// 客户姓名
 
-	@Column(name = "ci_phone_number")
+	@Column(name = "ci_phone_number", nullable = false)
 	@ApiModelProperty("客户手机号[必填]")
 	private String phoneNumber;// 客户手机号
 
@@ -42,7 +42,7 @@ public class CustomerInformation {
 
 	@Column(name = "ci_house_area")
 	@ApiModelProperty("房屋面积")
-	private String houseArea;// 房屋面积
+	private Integer houseArea;// 房屋面积
 
 	@Column(name = "ci_houses_name")
 	@ApiModelProperty("楼盘名称")
@@ -93,11 +93,11 @@ public class CustomerInformation {
 		this.problemDescription = problemDescription;
 	}
 
-	public String getHouseArea() {
+	public Integer getHouseArea() {
 		return houseArea;
 	}
 
-	public void setHouseArea(String houseArea) {
+	public void setHouseArea(Integer houseArea) {
 		this.houseArea = houseArea;
 	}
 
@@ -105,16 +105,8 @@ public class CustomerInformation {
 		return housesName;
 	}
 
-	public void setHousesName(String housesName) {
-		this.housesName = housesName;
-	}
-
 	public Date getCreateTime() {
 		return createTime;
-	}
-
-	public void setCreateTime(Date createTime) {
-		this.createTime = createTime;
 	}
 
 }

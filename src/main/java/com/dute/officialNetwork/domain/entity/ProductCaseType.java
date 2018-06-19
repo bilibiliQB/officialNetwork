@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.alibaba.fastjson.annotation.JSONField;
+
 //案例风格[中式,田园......]
 @Entity
 @Table(name = "product_case_type")
@@ -22,10 +24,12 @@ public class ProductCaseType {
 	private String name; // 风格名称
 
 	@Column(name = "pct_create_time")
-	private Date create_time; // 创建时间
+	@JSONField(format = "yyyyMMddHHmmss")
+	private Date createTime; // 创建时间
 
 	@Column(name = "pct_modify_time")
-	private Date modify_time; // 修改时间
+	@JSONField(format = "yyyyMMddHHmmss")
+	private Date modifyTime; // 修改时间
 
 	public Long getId() {
 		return id;
@@ -43,20 +47,12 @@ public class ProductCaseType {
 		this.name = name;
 	}
 
-	public Date getCreate_time() {
-		return create_time;
+	public Date getCreateTime() {
+		return createTime;
 	}
 
-	public void setCreate_time(Date create_time) {
-		this.create_time = create_time;
-	}
-
-	public Date getModify_time() {
-		return modify_time;
-	}
-
-	public void setModify_time(Date modify_time) {
-		this.modify_time = modify_time;
+	public Date getModifyTime() {
+		return modifyTime;
 	}
 
 }
