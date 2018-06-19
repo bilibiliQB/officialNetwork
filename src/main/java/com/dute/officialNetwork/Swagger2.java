@@ -26,7 +26,7 @@ public class Swagger2 {
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
                 .title("officialNetwork API")
-                .termsOfServiceUrl("localhost")
+                .termsOfServiceUrl("47.104.139.79")
                 .version("1.0")
                 .build();
     }

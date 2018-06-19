@@ -28,7 +28,7 @@ public class IndexController {
 	/**
 	 * 所有的controller的方法，有返回数据的，都把返回值设置成工具包中过得 ResultData<T> 类型，
 	 * 接口访问成功，resultData.setStatus(true);返回数据全部创建 response 对象，并给response对象属性添加注释，
-	 * 接口访问失败或者中途出现异常，resultData.setStatus(false);将发生错误的信息设置在 message 中
+	 * 接口访问失败或者中途出现异常，resultData.setStatus(false);将发生错误的信息设置在 message 中.
 	 */
 	@PostMapping("/test")
 	@ResponseBody
