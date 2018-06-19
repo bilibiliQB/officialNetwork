@@ -9,22 +9,22 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-//案例风格[中式,田园......]
+// 案例的结构[一室一厅，两室一厅......]
 @Entity
-@Table(name = "product_case_type")
-public class ProductCaseType {
+@Table(name = "product_case_structure")
+public class ProductCaseStructure {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "pct_id", updatable = false)
+	@Column(name = "pcs_id", updatable = false)
 	private Long id;// ID
 
-	@Column(name = "pct_name", nullable = false)
+	@Column(name = "pcs_name", nullable = false)
 	private String name; // 风格名称
 
-	@Column(name = "pct_create_time")
+	@Column(name = "pcs_create_time")
 	private Date create_time; // 创建时间
 
-	@Column(name = "pct_modify_time")
+	@Column(name = "pcs_modify_time")
 	private Date modify_time; // 修改时间
 
 	public Long getId() {

@@ -53,21 +53,6 @@ public class CustomerInformation {
 	@ApiModelProperty("创建时间[系统生成]")
 	private Date createTime; // 创建时间
 
-	public CustomerInformation() {
-	}
-
-	public CustomerInformation(Long id, String IP, String name, String phoneNumber, String problemDescription,
-			String houseArea, String housesName, Date createTime) {
-		this.id = id;
-		this.IP = IP;
-		this.name = name;
-		this.phoneNumber = phoneNumber;
-		this.problemDescription = problemDescription;
-		this.houseArea = houseArea;
-		this.housesName = housesName;
-		this.createTime = createTime;
-	}
-
 	public String getIP() {
 		return IP;
 	}
