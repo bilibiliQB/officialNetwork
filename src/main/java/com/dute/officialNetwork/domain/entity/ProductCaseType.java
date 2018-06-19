@@ -7,13 +7,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-// 热装楼盘
+//案例风格
 @Entity
-@Table(name = "hot_houses")
-public class HotHouses {
+@Table(name = "product_case_type")
+public class ProductCaseType {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "hh_id", updatable = false)
+	@Column(name = "pct_id", updatable = false)
 	private Long id;// ID
 
 	public Long getId() {
@@ -23,5 +23,4 @@ public class HotHouses {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
 }

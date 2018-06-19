@@ -2,11 +2,10 @@ package com.dute.officialNetwork.domain.entity;
 
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
 
 import com.alibaba.fastjson.annotation.JSONField;
+
+import io.swagger.annotations.ApiModelProperty;
 
 import java.util.Date;
 
@@ -21,36 +20,37 @@ import javax.persistence.GenerationType;
 public class CustomerInformation {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id", updatable = false)
+	@Column(name = "ci_id", updatable = false)
+	@ApiModelProperty("编号[系统生成]")
 	private Long id;// ID
 
-	@Column(name = "ip")
+	@Column(name = "ci_ip")
+	@ApiModelProperty("IP地址[系统生成]")
 	private String IP;// IP地址
 
-	@Column(name = "name")
-	@Size(max = 20, message = "姓名不得超过20个字符")
+	@Column(name = "ci_name")
+	@ApiModelProperty("客户姓名")
 	private String name;// 客户姓名
 
-	@Column(name = "phone_number")
-	@NotBlank(message = "手机号必须填写")
-	@Pattern(regexp = "^((13[0-9])|(14[5,7])|(15[0-3,5-9])|(17[0,3,5-8])|(18[0-9])|166|198|199|(147))\\d{8}$", message = "手机号格式错误")
+	@Column(name = "ci_phone_number")
+	@ApiModelProperty("客户手机号[必填]")
 	private String phoneNumber;// 客户手机号
 
-	@Column(name = "problem_description")
-	@Size(max = 255, message = "问题描述不得超过255字符")
+	@Column(name = "ci_problem_description")
+	@ApiModelProperty("问题描述")
 	private String problemDescription;// 问题描述
 
-	@Column(name = "house_area")
-	@Size(max = 5, message = "房屋面积不得超过5个字符")
-	@Pattern(regexp = "^[0-9]*$", message = "房屋面积只能输入纯数字")
+	@Column(name = "ci_house_area")
+	@ApiModelProperty("房屋面积")
 	private String houseArea;// 房屋面积
 
-	@Column(name = "houses_name")
-	@Size(max = 20, message = "楼盘名称不得超过20个字符")
+	@Column(name = "ci_houses_name")
+	@ApiModelProperty("楼盘名称")
 	private String housesName;// 楼盘名称
 
 	@JSONField(format = "yyyyMMddHHmmss")
-	@Column(name = "create_time")
+	@Column(name = "ci_create_time")
+	@ApiModelProperty("创建时间[系统生成]")
 	private Date createTime; // 创建时间
 
 	public CustomerInformation() {
