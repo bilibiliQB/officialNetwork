@@ -13,9 +13,13 @@ import org.springframework.http.converter.HttpMessageConverter;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.filter.CorsFilter;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 @SpringBootApplication
-public class OfficialNetworkApplication {
+public class OfficialNetworkApplication  {
 
 	// 配置Fastjson支持
 	@Bean
@@ -41,5 +45,24 @@ public class OfficialNetworkApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(OfficialNetworkApplication.class, args);
+	}
+
+	private CorsConfiguration buildConfig() {
+		CorsConfiguration corsConfiguration = new CorsConfiguration();
+		corsConfiguration.addAllowedOrigin("*");
+		corsConfiguration.addAllowedHeader("*");
+		corsConfiguration.addAllowedMethod("*");
+		return corsConfiguration;
+	}
+
+	/**
+	 * 跨域过滤器
+	 * @return
+	 */
+	@Bean
+	public CorsFilter corsFilter() {
+		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+		source.registerCorsConfiguration("/**", buildConfig()); // 4
+		return new CorsFilter(source);
 	}
 }
