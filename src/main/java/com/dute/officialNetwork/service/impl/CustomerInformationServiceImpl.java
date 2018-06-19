@@ -21,7 +21,6 @@ public class CustomerInformationServiceImpl implements CustomerInformationServic
 		if (ci != null) {
 			ci.setId(null);
 			ci.setIP(IPUtil.getIpAddr(request));
-			ci.setCreateTime(null);
 			if (cir.save(ci) != null) {
 				return cir.save(ci).getId();
 			}
