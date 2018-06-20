@@ -1,12 +1,16 @@
 package com.dute.officialNetwork.domain.entity;
 
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.alibaba.fastjson.annotation.JSONField;
@@ -30,6 +34,14 @@ public class DesignerInformation {
 	@Column(name = "di_introduction")
 	@ApiModelProperty("设计师简介")
 	private String introduction; // 设计师简介
+
+	@Column(name = "di_pic_path")
+	@ApiModelProperty("设计师头像图片")
+	private String picPath; // 设计师头像图片
+
+	@OneToMany(mappedBy = "designerInformation", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@ApiModelProperty("此设计师下的所有VR实景")
+	private List<VRScenes> VRScenes; // 此设计师下的所有VR实景
 
 	@JSONField(format = "yyyyMMddHHmmss")
 	@Column(name = "di_create_time")
@@ -61,8 +73,24 @@ public class DesignerInformation {
 		return introduction;
 	}
 
+	public String getPicPath() {
+		return picPath;
+	}
+
+	public void setPicPath(String picPath) {
+		this.picPath = picPath;
+	}
+
 	public void setIntroduction(String introduction) {
 		this.introduction = introduction;
+	}
+
+	public List<VRScenes> getVRScenes() {
+		return VRScenes;
+	}
+
+	public void setVRScenes(List<VRScenes> vRScenes) {
+		VRScenes = vRScenes;
 	}
 
 	public Date getCreateTime() {

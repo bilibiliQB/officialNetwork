@@ -4,5 +4,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.dute.officialNetwork.domain.entity.DesignerInformation;
 
-public interface DesignerInformationRepository extends JpaRepository<DesignerInformation, Long> {
+public interface DesignerInformationRepository extends JpaRepository<DesignerInformation, Integer> {
 }

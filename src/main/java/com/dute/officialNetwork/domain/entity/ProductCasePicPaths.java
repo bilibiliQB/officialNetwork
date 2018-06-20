@@ -1,47 +1,42 @@
 package com.dute.officialNetwork.domain.entity;
 
 import java.util.Date;
-import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
-import com.alibaba.fastjson.annotation.JSONField;
 
 import io.swagger.annotations.ApiModelProperty;
 
-// 案例的结构[一室一厅，两室一厅......]
+//案例扩展图片
 @Entity
-@Table(name = "product_case_structure")
-public class ProductCaseStructure {
+@Table(name = "product_case_pic_path")
+public class ProductCasePicPaths {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "pcs_id", updatable = false)
-	@ApiModelProperty("案例结构的编号[系统生成]")
+	@Column(name = "pcp_id", updatable = false)
+	@ApiModelProperty("编号[系统生成]")
 	private Long id;// ID
 
-	@Column(name = "pcs_name", nullable = false)
-	@ApiModelProperty("结构名称")
-	private String name; // 结构名称
+	@ManyToOne(cascade = { CascadeType.MERGE, CascadeType.REFRESH }, optional = false)
+	@JoinColumn(name = "pcp_pc_id")
+	private ProductCase productCase; // 所属案例
 
-	@OneToMany(mappedBy = "productCaseStructure", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@ApiModelProperty("此结构下的所有案例")
-	private List<ProductCase> productCase; // 结构下的所有案例
+	@Column(name = "pcp_path")
+	@ApiModelProperty("图片地址")
+	private String path; // 图片地址
 
-	@Column(name = "pcs_create_time")
-	@JSONField(format = "yyyyMMddHHmmss")
+	@Column(name = "pcp_create_time")
 	@ApiModelProperty("创建时间[系统生成]")
 	private Date createTime; // 创建时间
 
-	@Column(name = "pcs_modify_time")
-	@JSONField(format = "yyyyMMddHHmmss")
+	@Column(name = "pcp_modify_time")
 	@ApiModelProperty("修改时间[系统生成]")
 	private Date modifyTime; // 修改时间
 
@@ -53,19 +48,19 @@ public class ProductCaseStructure {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getPath() {
+		return path;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setPath(String path) {
+		this.path = path;
 	}
 
-	public List<ProductCase> getProductCase() {
+	public ProductCase getProductCase() {
 		return productCase;
 	}
 
-	public void setProductCase(List<ProductCase> productCase) {
+	public void setProductCase(ProductCase productCase) {
 		this.productCase = productCase;
 	}
 
