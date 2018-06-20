@@ -24,3 +24,14 @@ spring:
         ddl-auto: update
         naming:
           strategy: org.hibernate.cfg.ImprovedNamingStrategy
+  redis:
+      database: 0
+      host: 47.104.139.79
+      port: 10240
+      password:
+      pool:
+         max-active: 8
+         max-wait: -1
+         max-idle: 8
+         min-idle: 0
+      timeout: 0    
