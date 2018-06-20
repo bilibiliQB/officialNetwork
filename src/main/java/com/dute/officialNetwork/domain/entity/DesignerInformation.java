@@ -21,7 +21,7 @@ public class DesignerInformation {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "di_id", updatable = false)
 	@ApiModelProperty("编号[系统生成]")
-	private Long id;// 设计师ID
+	private Integer id;// 设计师ID
 
 	@Column(name = "di_name")
 	@ApiModelProperty("设计师姓名")
@@ -41,11 +41,11 @@ public class DesignerInformation {
 	@ApiModelProperty("修改时间[系统生成]")
 	private Date modifyTime; // 修改时间
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

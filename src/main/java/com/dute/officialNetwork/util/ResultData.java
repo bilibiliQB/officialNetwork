@@ -15,7 +15,8 @@ public class ResultData<T> {
 
     private String message;
 
-    private static Logger log = LoggerFactory.getLogger(ResultData.class);
+    @SuppressWarnings("unused")
+	private static Logger log = LoggerFactory.getLogger(ResultData.class);
 
     public ResultData(T data) {
         this.status = CODE_SUCCESS;
