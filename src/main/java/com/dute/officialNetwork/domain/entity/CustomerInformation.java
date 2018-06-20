@@ -105,8 +105,16 @@ public class CustomerInformation {
 		return housesName;
 	}
 
+	public void setHousesName(String housesName) {
+		this.housesName = housesName;
+	}
+
 	public Date getCreateTime() {
 		return createTime;
+	}
+
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
 	}
 
 }
