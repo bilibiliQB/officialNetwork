@@ -1,7 +1,7 @@
 package com.dute.officialNetwork.service;
 
 public interface RedisService {
-	void set(String key, String value);
+	void set(String key, Object value);
 
-	String get(String key);
+	Object get(String key);
 }

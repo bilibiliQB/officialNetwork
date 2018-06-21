@@ -12,17 +12,17 @@ import com.dute.officialNetwork.service.RedisService;
 public class RedisServiceImpl implements RedisService {
 
 	@Resource
-	private RedisTemplate<String, String> rt;
+	private RedisTemplate<String, Object> rt;
 
 	@Override
-	public void set(String key, String value) {
-		ValueOperations<String, String> vo = rt.opsForValue();
+	public void set(String key, Object value) {
+		ValueOperations<String, Object> vo = rt.opsForValue();
 		vo.set(key, value);
 	}
 
 	@Override
-	public String get(String key) {
-		ValueOperations<String, String> vo = rt.opsForValue();
+	public Object get(String key) {
+		ValueOperations<String, Object> vo = rt.opsForValue();
 		return vo.get(key);
 	}
 
