@@ -1,11 +1,11 @@
 package com.dute.officialNetwork.controller;
 
-
 import com.dute.officialNetwork.api.request.index.TestRequest;
 import com.dute.officialNetwork.api.response.index.TestResponse;
 import com.dute.officialNetwork.util.ResultData;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -31,7 +31,7 @@ public class TestController {
 	 */
 	@PostMapping("/test")
 	@ResponseBody
-	public ResultData<List<TestResponse>> testInter(TestRequest request){
+	public ResultData<List<TestResponse>> testInter(TestRequest request) {
 		ResultData<List<TestResponse>> resultData = new ResultData<>();
 		try {
 			List<TestResponse> list = new ArrayList<>();
@@ -41,7 +41,7 @@ public class TestController {
 			list.add(testResponse);
 			resultData.setData(list);
 			return resultData;
-		}catch (Exception e){
+		} catch (Exception e) {
 			resultData.setStatus(ResultData.CODE_FAIL_BIZ);
 			resultData.setMessage(e.getMessage());
 			return resultData;

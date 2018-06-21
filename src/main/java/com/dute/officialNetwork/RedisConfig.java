@@ -9,12 +9,12 @@ import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.cache.interceptor.KeyGenerator;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 import org.springframework.data.redis.cache.RedisCacheConfiguration;
 import org.springframework.data.redis.cache.RedisCacheManager;
 import org.springframework.data.redis.cache.RedisCacheWriter;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 import com.alibaba.fastjson.support.spring.FastJsonRedisSerializer;
@@ -53,8 +53,10 @@ public class RedisConfig extends CachingConfigurerSupport {
 	 * 防止redis入库序列化乱码问题 RedisTemplate配置[fastjson]
 	 */
 	@Bean
-	public RedisTemplate<String, String> initRedisTemplate(RedisConnectionFactory factory) {
-		StringRedisTemplate template = new StringRedisTemplate(factory);
+	@Primary
+	public RedisTemplate<String, Object> initRedisTemplate(RedisConnectionFactory factory) {
+		RedisTemplate<String, Object> template = new RedisTemplate<>();
+		template.setConnectionFactory(factory);
 		FastJsonRedisSerializer<?> fastJsonRedisSerializer = new FastJsonRedisSerializer<>(Object.class);
 		// redis开启事务
 		template.setEnableTransactionSupport(true);
