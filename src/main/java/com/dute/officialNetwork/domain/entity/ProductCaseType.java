@@ -27,13 +27,21 @@ public class ProductCaseType {
 	@ApiModelProperty("风格编号[系统生成]")
 	private Long id;// ID
 
-	@Column(name = "pct_name", nullable = false)
-	@ApiModelProperty("风格名称")
-	private String name; // 风格名称
+	@Column(name = "pct_full_name", nullable = false)
+	@ApiModelProperty("全称")
+	private String fullName; // 全称
+	
+	@Column(name = "pct_short_name", nullable = false)
+	@ApiModelProperty("简称")
+	private String shortName; // 简称
+	
+	@Column(name = "pct_price", nullable = false)
+	@ApiModelProperty("价格,单位m²")
+	private Integer price; // 每平价格
 
 	@OneToMany(mappedBy = "productCaseType", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@ApiModelProperty("此风格下的所有案例")
-	private List<ProductCase> ProductCase;
+	private List<ProductCase> ProductCase; // 此风格下的所有案例
 
 	@OneToMany(mappedBy = "productCaseType", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@ApiModelProperty("此风格下的图片")
@@ -57,12 +65,28 @@ public class ProductCaseType {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getFullName() {
+		return fullName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
+	}
+
+	public String getShortName() {
+		return shortName;
+	}
+
+	public void setShortName(String shortName) {
+		this.shortName = shortName;
+	}
+
+	public Integer getPrice() {
+		return price;
+	}
+
+	public void setPrice(Integer price) {
+		this.price = price;
 	}
 
 	public List<ProductCase> getProductCase() {
