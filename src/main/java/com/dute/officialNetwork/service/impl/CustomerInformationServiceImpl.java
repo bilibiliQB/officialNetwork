@@ -19,7 +19,6 @@ public class CustomerInformationServiceImpl implements CustomerInformationServic
 	@Override
 	public Long save(CustomerInformation ci, HttpServletRequest request) {
 		if (ci != null) {
-			ci.setCreateTime(null);
 			ci.setIP(IPUtil.getIpAddr(request));
 			if (cir.save(ci) != null) {
 				return cir.save(ci).getId();

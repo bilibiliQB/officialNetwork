@@ -1,5 +1,9 @@
 package com.dute.officialNetwork.service;
 
-public interface ProductCaseService {
+import java.util.List;
 
+import com.dute.officialNetwork.domain.entity.ProductCase;
+
+public interface ProductCaseService {
+	List<ProductCase> get6ProductCases();
 }
