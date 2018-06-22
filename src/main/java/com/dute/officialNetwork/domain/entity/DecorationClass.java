@@ -15,11 +15,16 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
+
 import com.alibaba.fastjson.annotation.JSONField;
 
 //装修课堂
 @Entity
 @Table(name = "decoration_class")
+@DynamicInsert
+@DynamicUpdate
 public class DecorationClass {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,7 +37,7 @@ public class DecorationClass {
 	@Column(name = "dc_introduction")
 	private String introduction; // 简介
 
-	@Column(name = "dc_firstPicPath")
+	@Column(name = "dc_firstpicpath")
 	private String firstPicPath; // 首页图
 
 	@Column(name = "dc_author_name")
@@ -51,11 +56,11 @@ public class DecorationClass {
 	private String content; // 内容
 
 	@Column(name = "dc_create_time")
-	@JSONField(format = "yyyyMMddHHmmss")
+	@JSONField(format = "yyyy/MM/dd HH:mm:ss")
 	private Date createTime; // 创建时间
 
 	@Column(name = "dc_modify_time")
-	@JSONField(format = "yyyyMMddHHmmss")
+	@JSONField(format = "yyyy/MM/dd HH:mm:ss")
 	private Date modifyTime; // 修改时间
 
 	public Long getId() {
@@ -137,5 +142,5 @@ public class DecorationClass {
 	public void setModifyTime(Date modifyTime) {
 		this.modifyTime = modifyTime;
 	}
-	
+
 }

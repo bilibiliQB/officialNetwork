@@ -9,11 +9,16 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
+
 import com.alibaba.fastjson.annotation.JSONField;
 
 // 热装楼盘
 @Entity
 @Table(name = "hot_houses")
+@DynamicInsert
+@DynamicUpdate
 public class HotHouses {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,11 +31,11 @@ public class HotHouses {
 	@Column(name = "hh_introduction", nullable = false)
 	private String introduction; // 简介
 
-	@JSONField(format = "yyyyMMddHHmmss")
+	@JSONField(format = "yyyy/MM/dd HH:mm:ss")
 	@Column(name = "hh_create_time")
 	private Date createTime; // 创建时间
 
-	@JSONField(format = "yyyyMMddHHmmss")
+	@JSONField(format = "yyyy/MM/dd HH:mm:ss")
 	@Column(name = "hh_modify_time")
 	private Date modifyTime; // 修改时间
 

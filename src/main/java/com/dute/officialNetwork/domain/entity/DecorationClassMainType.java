@@ -13,11 +13,16 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
+
 import com.alibaba.fastjson.annotation.JSONField;
 
 // 装修课堂主分类
 @Entity
 @Table(name = "decoration_class_main_type")
+@DynamicInsert
+@DynamicUpdate
 public class DecorationClassMainType {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,11 +36,11 @@ public class DecorationClassMainType {
 	private List<DecorationClassSubType> decorationClassSubTypes; // 主分类下所有副分类
 
 	@Column(name = "dcm_create_time")
-	@JSONField(format = "yyyyMMddHHmmss")
+	@JSONField(format = "yyyy/MM/dd HH:mm:ss")
 	private Date createTime; // 创建时间
 
 	@Column(name = "dcm_modify_time")
-	@JSONField(format = "yyyyMMddHHmmss")
+	@JSONField(format = "yyyy/MM/dd HH:mm:ss")
 	private Date modifyTime; // 修改时间
 
 	public Integer getId() {

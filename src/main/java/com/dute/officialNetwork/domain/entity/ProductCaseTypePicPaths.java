@@ -12,11 +12,18 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
+
+import com.alibaba.fastjson.annotation.JSONField;
+
 import io.swagger.annotations.ApiModelProperty;
 
 // 案例风格图片
 @Entity
 @Table(name = "product_case_type_pic_path")
+@DynamicInsert
+@DynamicUpdate
 public class ProductCaseTypePicPaths {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,10 +41,12 @@ public class ProductCaseTypePicPaths {
 
 	@Column(name = "pctp_create_time")
 	@ApiModelProperty("创建时间[系统生成]")
+	@JSONField(format = "yyyy/MM/dd HH:mm:ss")
 	private Date createTime; // 创建时间
 
 	@Column(name = "pctp_modify_time")
 	@ApiModelProperty("修改时间[系统生成]")
+	@JSONField(format = "yyyy/MM/dd HH:mm:ss")
 	private Date modifyTime; // 修改时间
 
 	public Long getId() {

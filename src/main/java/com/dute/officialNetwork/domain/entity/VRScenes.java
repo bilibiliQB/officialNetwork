@@ -12,11 +12,16 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
+
 import com.alibaba.fastjson.annotation.JSONField;
 
 // VR实景
 @Entity
 @Table(name = "vr_scenes")
+@DynamicInsert
+@DynamicUpdate
 public class VRScenes {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,11 +35,11 @@ public class VRScenes {
 	@JoinColumn(name = "vs_di_id")
 	private DesignerInformation designerInformation; // 所属设计师
 
-	@JSONField(format = "yyyyMMddHHmmss")
+	@JSONField(format = "yyyy/MM/dd HH:mm:ss")
 	@Column(name = "vs_create_time")
 	private Date createTime; // 创建时间
 
-	@JSONField(format = "yyyyMMddHHmmss")
+	@JSONField(format = "yyyy/MM/dd HH:mm:ss")
 	@Column(name = "vs_modify_time")
 	private Date modifyTime; // 修改时间
 

@@ -15,6 +15,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
+
 import com.alibaba.fastjson.annotation.JSONField;
 
 import io.swagger.annotations.ApiModelProperty;
@@ -22,6 +25,8 @@ import io.swagger.annotations.ApiModelProperty;
 // 案例
 @Entity
 @Table(name = "product_case")
+@DynamicInsert
+@DynamicUpdate
 public class ProductCase {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -53,12 +58,12 @@ public class ProductCase {
 	@JoinColumn(name = "pc_pcs_id")
 	private ProductCaseStructure productCaseStructure; // 案例结构
 
-	@JSONField(format = "yyyyMMddHHmmss")
+	@JSONField(format = "yyyy/MM/dd HH:mm:ss")
 	@Column(name = "pc_create_time")
 	@ApiModelProperty("创建时间[系统生成]")
 	private Date createTime; // 创建时间
 
-	@JSONField(format = "yyyyMMddHHmmss")
+	@JSONField(format = "yyyy/MM/dd HH:mm:ss")
 	@Column(name = "pc_modify_time")
 	@ApiModelProperty("修改时间[系统生成]")
 	private Date modifyTime; // 修改时间

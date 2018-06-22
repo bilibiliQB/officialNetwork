@@ -15,11 +15,16 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
+
 import com.alibaba.fastjson.annotation.JSONField;
 
 // 装修课堂副分类
 @Entity
 @Table(name = "decoration_class_sub_type")
+@DynamicInsert
+@DynamicUpdate
 public class DecorationClassSubType {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,11 +42,11 @@ public class DecorationClassSubType {
 	private List<DecorationClass> decorationClass; // 副分类下的所有文章
 
 	@Column(name = "dcs_create_time")
-	@JSONField(format = "yyyyMMddHHmmss")
+	@JSONField(format = "yyyy/MM/dd HH:mm:ss")
 	private Date createTime; // 创建时间
 
 	@Column(name = "dcs_modify_time")
-	@JSONField(format = "yyyyMMddHHmmss")
+	@JSONField(format = "yyyy/MM/dd HH:mm:ss")
 	private Date modifyTime; // 修改时间
 
 	public Integer getId() {
