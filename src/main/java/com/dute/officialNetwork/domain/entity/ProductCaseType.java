@@ -27,7 +27,7 @@ public class ProductCaseType {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "pct_id", updatable = false)
-	private Long id;// ID
+	private Integer id;// ID
 
 	@Column(name = "pct_full_name", nullable = false)
 	private String fullName; // 全称
@@ -58,11 +58,11 @@ public class ProductCaseType {
 	@JSONField(format = "yyyy/MM/dd HH:mm:ss")
 	private Date modifyTime; // 修改时间
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

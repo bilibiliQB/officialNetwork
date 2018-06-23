@@ -47,4 +47,6 @@ public class ProductCaseController {
 		}
 		return result;
 	}
+	
+	// 分页 按条件查询 每页12条数据
 }

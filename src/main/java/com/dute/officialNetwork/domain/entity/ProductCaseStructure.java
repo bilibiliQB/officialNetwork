@@ -25,7 +25,7 @@ public class ProductCaseStructure {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "pcs_id", updatable = false)
 	@ApiModelProperty("案例结构的编号[系统生成]")
-	private Long id;// ID
+	private Integer id;// ID
 
 	@Column(name = "pcs_name", nullable = false)
 	@ApiModelProperty("结构名称")
@@ -46,11 +46,11 @@ public class ProductCaseStructure {
 	@ApiModelProperty("修改时间[系统生成]")
 	private Date modifyTime; // 修改时间
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

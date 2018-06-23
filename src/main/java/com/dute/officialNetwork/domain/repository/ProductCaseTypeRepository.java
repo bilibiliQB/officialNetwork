@@ -4,5 +4,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.dute.officialNetwork.domain.entity.ProductCaseType;
 
-public interface ProductCaseTypeRepository extends JpaRepository<ProductCaseType, Long> {
+public interface ProductCaseTypeRepository extends JpaRepository<ProductCaseType, Integer> {
 }
