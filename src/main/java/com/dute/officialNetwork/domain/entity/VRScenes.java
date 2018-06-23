@@ -17,7 +17,7 @@ import org.hibernate.annotations.DynamicUpdate;
 
 import com.alibaba.fastjson.annotation.JSONField;
 
-// VR实景
+// VR实景 
 @Entity
 @Table(name = "vr_scenes")
 @DynamicInsert
