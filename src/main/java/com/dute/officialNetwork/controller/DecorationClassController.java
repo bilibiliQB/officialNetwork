@@ -36,6 +36,7 @@ public class DecorationClassController {
 				DecorationClassResponse0 dc0 = new DecorationClassResponse0();
 				BeanUtils.copyProperties(dc, dc0);
 				dcr.add(dc0);
+				dc0 = null;
 			}
 			result.setData(dcr);
 			result.setStatus(ResultData.CODE_SUCCESS);

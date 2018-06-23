@@ -1,12 +1,15 @@
 package com.dute.officialNetwork.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.dute.officialNetwork.api.response.index.DesignerInformationResponse0;
 import com.dute.officialNetwork.domain.entity.DesignerInformation;
 import com.dute.officialNetwork.service.DesignerInformationService;
 import com.dute.officialNetwork.util.ResultData;
@@ -24,10 +27,17 @@ public class DesignerInformationController {
 
 	@ApiOperation("获取3个最新设计师信息")
 	@PostMapping("/get3")
-	public ResultData<List<DesignerInformation>> get3DesignerInformations() {
-		ResultData<List<DesignerInformation>> result = new ResultData<>();
+	public ResultData<List<DesignerInformationResponse0>> get3DesignerInformations() {
+		ResultData<List<DesignerInformationResponse0>> result = new ResultData<>();
+		List<DesignerInformationResponse0> dirs = new ArrayList<>();
 		try {
-			result.setData(dis.get3DesignerInformations());
+			for (DesignerInformation di : dis.get3DesignerInformations()) {
+				DesignerInformationResponse0 dir = new DesignerInformationResponse0();
+				BeanUtils.copyProperties(di, dir);
+				dirs.add(dir);
+				dir = null;
+			}
+			result.setData(dirs);
 			result.setStatus(ResultData.CODE_SUCCESS);
 		} catch (Exception e) {
 			result.setStatus(ResultData.CODE_FAIL_BIZ);

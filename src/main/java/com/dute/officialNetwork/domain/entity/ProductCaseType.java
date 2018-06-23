@@ -18,8 +18,6 @@ import org.hibernate.annotations.DynamicUpdate;
 
 import com.alibaba.fastjson.annotation.JSONField;
 
-import io.swagger.annotations.ApiModelProperty;
-
 //案例风格[中式,田园......]
 @Entity
 @Table(name = "product_case_type")
@@ -29,38 +27,35 @@ public class ProductCaseType {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "pct_id", updatable = false)
-	@ApiModelProperty("风格编号[系统生成]")
 	private Long id;// ID
 
 	@Column(name = "pct_full_name", nullable = false)
-	@ApiModelProperty("全称")
 	private String fullName; // 全称
 
 	@Column(name = "pct_short_name", nullable = false)
-	@ApiModelProperty("简称")
 	private String shortName; // 简称
 
+	@Column(name = "pct_english_name", nullable = false)
+	private String englishName; // 英语名称
+
+	@Column(name = "pct_short_introduction")
+	private String shortIntroduction; // 简评
+
+	@Column(name = "pct_firstpicpath")
+	private String firstPicPath; // 首页图
+
 	@Column(name = "pct_price", nullable = false)
-	@ApiModelProperty("价格,单位m²")
 	private Integer price; // 每平价格
 
-	// @OneToMany(mappedBy = "productCaseType", cascade = CascadeType.ALL, fetch =
-	// FetchType.LAZY)
-	// @ApiModelProperty("此风格下的所有案例")
-	// private List<ProductCase> ProductCase; // 此风格下的所有案例
-
 	@OneToMany(mappedBy = "productCaseType", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@ApiModelProperty("此风格下的图片")
-	private List<ProductCaseTypePicPaths> ProductCaseTypePicPaths; // 此风格下的所有图片
+	private List<ProductCase> ProductCase; // 此风格下的所有案例
 
 	@Column(name = "pct_create_time")
 	@JSONField(format = "yyyy/MM/dd HH:mm:ss")
-	@ApiModelProperty("创建时间[系统生成]")
 	private Date createTime; // 创建时间
 
 	@Column(name = "pct_modify_time")
 	@JSONField(format = "yyyy/MM/dd HH:mm:ss")
-	@ApiModelProperty("修改时间[系统生成]")
 	private Date modifyTime; // 修改时间
 
 	public Long getId() {
@@ -87,6 +82,30 @@ public class ProductCaseType {
 		this.shortName = shortName;
 	}
 
+	public String getEnglishName() {
+		return englishName;
+	}
+
+	public void setEnglishName(String englishName) {
+		this.englishName = englishName;
+	}
+
+	public String getShortIntroduction() {
+		return shortIntroduction;
+	}
+
+	public void setShortIntroduction(String shortIntroduction) {
+		this.shortIntroduction = shortIntroduction;
+	}
+
+	public String getFirstPicPath() {
+		return firstPicPath;
+	}
+
+	public void setFirstPicPath(String firstPicPath) {
+		this.firstPicPath = firstPicPath;
+	}
+
 	public Integer getPrice() {
 		return price;
 	}
@@ -95,20 +114,12 @@ public class ProductCaseType {
 		this.price = price;
 	}
 
-	// public List<ProductCase> getProductCase() {
-	// return ProductCase;
-	// }
-	//
-	// public void setProductCase(List<ProductCase> productCase) {
-	// ProductCase = productCase;
-	// }
-
-	public List<ProductCaseTypePicPaths> getProductCaseTypePicPaths() {
-		return ProductCaseTypePicPaths;
+	public List<ProductCase> getProductCase() {
+		return ProductCase;
 	}
 
-	public void setProductCaseTypePicPaths(List<ProductCaseTypePicPaths> productCaseTypePicPaths) {
-		ProductCaseTypePicPaths = productCaseTypePicPaths;
+	public void setProductCase(List<ProductCase> productCase) {
+		ProductCase = productCase;
 	}
 
 	public Date getCreateTime() {

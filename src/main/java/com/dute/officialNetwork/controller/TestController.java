@@ -2,12 +2,10 @@ package com.dute.officialNetwork.controller;
 
 import com.dute.officialNetwork.api.request.index.TestRequest;
 import com.dute.officialNetwork.api.response.index.TestResponse;
-import com.dute.officialNetwork.service.RedisService;
 import com.dute.officialNetwork.util.ResultData;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,9 +18,6 @@ import java.util.List;
 // 测试
 public class TestController {
 
-	@Autowired
-	private RedisService redisService;
-	
 	@ApiOperation("首页测试")
 	@PostMapping("/")
 	public String index() {
@@ -38,7 +33,6 @@ public class TestController {
 	@ResponseBody
 	public ResultData<List<TestResponse>> testInter(TestRequest request) {
 		ResultData<List<TestResponse>> resultData = new ResultData<>();
-		redisService.set("123", "");
 		try {
 			List<TestResponse> list = new ArrayList<>();
 			TestResponse testResponse = new TestResponse();

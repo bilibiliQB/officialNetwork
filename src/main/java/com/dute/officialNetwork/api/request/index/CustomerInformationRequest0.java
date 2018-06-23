@@ -2,7 +2,7 @@ package com.dute.officialNetwork.api.request.index;
 
 import io.swagger.annotations.ApiModelProperty;
 
-public class CustomerInformationRequest {
+public class CustomerInformationRequest0 {
 
 	@ApiModelProperty("填写客户姓名[可选]")
 	private String name;// 客户姓名
