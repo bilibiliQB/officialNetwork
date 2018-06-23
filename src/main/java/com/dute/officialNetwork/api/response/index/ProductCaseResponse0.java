@@ -12,7 +12,7 @@ public class ProductCaseResponse0 {
 
 	@ApiModelProperty("返回简介")
 	private String shortIntroduction;
-	
+
 	@ApiModelProperty("返回首页图地址")
 	private String firstPicPath;
 
@@ -35,7 +35,7 @@ public class ProductCaseResponse0 {
 	public void setArea(Integer area) {
 		this.area = area;
 	}
-	
+
 	public String getShortIntroduction() {
 		return shortIntroduction;
 	}
@@ -69,7 +69,7 @@ public class ProductCaseResponse0 {
 	}
 
 	class ProductCaseTypeResponse {
-		@ApiModelProperty("简称")
+		@ApiModelProperty("返回简称")
 		private String shortName;
 
 		public String getShortName() {
@@ -83,7 +83,7 @@ public class ProductCaseResponse0 {
 	}
 
 	class ProductCaseStructureResponse {
-		@ApiModelProperty("结构名称")
+		@ApiModelProperty("返回结构名称")
 		private String name;
 
 		public String getName() {
