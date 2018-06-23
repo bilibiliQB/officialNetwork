@@ -28,7 +28,7 @@ public class DecorationClassController {
 
 	@ApiOperation("获取装修课堂7条信息[id 选项][1 准备阶段 2 施工阶段 3 收尾阶段]")
 	@PostMapping("/getByMainTypeId/{id}")
-	public ResultData<List<DecorationClassResponse0>> getDecorationClass0(@PathVariable Long id) {
+	public ResultData<List<DecorationClassResponse0>> getDecorationClass0(@PathVariable Integer id) {
 		ResultData<List<DecorationClassResponse0>> result = new ResultData<>();
 		List<DecorationClassResponse0> dcr = new ArrayList<>();
 		try {

@@ -16,7 +16,7 @@ public class DecorationClassServiceImpl implements DecorationClassService {
 	private DecorationClassRepository dcr;
 
 	@Override
-	public List<DecorationClass> getDecorationClassByMainTypeId(Long id) {
+	public List<DecorationClass> getDecorationClassByMainTypeId(Integer id) {
 		return dcr.findByMainTypeIdOrderByCreateTime(id);
 	}
 }

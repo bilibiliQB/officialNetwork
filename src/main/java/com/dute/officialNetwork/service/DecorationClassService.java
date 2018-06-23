@@ -5,5 +5,5 @@ import java.util.List;
 import com.dute.officialNetwork.domain.entity.DecorationClass;
 
 public interface DecorationClassService {
-	List<DecorationClass> getDecorationClassByMainTypeId(Long id);
+	List<DecorationClass> getDecorationClassByMainTypeId(Integer id);
 }
