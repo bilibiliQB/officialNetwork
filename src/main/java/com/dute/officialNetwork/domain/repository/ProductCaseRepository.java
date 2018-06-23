@@ -10,5 +10,6 @@ import com.dute.officialNetwork.domain.entity.ProductCase;
 public interface ProductCaseRepository extends JpaRepository<ProductCase, Long> {
 	List<ProductCase> findTop6ByOrderByCreateTimeDesc();
 
-	List<ProductCase> findByProductCaseStructure_IdAndProductCaseType_IdAndAreaBetween(Integer minArea, Integer maxArea, Pageable pageable);
+	List<ProductCase> findByProductCaseStructure_IdAndProductCaseType_IdAndAreaBetween(Integer pcs_id, Integer pct_id,
+			Integer minArea, Integer maxArea, Pageable pageable);
 }
