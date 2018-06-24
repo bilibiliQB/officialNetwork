@@ -2,7 +2,7 @@ package com.dute.officialNetwork.api.response.index;
 
 import io.swagger.annotations.ApiModelProperty;
 
-public class ProductCaseTypeResponse {
+public class ProductCaseTypeResponse0 {
 
 	@ApiModelProperty("全称")
 	private String fullName;

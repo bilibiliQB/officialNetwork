@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.dute.officialNetwork.api.response.index.ProductCaseTypeResponse;
+import com.dute.officialNetwork.api.response.index.ProductCaseTypeResponse0;
 import com.dute.officialNetwork.domain.entity.ProductCaseType;
 import com.dute.officialNetwork.service.ProductCaseTypeService;
 import com.dute.officialNetwork.util.ResultData;
@@ -25,14 +25,14 @@ public class ProductCaseTypeController {
 	@Autowired
 	private ProductCaseTypeService pcts;
 
-	@ApiOperation("获取所有案例风格")
-	@PostMapping("/getAll")
-	public ResultData<List<ProductCaseTypeResponse>> getAll() {
-		ResultData<List<ProductCaseTypeResponse>> result = new ResultData<>();
-		List<ProductCaseTypeResponse> lpctr = new ArrayList<>();
+	@ApiOperation("获取所有案例风格[格式1]")
+	@PostMapping("/getAllStyle_1")
+	public ResultData<List<ProductCaseTypeResponse0>> getAll() {
+		ResultData<List<ProductCaseTypeResponse0>> result = new ResultData<>();
+		List<ProductCaseTypeResponse0> lpctr = new ArrayList<>();
 		try {
 			for (ProductCaseType pct : pcts.getAll()) {
-				ProductCaseTypeResponse pctr = new ProductCaseTypeResponse();
+				ProductCaseTypeResponse0 pctr = new ProductCaseTypeResponse0();
 				BeanUtils.copyProperties(pct, pctr);
 				lpctr.add(pctr);
 				pctr = null;
