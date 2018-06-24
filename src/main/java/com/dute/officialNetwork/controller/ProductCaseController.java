@@ -59,9 +59,10 @@ public class ProductCaseController {
 		ProductCaseResponse1 pcrp = new ProductCaseResponse1();
 		try {
 			Page<ProductCase> ppc = pcs.getListByPcs_IdAndPct_IdAndAreaBetween(pcrq.getPcs_id(), pcrq.getPct_id(),
-					pcrq.getMinArea(), pcrq.getMaxArea(), PageRequest.of(pcrq.getPageNumber(), pcrq.getShowCount()));
+					pcrq.getMinArea(), pcrq.getMaxArea(),
+					PageRequest.of(pcrq.getPageNumber() - 1, pcrq.getShowCount()));
 			pcrp.setPageCount(ppc.getTotalPages());
-			pcrp.setCurrentPageNumber(pcrq.getPageNumber() == null ? null : pcrq.getPageNumber() + 1);
+			pcrp.setCurrentPageNumber(pcrq.getPageNumber());
 			for (ProductCase pc : ppc.getContent()) {
 				pcrp.copyProperties(pc);
 			}

@@ -31,6 +31,9 @@ public class HotHouses {
 	@Column(name = "hh_introduction")
 	private String introduction; // 简介
 
+	@Column(name = "hh_firstpicpath")
+	private String firstPicPath; // 首页图
+
 	@Column(name = "hh_average_price")
 	private Double averagePrice; // 房屋均价
 
@@ -73,6 +76,14 @@ public class HotHouses {
 
 	public void setIntroduction(String introduction) {
 		this.introduction = introduction;
+	}
+
+	public String getFirstPicPath() {
+		return firstPicPath;
+	}
+
+	public void setFirstPicPath(String firstPicPath) {
+		this.firstPicPath = firstPicPath;
 	}
 
 	public Double getAveragePrice() {

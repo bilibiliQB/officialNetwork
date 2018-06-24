@@ -10,17 +10,17 @@ public class ProductCaseRequest0 {
 	@ApiModelProperty("填写类型ID")
 	private Integer pct_id;
 
-	@ApiModelProperty("填写最小面积")
-	private Integer minArea;
+	@ApiModelProperty("填写最小面积[默认0]")
+	private Integer minArea = 0;
 
-	@ApiModelProperty("填写最大面积")
-	private Integer maxArea;
+	@ApiModelProperty("填写最大面积[默认Integer.MAX_VALUE]")
+	private Integer maxArea = Integer.MAX_VALUE;
 
-	@ApiModelProperty("填写页数")
-	private Integer pageNumber;
+	@ApiModelProperty("填写页数[默认1]")
+	private Integer pageNumber = 1;
 
-	@ApiModelProperty("填写每页显示页数")
-	private Integer showCount;
+	@ApiModelProperty("填写每页显示页数[默认12]")
+	private Integer showCount = 12;
 
 	public Integer getPcs_id() {
 		return pcs_id;
@@ -59,9 +59,7 @@ public class ProductCaseRequest0 {
 	}
 
 	public void setPageNumber(Integer pageNumber) {
-		if (pageNumber != null) {
-			this.pageNumber = pageNumber - 1;
-		}
+		this.pageNumber = pageNumber;
 	}
 
 	public Integer getShowCount() {
