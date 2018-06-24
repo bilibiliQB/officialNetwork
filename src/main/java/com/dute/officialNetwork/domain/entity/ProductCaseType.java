@@ -8,12 +8,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-
-
-
-
-
-
 import javax.persistence.Table;
 
 import org.hibernate.annotations.DynamicInsert;
@@ -49,9 +43,6 @@ public class ProductCaseType {
 
 	@Column(name = "pct_price", nullable = false)
 	private Integer price; // 每平价格
-
-//	@OneToMany(mappedBy = "productCaseType", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-//	private List<ProductCase> ProductCase; // 此风格下的所有案例
 
 	@Column(name = "pct_create_time")
 	@JSONField(format = "yyyy/MM/dd HH:mm:ss")
@@ -116,14 +107,6 @@ public class ProductCaseType {
 	public void setPrice(Integer price) {
 		this.price = price;
 	}
-
-	// public List<ProductCase> getProductCase() {
-	// return ProductCase;
-	// }
-	//
-	// public void setProductCase(List<ProductCase> productCase) {
-	// ProductCase = productCase;
-	// }
 
 	public Date getCreateTime() {
 		return createTime;
