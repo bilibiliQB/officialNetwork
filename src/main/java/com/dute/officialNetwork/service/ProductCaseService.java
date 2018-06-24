@@ -10,6 +10,6 @@ import com.dute.officialNetwork.domain.entity.ProductCase;
 public interface ProductCaseService {
 	List<ProductCase> get6ProductCases();
 
-	Page<ProductCase> getListByPcs_IdAndPct_IdAndAreaBetween(Integer pcs_id, Integer pct_id, Integer minArea,
-			Integer maxArea, Pageable pageable);
+	Page<ProductCase> getListByPcs_IdAndPct_IdAndAreaBetween(Integer pcs_id, Integer pct_id, Integer minArea, Integer maxArea,
+			Pageable pageable);
 }
