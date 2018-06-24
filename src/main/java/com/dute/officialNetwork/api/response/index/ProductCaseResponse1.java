@@ -11,7 +11,7 @@ import io.swagger.annotations.ApiModelProperty;
 
 public class ProductCaseResponse1 {
 	
-	@ApiModelProperty("返回当前第几页")
+	@ApiModelProperty("返回当前页号")
 	private Integer currentPageNumber;
 
 	@ApiModelProperty("返回当前总页数")
