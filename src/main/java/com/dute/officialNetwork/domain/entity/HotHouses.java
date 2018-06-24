@@ -25,11 +25,23 @@ public class HotHouses {
 	@Column(name = "hh_id", updatable = false)
 	private Long id;// ID
 
-	@Column(name = "hh_name", nullable = false)
+	@Column(name = "hh_name")
 	private String name; // 名称
 
-	@Column(name = "hh_introduction", nullable = false)
+	@Column(name = "hh_introduction")
 	private String introduction; // 简介
+
+	@Column(name = "hh_average_price")
+	private Double averagePrice; // 房屋均价
+
+	@Column(name = "hh_contract_count")
+	private Integer contractCount; // 签约户数
+
+	@Column(name = "hh_start_count")
+	private Integer startCount; // 开工户数
+
+	@Column(name = "hh_end_count")
+	private Integer endCount; // 竣工户数
 
 	@JSONField(format = "yyyy/MM/dd HH:mm:ss")
 	@Column(name = "hh_create_time")
@@ -61,6 +73,38 @@ public class HotHouses {
 
 	public void setIntroduction(String introduction) {
 		this.introduction = introduction;
+	}
+
+	public Double getAveragePrice() {
+		return averagePrice;
+	}
+
+	public void setAveragePrice(Double averagePrice) {
+		this.averagePrice = averagePrice;
+	}
+
+	public Integer getContractCount() {
+		return contractCount;
+	}
+
+	public void setContractCount(Integer contractCount) {
+		this.contractCount = contractCount;
+	}
+
+	public Integer getStartCount() {
+		return startCount;
+	}
+
+	public void setStartCount(Integer startCount) {
+		this.startCount = startCount;
+	}
+
+	public Integer getEndCount() {
+		return endCount;
+	}
+
+	public void setEndCount(Integer endCount) {
+		this.endCount = endCount;
 	}
 
 	public Date getCreateTime() {
