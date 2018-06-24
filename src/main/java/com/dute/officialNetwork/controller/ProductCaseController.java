@@ -7,13 +7,15 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.dute.officialNetwork.api.request.index.ProductCaseRequest1;
+import com.dute.officialNetwork.api.request.index.ProductCaseRequest0;
 import com.dute.officialNetwork.api.response.index.ProductCaseResponse0;
 import com.dute.officialNetwork.api.response.index.ProductCaseResponse1;
+import com.dute.officialNetwork.api.response.index.ProductCaseResponse2;
 import com.dute.officialNetwork.domain.entity.ProductCase;
 import com.dute.officialNetwork.service.ProductCaseService;
 import com.dute.officialNetwork.util.ResultData;
@@ -54,7 +56,7 @@ public class ProductCaseController {
 
 	@ApiOperation("获取装修案例[分页 按条件查询]")
 	@PostMapping("/getProductCase")
-	public ResultData<ProductCaseResponse1> get(ProductCaseRequest1 pcrq) {
+	public ResultData<ProductCaseResponse1> get(ProductCaseRequest0 pcrq) {
 		ResultData<ProductCaseResponse1> result = new ResultData<>();
 		ProductCaseResponse1 pcrp = new ProductCaseResponse1();
 		try {
@@ -73,4 +75,26 @@ public class ProductCaseController {
 		}
 		return result;
 	}
+
+	@ApiOperation("根据类型ID获取4个案例")
+	@PostMapping("/get4ProductCaseByPct_Id/{pct_id}")
+	public ResultData<List<ProductCaseResponse2>> get4ProductCasesByPct_Id(@PathVariable Integer pct_id) {
+		ResultData<List<ProductCaseResponse2>> result = new ResultData<>();
+		List<ProductCaseResponse2> lpcr = new ArrayList<>();
+		try {
+			for (ProductCase pc : pcs.get4ProductCasesByPct_Id(pct_id)) {
+				ProductCaseResponse2 pcr = new ProductCaseResponse2();
+				BeanUtils.copyProperties(pc, pcr);
+				lpcr.add(pcr);
+				pcr = null;
+			}
+			result.setData(lpcr);
+			result.setStatus(ResultData.CODE_SUCCESS);
+		} catch (Exception e) {
+			result.setStatus(ResultData.CODE_FAIL_BIZ);
+			result.setMessage(e.getMessage());
+		}
+		return result;
+	}
+
 }

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.dute.officialNetwork.api.response.index.ProductCaseTypeResponse0;
+import com.dute.officialNetwork.api.response.index.ProductCaseTypeResponse1;
 import com.dute.officialNetwork.domain.entity.ProductCaseType;
 import com.dute.officialNetwork.service.ProductCaseTypeService;
 import com.dute.officialNetwork.util.ResultData;
@@ -25,9 +26,9 @@ public class ProductCaseTypeController {
 	@Autowired
 	private ProductCaseTypeService pcts;
 
-	@ApiOperation("获取所有案例风格[格式1]")
-	@PostMapping("/getAllStyle_1")
-	public ResultData<List<ProductCaseTypeResponse0>> getAll() {
+	@ApiOperation("获取所有案例风格[格式0]")
+	@PostMapping("/getAllStyle_0")
+	public ResultData<List<ProductCaseTypeResponse0>> getAll_0() {
 		ResultData<List<ProductCaseTypeResponse0>> result = new ResultData<>();
 		List<ProductCaseTypeResponse0> lpctr = new ArrayList<>();
 		try {
@@ -45,4 +46,26 @@ public class ProductCaseTypeController {
 		}
 		return result;
 	}
+
+	@ApiOperation("获取所有案例风格[格式1]")
+	@PostMapping("/getAllStyle_1")
+	public ResultData<List<ProductCaseTypeResponse1>> getAll_1() {
+		ResultData<List<ProductCaseTypeResponse1>> result = new ResultData<>();
+		List<ProductCaseTypeResponse1> lpctr = new ArrayList<>();
+		try {
+			for (ProductCaseType pct : pcts.getAll()) {
+				ProductCaseTypeResponse1 pctr = new ProductCaseTypeResponse1();
+				BeanUtils.copyProperties(pct, pctr);
+				lpctr.add(pctr);
+				pctr = null;
+			}
+			result.setData(lpctr);
+			result.setStatus(ResultData.CODE_SUCCESS);
+		} catch (Exception e) {
+			result.setStatus(ResultData.CODE_FAIL_BIZ);
+			result.setMessage(e.getMessage());
+		}
+		return result;
+	}
+
 }

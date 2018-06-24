@@ -16,7 +16,7 @@ public class DesignerInformationServiceImpl implements DesignerInformationServic
 	private DesignerInformationRepository dir;
 
 	@Override
-	public List<DesignerInformation> get3DesignerInformations() {
-		return dir.findTop3ByOrderByCreateTimeDesc();
+	public List<DesignerInformation> get5DesignerInformations() {
+		return dir.findTop5ByOrderByCreateTimeDesc();
 	}
 }

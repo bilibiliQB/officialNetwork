@@ -7,5 +7,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.dute.officialNetwork.domain.entity.DesignerInformation;
 
 public interface DesignerInformationRepository extends JpaRepository<DesignerInformation, Integer> {
-	List<DesignerInformation> findTop3ByOrderByCreateTimeDesc();
+	List<DesignerInformation> findTop5ByOrderByCreateTimeDesc();
 }

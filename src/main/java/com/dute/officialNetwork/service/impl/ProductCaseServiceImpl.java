@@ -48,4 +48,9 @@ public class ProductCaseServiceImpl implements ProductCaseService {
 		}
 	}
 
+	@Override
+	public List<ProductCase> get4ProductCasesByPct_Id(Integer pct_id) {
+		return pcr.findTop4ByProductCaseType_Id(pct_id);
+	}
+
 }

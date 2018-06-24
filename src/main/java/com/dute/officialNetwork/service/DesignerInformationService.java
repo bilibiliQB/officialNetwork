@@ -5,5 +5,5 @@ import java.util.List;
 import com.dute.officialNetwork.domain.entity.DesignerInformation;
 
 public interface DesignerInformationService {
-	List<DesignerInformation> get3DesignerInformations();
+	List<DesignerInformation> get5DesignerInformations();
 }

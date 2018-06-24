@@ -25,13 +25,13 @@ public class DesignerInformationController {
 	@Autowired
 	private DesignerInformationService dis;
 
-	@ApiOperation("获取3个最新设计师信息")
-	@PostMapping("/get3")
-	public ResultData<List<DesignerInformationResponse0>> get3DesignerInformations() {
+	@ApiOperation("获取5个最新设计师信息")
+	@PostMapping("/get3DesignerInformation")
+	public ResultData<List<DesignerInformationResponse0>> get5DesignerInformations() {
 		ResultData<List<DesignerInformationResponse0>> result = new ResultData<>();
 		List<DesignerInformationResponse0> dirs = new ArrayList<>();
 		try {
-			for (DesignerInformation di : dis.get3DesignerInformations()) {
+			for (DesignerInformation di : dis.get5DesignerInformations()) {
 				DesignerInformationResponse0 dir = new DesignerInformationResponse0();
 				BeanUtils.copyProperties(di, dir);
 				dirs.add(dir);

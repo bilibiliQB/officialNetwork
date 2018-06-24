@@ -2,7 +2,7 @@ package com.dute.officialNetwork.api.request.index;
 
 import io.swagger.annotations.ApiModelProperty;
 
-public class ProductCaseRequest1 {
+public class ProductCaseRequest0 {
 
 	@ApiModelProperty("填写结构ID")
 	private Integer pcs_id;
