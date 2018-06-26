@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.dute.officialNetwork.domain.entity.HotHouses;
 import com.dute.officialNetwork.domain.repository.HotHousesRepository;
-import com.dute.officialNetwork.service.HotHousesService;
+import com.dute.officialNetwork.service.interfaces.HotHousesService;
 
 @Service
 public class HotHousesServiceImpl implements HotHousesService {

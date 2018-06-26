@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.dute.officialNetwork.domain.entity.DecorationClass;
 import com.dute.officialNetwork.domain.repository.DecorationClassRepository;
-import com.dute.officialNetwork.service.DecorationClassService;
+import com.dute.officialNetwork.service.interfaces.DecorationClassService;
 
 @Service
 public class DecorationClassServiceImpl implements DecorationClassService {

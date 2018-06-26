@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.dute.officialNetwork.domain.entity.CustomerInformation;
 import com.dute.officialNetwork.domain.repository.CustomerInformationRepository;
-import com.dute.officialNetwork.service.CustomerInformationService;
+import com.dute.officialNetwork.service.interfaces.CustomerInformationService;
 import com.dute.officialNetwork.util.IPUtil;
 
 @Service

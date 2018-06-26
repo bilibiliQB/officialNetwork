@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.dute.officialNetwork.api.response.index.HotHousesResponse0;
 import com.dute.officialNetwork.domain.entity.HotHouses;
-import com.dute.officialNetwork.service.HotHousesService;
+import com.dute.officialNetwork.service.interfaces.HotHousesService;
 import com.dute.officialNetwork.util.ResultData;
 
 import io.swagger.annotations.Api;

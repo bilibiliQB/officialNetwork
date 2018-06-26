@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.dute.officialNetwork.domain.repository.DecorationClassMainTypeRepository;
-import com.dute.officialNetwork.service.DecorationClassMainTypeService;
+import com.dute.officialNetwork.service.interfaces.DecorationClassMainTypeService;
 
 @Service
 public class DecorationClassMainTypeServiceImpl implements DecorationClassMainTypeService {

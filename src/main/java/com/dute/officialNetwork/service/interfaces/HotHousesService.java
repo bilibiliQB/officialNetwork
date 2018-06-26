@@ -1,4 +1,4 @@
-package com.dute.officialNetwork.service;
+package com.dute.officialNetwork.service.interfaces;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

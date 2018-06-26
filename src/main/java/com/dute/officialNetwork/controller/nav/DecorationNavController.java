@@ -1,7 +1,7 @@
-package com.dute.officialNetwork.controller;
+package com.dute.officialNetwork.controller.nav;
 
 import com.dute.officialNetwork.api.response.index.nav.DecorationNavResponse;
-import com.dute.officialNetwork.service.IDecortionNavService;
+import com.dute.officialNetwork.service.interfaces.nav.IDecortionNavService;
 import com.dute.officialNetwork.util.ResultData;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.dute.officialNetwork.api.response.index.DecorationClassResponse0;
 import com.dute.officialNetwork.domain.entity.DecorationClass;
-import com.dute.officialNetwork.service.DecorationClassService;
+import com.dute.officialNetwork.service.interfaces.DecorationClassService;
 import com.dute.officialNetwork.util.ResultData;
 
 import io.swagger.annotations.Api;

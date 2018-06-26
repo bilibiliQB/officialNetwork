@@ -1,4 +1,4 @@
-package com.dute.officialNetwork.domain.repository;
+package com.dute.officialNetwork.domain.repository.nav;
 
 import com.dute.officialNetwork.domain.entity.DecorationNav;
 import org.springframework.data.jpa.repository.JpaRepository;

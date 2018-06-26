@@ -6,7 +6,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.stereotype.Service;
 
-import com.dute.officialNetwork.service.RedisService;
+import com.dute.officialNetwork.service.interfaces.RedisService;
 
 @Service
 public class RedisServiceImpl implements RedisService {

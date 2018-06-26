@@ -1,4 +1,4 @@
-package com.dute.officialNetwork.service;
+package com.dute.officialNetwork.service.interfaces.nav;
 
 import com.dute.officialNetwork.api.response.index.nav.DecorationNavResponse;
 

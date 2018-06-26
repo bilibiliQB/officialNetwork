@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.dute.officialNetwork.api.response.index.DesignerInformationResponse0;
 import com.dute.officialNetwork.domain.entity.DesignerInformation;
-import com.dute.officialNetwork.service.DesignerInformationService;
+import com.dute.officialNetwork.service.interfaces.DesignerInformationService;
 import com.dute.officialNetwork.util.ResultData;
 
 import io.swagger.annotations.Api;

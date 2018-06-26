@@ -14,8 +14,8 @@ import com.dute.officialNetwork.api.response.index.ProductCaseTypeResponse1;
 import com.dute.officialNetwork.api.response.index.ProductCaseTypeResponse2;
 import com.dute.officialNetwork.domain.entity.ProductCase;
 import com.dute.officialNetwork.domain.entity.ProductCaseType;
-import com.dute.officialNetwork.service.ProductCaseService;
-import com.dute.officialNetwork.service.ProductCaseTypeService;
+import com.dute.officialNetwork.service.interfaces.ProductCaseService;
+import com.dute.officialNetwork.service.interfaces.ProductCaseTypeService;
 import com.dute.officialNetwork.util.ResultData;
 
 import io.swagger.annotations.Api;

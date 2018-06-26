@@ -1,8 +1,6 @@
 package com.dute.officialNetwork.controller.upload;
 
-import com.alibaba.fastjson.JSON;
-import com.dute.officialNetwork.service.impl.ResourceService;
-import com.dute.officialNetwork.util.DateUtils;
+import com.dute.officialNetwork.service.impl.upload.ResourceService;
 import com.dute.officialNetwork.util.ResultData;
 import com.dute.officialNetwork.util.StringUtils;
 import com.google.common.collect.Lists;
@@ -12,18 +10,10 @@ import org.springframework.http.MediaType;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
-import javax.servlet.http.HttpServletRequest;
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
-import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 @Api(description = "多文件上传")

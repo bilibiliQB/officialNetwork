@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.dute.officialNetwork.api.request.index.CustomerInformationRequest0;
 import com.dute.officialNetwork.domain.entity.CustomerInformation;
-import com.dute.officialNetwork.service.CustomerInformationService;
+import com.dute.officialNetwork.service.interfaces.CustomerInformationService;
 import com.dute.officialNetwork.util.ResultData;
 
 import io.swagger.annotations.Api;

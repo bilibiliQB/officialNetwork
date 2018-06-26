@@ -1,4 +1,4 @@
-package com.dute.officialNetwork.service;
+package com.dute.officialNetwork.service.interfaces;
 
 import java.util.List;
 

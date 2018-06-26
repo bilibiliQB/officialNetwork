@@ -1,4 +1,4 @@
-package com.dute.officialNetwork.service.impl;
+package com.dute.officialNetwork.service.impl.upload;
 
 import com.dute.officialNetwork.util.DateUtils;
 import com.dute.officialNetwork.util.FileUtils;

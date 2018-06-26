@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.dute.officialNetwork.domain.entity.GlobalPicPath;
 import com.dute.officialNetwork.domain.repository.GlobalPicPathRepository;
-import com.dute.officialNetwork.service.GlobalPicPathService;
+import com.dute.officialNetwork.service.interfaces.GlobalPicPathService;
 
 @Service
 public class GlobalPicPathServiceImpl implements GlobalPicPathService {

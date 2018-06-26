@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.dute.officialNetwork.domain.entity.DesignerInformation;
 import com.dute.officialNetwork.domain.repository.DesignerInformationRepository;
-import com.dute.officialNetwork.service.DesignerInformationService;
+import com.dute.officialNetwork.service.interfaces.DesignerInformationService;
 
 @Service
 public class DesignerInformationServiceImpl implements DesignerInformationService {

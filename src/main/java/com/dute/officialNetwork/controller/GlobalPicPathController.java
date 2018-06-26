@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.dute.officialNetwork.api.response.index.GlobalPicPathResponse;
 import com.dute.officialNetwork.domain.entity.GlobalPicPath;
-import com.dute.officialNetwork.service.GlobalPicPathService;
+import com.dute.officialNetwork.service.interfaces.GlobalPicPathService;
 import com.dute.officialNetwork.util.ResultData;
 
 import io.swagger.annotations.Api;

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.dute.officialNetwork.domain.entity.ProductCaseType;
 import com.dute.officialNetwork.domain.repository.ProductCaseTypeRepository;
-import com.dute.officialNetwork.service.ProductCaseTypeService;
+import com.dute.officialNetwork.service.interfaces.ProductCaseTypeService;
 
 @Service
 public class ProductCaseTypeServiceImpl implements ProductCaseTypeService {
