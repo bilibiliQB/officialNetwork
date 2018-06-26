@@ -29,6 +29,14 @@ spring:
       host: 47.104.139.79
       port: 10240
       password:
+      pool:
+        max-active: 8
+        max-wait: -1ms
+        max-idle: 8
+        min-idle: 0
+      timeout: 500
+up_load_path: "/usr/local/img/"
+
       timeout: 500
   http:
     encoding:

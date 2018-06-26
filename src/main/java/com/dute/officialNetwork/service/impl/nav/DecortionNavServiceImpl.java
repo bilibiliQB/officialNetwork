@@ -2,7 +2,7 @@ package com.dute.officialNetwork.service.impl;
 
 import com.dute.officialNetwork.api.response.index.nav.DecorationNavResponse;
 import com.dute.officialNetwork.domain.entity.DecorationNav;
-import com.dute.officialNetwork.domain.repository.DecortionNavRespository;
+import com.dute.officialNetwork.domain.repository.nav.DecortionNavRespository;
 import com.dute.officialNetwork.service.IDecortionNavService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
