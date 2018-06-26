@@ -55,6 +55,9 @@ public class DecorationClass {
 	@Column(name = "dc_content")
 	private String content; // 内容
 
+	@Column(name = "dc_keywords")
+	private String keywords; // 关键字
+
 	@Column(name = "dc_create_time")
 	@JSONField(format = "yyyy/MM/dd HH:mm:ss")
 	private Date createTime; // 创建时间
@@ -125,6 +128,14 @@ public class DecorationClass {
 
 	public void setContent(String content) {
 		this.content = content;
+	}
+
+	public String getKeywords() {
+		return keywords;
+	}
+
+	public void setKeywords(String keywords) {
+		this.keywords = keywords;
 	}
 
 	public Date getCreateTime() {
