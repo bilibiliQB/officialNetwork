@@ -12,9 +12,6 @@ import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 
 import com.alibaba.fastjson.annotation.JSONField;
-
-import io.swagger.annotations.ApiModelProperty;
-
 // 案例的结构[一室一厅，两室一厅......]
 @Entity
 @Table(name = "product_case_structure")
@@ -24,11 +21,9 @@ public class ProductCaseStructure {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "pcs_id", updatable = false)
-	@ApiModelProperty("案例结构的编号[系统生成]")
 	private Integer id;// ID
 
 	@Column(name = "pcs_name", nullable = false)
-	@ApiModelProperty("结构名称")
 	private String name; // 结构名称
 
 	// @OneToMany(mappedBy = "productCaseStructure", cascade = CascadeType.ALL,
@@ -38,12 +33,10 @@ public class ProductCaseStructure {
 
 	@Column(name = "pcs_create_time")
 	@JSONField(format = "yyyy/MM/dd HH:mm:ss")
-	@ApiModelProperty("创建时间[系统生成]")
 	private Date createTime; // 创建时间
 
 	@Column(name = "pcs_modify_time")
 	@JSONField(format = "yyyy/MM/dd HH:mm:ss")
-	@ApiModelProperty("修改时间[系统生成]")
 	private Date modifyTime; // 修改时间
 
 	public Integer getId() {
