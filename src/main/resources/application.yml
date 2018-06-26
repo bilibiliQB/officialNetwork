@@ -29,9 +29,11 @@ spring:
       host: 47.104.139.79
       port: 10240
       password:
-      pool:
-        max-active: 8
-        max-wait: -1ms
-        max-idle: 8
-        min-idle: 0
-      timeout: 500    
+      timeout: 500
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+server:
+  tomcat:
+    uri-encoding: utf-8
