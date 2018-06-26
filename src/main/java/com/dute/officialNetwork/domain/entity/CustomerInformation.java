@@ -39,7 +39,7 @@ public class CustomerInformation {
 	private String problemDescription;// 问题描述
 
 	@Column(name = "ci_house_area")
-	private Integer houseArea;// 房屋面积
+	private String houseArea;// 房屋面积
 
 	@Column(name = "ci_houses_name")
 	private String housesName;// 楼盘名称
@@ -88,11 +88,11 @@ public class CustomerInformation {
 		this.problemDescription = problemDescription;
 	}
 
-	public Integer getHouseArea() {
+	public String getHouseArea() {
 		return houseArea;
 	}
 
-	public void setHouseArea(Integer houseArea) {
+	public void setHouseArea(String houseArea) {
 		this.houseArea = houseArea;
 	}
 

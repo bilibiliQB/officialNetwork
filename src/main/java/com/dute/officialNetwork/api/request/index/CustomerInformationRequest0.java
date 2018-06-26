@@ -4,19 +4,19 @@ import io.swagger.annotations.ApiModelProperty;
 
 public class CustomerInformationRequest0 {
 
-	@ApiModelProperty("填写客户姓名[可选]")
+	@ApiModelProperty("填写客户姓名")
 	private String name;// 客户姓名
 
-	@ApiModelProperty("填写客户手机号[必填]")
+	@ApiModelProperty("填写客户手机号")
 	private String phoneNumber;// 客户手机号
 
-	@ApiModelProperty("填写问题描述[详细问后台]")
+	@ApiModelProperty("数据提交类型，1：预约 2：报价 3：报名 4：抽奖")
 	private String problemDescription;// 问题描述
 
-	@ApiModelProperty("填写房屋面积[可选]")
-	private Integer houseArea;// 房屋面积
+	@ApiModelProperty("填写房屋面积")
+	private String houseArea;// 房屋面积
 
-	@ApiModelProperty("填写楼盘名称[可选]")
+	@ApiModelProperty("填写楼盘名称")
 	private String housesName;// 楼盘名称
 
 	public String getName() {
@@ -43,11 +43,11 @@ public class CustomerInformationRequest0 {
 		this.problemDescription = problemDescription;
 	}
 
-	public Integer getHouseArea() {
+	public String getHouseArea() {
 		return houseArea;
 	}
 
-	public void setHouseArea(Integer houseArea) {
+	public void setHouseArea(String houseArea) {
 		this.houseArea = houseArea;
 	}
 

@@ -26,16 +26,23 @@ public class CustomerInformationController {
 
 	@ApiOperation("存储客户信息")
 	@PostMapping("/save")
-	public ResultData<Void> commitInfo(CustomerInformationRequest0 cir, HttpServletRequest request) {
-		ResultData<Void> result = new ResultData<>();
+	public ResultData<Boolean> commitInfo(CustomerInformationRequest0 cir, HttpServletRequest request) {
+		ResultData<Boolean> result = new ResultData<>();
 		CustomerInformation ci = new CustomerInformation();
 		try {
 			BeanUtils.copyProperties(cir, ci);
-			cis.save(ci, request);
-			result.setStatus(ResultData.CODE_SUCCESS);
+			long flag = cis.save(ci, request);
+			if(flag != 0){
+				result.setData(true);
+			}else{
+				result.setStatus(ResultData.CODE_FAIL_BIZ);
+				result.setMessage("申请失败");
+				result.setData(false);
+			}
 		} catch (Exception e) {
 			result.setStatus(ResultData.CODE_FAIL_BIZ);
 			result.setMessage(e.getMessage());
+			result.setData(false);
 		}
 		return result;
 	}

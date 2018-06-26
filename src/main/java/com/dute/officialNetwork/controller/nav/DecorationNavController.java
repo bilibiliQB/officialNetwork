@@ -22,7 +22,7 @@ public class DecorationNavController {
     private IDecortionNavService decortionNavService;
 
     @PostMapping(value = "list")
-    @ApiOperation(value = "当行列表")
+    @ApiOperation(value = "导航列表")
     public ResultData<List<DecorationNavResponse>> getDecorationNavList(){
         ResultData<List<DecorationNavResponse>> resultData = new ResultData<>();
         try {

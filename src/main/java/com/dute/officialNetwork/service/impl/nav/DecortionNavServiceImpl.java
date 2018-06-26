@@ -26,7 +26,7 @@ public class DecortionNavServiceImpl implements IDecortionNavService {
             for (DecorationNav decorationNavEntity : allByTabShow) {
                 DecorationNavResponse decorationNavResponse = new DecorationNavResponse();
                 decorationNavResponse.setTabName(decorationNavEntity.getTabName());
-                decorationNavResponse.setTabHerf(decorationNavEntity.getTabHerf());
+                decorationNavResponse.setTabHerf(decorationNavEntity.getTabHerf() == null ? "" : decorationNavEntity.getTabHerf());
                 decorationNavResponse.setTabOrder(decorationNavEntity.getTabOrder());
                 list.add(decorationNavResponse);
             }

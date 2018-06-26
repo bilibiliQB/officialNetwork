@@ -10,6 +10,8 @@ import com.dute.officialNetwork.domain.repository.CustomerInformationRepository;
 import com.dute.officialNetwork.service.interfaces.CustomerInformationService;
 import com.dute.officialNetwork.util.IPUtil;
 
+import java.util.Date;
+
 @Service
 public class CustomerInformationServiceImpl implements CustomerInformationService {
 
@@ -17,14 +19,14 @@ public class CustomerInformationServiceImpl implements CustomerInformationServic
 	private CustomerInformationRepository cir;
 
 	@Override
-	public Long save(CustomerInformation ci, HttpServletRequest request) {
-		if (ci != null) {
-			ci.setIP(IPUtil.getIpAddr(request));
-			if (cir.save(ci) != null) {
-				return cir.save(ci).getId();
-			}
-		}
-		return null;
-	}
+	public long save(CustomerInformation ci, HttpServletRequest request) {
+        ci.setIP(IPUtil.getIpAddr(request));
+        ci.setCreateTime(new Date());
+        CustomerInformation saveData = cir.save(ci);
+        if(saveData == null){
+            throw new RuntimeException("申请失败");
+        }
+        return saveData.getId();
+    }
 
 }
