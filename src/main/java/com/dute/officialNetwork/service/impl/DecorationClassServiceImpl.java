@@ -3,6 +3,8 @@ package com.dute.officialNetwork.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.dute.officialNetwork.domain.entity.DecorationClass;
@@ -18,5 +20,10 @@ public class DecorationClassServiceImpl implements DecorationClassService {
 	@Override
 	public List<DecorationClass> getDecorationClassByMainTypeId(Integer id) {
 		return dcr.findByMainTypeIdOrderByCreateTime(id);
+	}
+
+	@Override
+	public Page<DecorationClass> findByDecorationClassSubType_Id(Integer dcs_id, Pageable pageable) {
+		return dcr.findByDecorationClassSubType_IdOrderByViewingCount(dcs_id, pageable);
 	}
 }
