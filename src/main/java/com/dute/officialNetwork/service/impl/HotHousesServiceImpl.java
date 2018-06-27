@@ -19,4 +19,13 @@ public class HotHousesServiceImpl implements HotHousesService {
 	public Page<HotHouses> findAll(Pageable pageable) {
 		return hhr.findAll(pageable);
 	}
+
+	@Override
+	public Page<HotHouses> findAllByNameLike(String keywords, Pageable pageable) {
+		StringBuffer str = new StringBuffer();
+		str.append("%");
+		str.append(keywords);
+		str.append("%");
+		return hhr.findAllByNameLike(str.toString(), pageable);
+	}
 }
