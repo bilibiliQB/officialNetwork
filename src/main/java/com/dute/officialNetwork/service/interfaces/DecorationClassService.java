@@ -15,4 +15,6 @@ public interface DecorationClassService {
 	Page<DecorationClass> findByKeywordsLike(String keywords, Pageable pageable);
 
 	DecorationClass getOneById(Long id);
+
+	DecorationClass updateOne(DecorationClass dc);
 }

@@ -40,4 +40,9 @@ public class DecorationClassServiceImpl implements DecorationClassService {
 	public DecorationClass getOneById(Long id) {
 		return dcr.getOne(id);
 	}
+
+	@Override
+	public DecorationClass updateOne(DecorationClass dc) {
+		return dcr.save(dc);
+	}
 }

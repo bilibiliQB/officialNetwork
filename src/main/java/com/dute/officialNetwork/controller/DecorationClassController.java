@@ -142,6 +142,11 @@ public class DecorationClassController {
 		DecorationClassResponse4 dcr = new DecorationClassResponse4();
 		try {
 			DecorationClass dc = dcs.getOneById(id);
+			// 更新浏览数
+			if (dc != null) {
+				dc.setViewingCount(dc.getViewingCount() + 1);
+				dcs.updateOne(dc);
+			}
 			BeanUtils.copyProperties(dc, dcr);
 			result.setData(dcr);
 			result.setStatus(ResultData.CODE_SUCCESS);

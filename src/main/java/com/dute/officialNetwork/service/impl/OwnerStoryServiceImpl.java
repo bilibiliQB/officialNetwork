@@ -28,4 +28,14 @@ public class OwnerStoryServiceImpl implements OwnerStoryService {
 		str.append("%");
 		return osr.findAllByKeywordsLike(str.toString(), pageable);
 	}
+
+	@Override
+	public OwnerStory getOneById(Long id) {
+		return osr.getOne(id);
+	}
+
+	@Override
+	public OwnerStory updateOne(OwnerStory os) {
+		return osr.save(os);
+	}
 }

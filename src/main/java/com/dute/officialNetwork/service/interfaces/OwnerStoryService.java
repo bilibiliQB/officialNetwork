@@ -9,4 +9,8 @@ public interface OwnerStoryService {
 	Page<OwnerStory> findAll(Pageable pageable);
 
 	Page<OwnerStory> findAllByKeywordsLike(String keywords, Pageable pageable);
+	
+	OwnerStory getOneById(Long id);
+	
+	OwnerStory updateOne(OwnerStory os);
 }
