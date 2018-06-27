@@ -31,8 +31,20 @@ public class OwnerStory {
 	@Column(name = "os_firstpicpath")
 	private String firstPicPath; // 首页图
 
-	@Column(name = "os_title")
-	private String title; // 标题
+	@Column(name = "os_main_title")
+	private String mainTitle; // 主标题
+
+	@Column(name = "os_sub_title")
+	private String subTitle; // 副标题
+
+	@Column(name = "os_author_name")
+	private String authorName; // 作者名称
+
+	@Column(name = "os_viewing_count")
+	private Integer viewingCount; // 浏览数
+
+	@Column(name = "os_keywords")
+	private String keywords; // 关键字
 
 	@Lob
 	@Basic(fetch = FetchType.LAZY)
@@ -63,12 +75,44 @@ public class OwnerStory {
 		this.firstPicPath = firstPicPath;
 	}
 
-	public String getTitle() {
-		return title;
+	public String getMainTitle() {
+		return mainTitle;
 	}
 
-	public void setTitle(String title) {
-		this.title = title;
+	public void setMainTitle(String mainTitle) {
+		this.mainTitle = mainTitle;
+	}
+
+	public String getAuthorName() {
+		return authorName;
+	}
+
+	public void setAuthorName(String authorName) {
+		this.authorName = authorName;
+	}
+
+	public String getSubTitle() {
+		return subTitle;
+	}
+
+	public void setSubTitle(String subTitle) {
+		this.subTitle = subTitle;
+	}
+
+	public Integer getViewingCount() {
+		return viewingCount;
+	}
+
+	public void setViewingCount(Integer viewingCount) {
+		this.viewingCount = viewingCount;
+	}
+
+	public String getKeywords() {
+		return keywords;
+	}
+
+	public void setKeywords(String keywords) {
+		this.keywords = keywords;
 	}
 
 	public String getContent() {
@@ -94,5 +138,5 @@ public class OwnerStory {
 	public void setModifyTime(Date modifyTime) {
 		this.modifyTime = modifyTime;
 	}
-	
+
 }

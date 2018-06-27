@@ -21,7 +21,7 @@ public class DecorationClassResponse1 {
 	@ApiModelProperty("返回当前副分类ID")
 	private Integer dcsId;
 
-	private List<DecorationClassResponse> decorationClass = new ArrayList<>(); // 装修课堂
+	private List<DecorationClassResponse> decorationClass = new ArrayList<>(); // 装修课堂列表
 
 	public void copyProperties(DecorationClass dc) {
 		DecorationClassResponse dcr = new DecorationClassResponse();

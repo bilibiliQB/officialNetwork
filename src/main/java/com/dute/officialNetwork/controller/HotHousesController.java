@@ -25,7 +25,7 @@ public class HotHousesController {
 	private HotHousesService hhs;
 
 	@ApiOperation("获取所有热装楼盘[或者根据关键字获取][分页]")
-	@PostMapping("/getHotHouses")
+	@PostMapping("/getHotHousesList")
 	public ResultData<HotHousesResponse0> getAll(HotHousesRequest0 hhr) {
 		ResultData<HotHousesResponse0> result = new ResultData<>();
 		HotHousesResponse0 hhrp = new HotHousesResponse0();
