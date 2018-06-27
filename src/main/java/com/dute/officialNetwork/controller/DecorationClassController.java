@@ -115,8 +115,7 @@ public class DecorationClassController {
 		return result;
 	}
 
-	// 关键字查询装修课堂列表
-	@ApiOperation("关键字查询装修课堂列表")
+	@ApiOperation("关键字查询装修课堂列表[分页]")
 	@PostMapping("/getByKeywordsLike")
 	public ResultData<DecorationClassResponse3> getDecorationClass3(DecorationClassRequest1 dcrq) {
 		ResultData<DecorationClassResponse3> result = new ResultData<>();
@@ -136,7 +135,6 @@ public class DecorationClassController {
 		return result;
 	}
 
-	// 装修课堂文章详情页
 	@ApiOperation("根据ID获取装修课堂文章详情页")
 	@PostMapping("/getOneById/{id}")
 	public ResultData<DecorationClassResponse4> getDecorationClass4(@PathVariable Long id) {
