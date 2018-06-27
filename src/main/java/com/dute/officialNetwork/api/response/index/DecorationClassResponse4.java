@@ -12,6 +12,9 @@ public class DecorationClassResponse4 {
 	@ApiModelProperty("返回主标题")
 	private String mainTitle;
 
+	@ApiModelProperty("返回副标题")
+	private String subTitle;
+
 	@ApiModelProperty("返回作者名称")
 	private String authorName;
 
@@ -31,6 +34,14 @@ public class DecorationClassResponse4 {
 
 	public void setMainTitle(String mainTitle) {
 		this.mainTitle = mainTitle;
+	}
+
+	public String getSubTitle() {
+		return subTitle;
+	}
+
+	public void setSubTitle(String subTitle) {
+		this.subTitle = subTitle;
 	}
 
 	public String getAuthorName() {

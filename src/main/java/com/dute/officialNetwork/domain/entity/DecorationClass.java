@@ -34,6 +34,9 @@ public class DecorationClass {
 	@Column(name = "dc_main_title")
 	private String mainTitle; // 主标题
 
+	@Column(name = "dc_sub_title")
+	private String subTitle; // 副标题
+
 	@Column(name = "dc_introduction")
 	private String introduction; // 简介
 
@@ -80,6 +83,14 @@ public class DecorationClass {
 
 	public void setMainTitle(String mainTitle) {
 		this.mainTitle = mainTitle;
+	}
+
+	public String getSubTitle() {
+		return subTitle;
+	}
+
+	public void setSubTitle(String subTitle) {
+		this.subTitle = subTitle;
 	}
 
 	public String getIntroduction() {
