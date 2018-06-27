@@ -13,9 +13,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.dute.officialNetwork.api.request.index.DecorationClassRequest0;
+import com.dute.officialNetwork.api.request.index.DecorationClassRequest1;
 import com.dute.officialNetwork.api.response.index.DecorationClassResponse0;
 import com.dute.officialNetwork.api.response.index.DecorationClassResponse1;
 import com.dute.officialNetwork.api.response.index.DecorationClassResponse2;
+import com.dute.officialNetwork.api.response.index.DecorationClassResponse3;
+import com.dute.officialNetwork.api.response.index.DecorationClassResponse4;
 import com.dute.officialNetwork.domain.entity.DecorationClass;
 import com.dute.officialNetwork.domain.entity.DecorationClassSubType;
 import com.dute.officialNetwork.service.interfaces.DecorationClassService;
@@ -106,6 +109,45 @@ public class DecorationClassController {
 			result.setData(dcr);
 			result.setStatus(ResultData.CODE_SUCCESS);
 		} catch (Throwable e) {
+			result.setStatus(ResultData.CODE_FAIL_BIZ);
+			result.setMessage(e.getMessage());
+		}
+		return result;
+	}
+
+	// 关键字查询装修课堂列表
+	@ApiOperation("关键字查询装修课堂列表")
+	@PostMapping("/getByKeywordsLike")
+	public ResultData<DecorationClassResponse3> getDecorationClass3(DecorationClassRequest1 dcrq) {
+		ResultData<DecorationClassResponse3> result = new ResultData<>();
+		DecorationClassResponse3 dcr = new DecorationClassResponse3();
+		try {
+			for (DecorationClass dc : dcs.findByKeywordsLike(dcrq.getKeywords(),
+					PageRequest.of(dcrq.getPageNumber() - 1, dcrq.getShowCount()))) {
+				dcr.copyProperties(dc);
+			}
+			dcr.setKeywords(dcrq.getKeywords());
+			result.setData(dcr);
+			result.setStatus(ResultData.CODE_SUCCESS);
+		} catch (Exception e) {
+			result.setStatus(ResultData.CODE_FAIL_BIZ);
+			result.setMessage(e.getMessage());
+		}
+		return result;
+	}
+
+	// 装修课堂文章详情页
+	@ApiOperation("根据ID获取装修课堂文章详情页")
+	@PostMapping("/getOneById/{id}")
+	public ResultData<DecorationClassResponse4> getDecorationClass4(@PathVariable Long id) {
+		ResultData<DecorationClassResponse4> result = new ResultData<>();
+		DecorationClassResponse4 dcr = new DecorationClassResponse4();
+		try {
+			DecorationClass dc = dcs.getOneById(id);
+			BeanUtils.copyProperties(dc, dcr);
+			result.setData(dcr);
+			result.setStatus(ResultData.CODE_SUCCESS);
+		} catch (Exception e) {
 			result.setStatus(ResultData.CODE_FAIL_BIZ);
 			result.setMessage(e.getMessage());
 		}

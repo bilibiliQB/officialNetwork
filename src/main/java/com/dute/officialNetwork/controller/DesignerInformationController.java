@@ -26,7 +26,7 @@ public class DesignerInformationController {
 	private DesignerInformationService dis;
 
 	@ApiOperation("获取5个最新设计师信息")
-	@PostMapping("/get3DesignerInformation")
+	@PostMapping("/get5DesignerInformation")
 	public ResultData<List<DesignerInformationResponse0>> get5DesignerInformations() {
 		ResultData<List<DesignerInformationResponse0>> result = new ResultData<>();
 		List<DesignerInformationResponse0> dirs = new ArrayList<>();

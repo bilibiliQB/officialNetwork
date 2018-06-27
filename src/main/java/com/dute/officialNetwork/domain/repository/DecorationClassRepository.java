@@ -13,6 +13,8 @@ public interface DecorationClassRepository extends JpaRepository<DecorationClass
 
 	@Query(value = "SELECT decoration_class.* FROM decoration_class LEFT JOIN decoration_class_sub_type ON dcs_id = dc_dcs_id LEFT JOIN decoration_class_main_type ON dcm_id = dcs_dcm_id WHERE dcm_id = ?1 ORDER BY dc_create_time DESC LIMIT 0,7;", nativeQuery = true)
 	List<DecorationClass> findByMainTypeIdOrderByCreateTime(Integer id);
-	
+
 	Page<DecorationClass> findByDecorationClassSubType_IdOrderByViewingCount(Integer dcs_id, Pageable pageable);
+
+	Page<DecorationClass> findByKeywordsLike(String keywords, Pageable pageable);
 }

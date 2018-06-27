@@ -26,4 +26,18 @@ public class DecorationClassServiceImpl implements DecorationClassService {
 	public Page<DecorationClass> findByDecorationClassSubType_Id(Integer dcs_id, Pageable pageable) {
 		return dcr.findByDecorationClassSubType_IdOrderByViewingCount(dcs_id, pageable);
 	}
+
+	@Override
+	public Page<DecorationClass> findByKeywordsLike(String keywords, Pageable pageable) {
+		StringBuffer str = new StringBuffer();
+		str.append("%");
+		str.append(keywords);
+		str.append("%");
+		return dcr.findByKeywordsLike(str.toString(), pageable);
+	}
+
+	@Override
+	public DecorationClass getOneById(Long id) {
+		return dcr.getOne(id);
+	}
 }
