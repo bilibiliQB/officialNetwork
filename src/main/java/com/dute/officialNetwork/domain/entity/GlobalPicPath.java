@@ -1,5 +1,6 @@
 package com.dute.officialNetwork.domain.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.CascadeType;
@@ -22,7 +23,10 @@ import com.alibaba.fastjson.annotation.JSONField;
 @Table(name = "global_pic_path")
 @DynamicInsert
 @DynamicUpdate
-public class GlobalPicPath {
+public class GlobalPicPath implements Serializable{
+	
+	private static final long serialVersionUID = -2102807195936384239L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "gpp_id", updatable = false)

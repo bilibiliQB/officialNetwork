@@ -1,5 +1,6 @@
 package com.dute.officialNetwork.domain.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
@@ -23,7 +24,10 @@ import com.alibaba.fastjson.annotation.JSONField;
 @Table(name = "decoration_class_main_type")
 @DynamicInsert
 @DynamicUpdate
-public class DecorationClassMainType {
+public class DecorationClassMainType implements Serializable{
+
+	private static final long serialVersionUID = 5566463289521163270L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "dcm_id", updatable = false)

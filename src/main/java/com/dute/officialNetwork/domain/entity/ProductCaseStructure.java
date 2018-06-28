@@ -1,5 +1,6 @@
 package com.dute.officialNetwork.domain.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -17,7 +18,10 @@ import com.alibaba.fastjson.annotation.JSONField;
 @Table(name = "product_case_structure")
 @DynamicInsert
 @DynamicUpdate
-public class ProductCaseStructure {
+public class ProductCaseStructure implements Serializable{
+
+	private static final long serialVersionUID = 4624129439444135833L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "pcs_id", updatable = false)

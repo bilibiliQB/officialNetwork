@@ -8,6 +8,7 @@ import org.hibernate.annotations.DynamicUpdate;
 
 import com.alibaba.fastjson.annotation.JSONField;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -20,7 +21,10 @@ import javax.persistence.GenerationType;
 @Table(name = "customer_information")
 @DynamicInsert
 @DynamicUpdate
-public class CustomerInformation {
+public class CustomerInformation implements Serializable{
+	
+	private static final long serialVersionUID = -7894270171680360523L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "ci_id", updatable = false)

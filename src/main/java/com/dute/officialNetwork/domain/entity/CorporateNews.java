@@ -1,5 +1,6 @@
 package com.dute.officialNetwork.domain.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Basic;
@@ -20,7 +21,10 @@ import org.hibernate.annotations.DynamicUpdate;
 @Table(name = "corporate_news")
 @DynamicInsert
 @DynamicUpdate
-public class CorporateNews {
+public class CorporateNews implements Serializable{
+
+	private static final long serialVersionUID = 1226892737889628454L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "cn_id", updatable = false)

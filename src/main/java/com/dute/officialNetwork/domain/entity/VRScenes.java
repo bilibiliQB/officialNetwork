@@ -1,5 +1,6 @@
 package com.dute.officialNetwork.domain.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.CascadeType;
@@ -22,7 +23,10 @@ import com.alibaba.fastjson.annotation.JSONField;
 @Table(name = "vr_scenes")
 @DynamicInsert
 @DynamicUpdate
-public class VRScenes {
+public class VRScenes implements Serializable{
+	
+	private static final long serialVersionUID = 2330570824357789306L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "vs_id", updatable = false)

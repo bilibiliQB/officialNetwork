@@ -1,5 +1,7 @@
 package com.dute.officialNetwork.domain.entity;
 
+import java.io.Serializable;
+
 import javax.persistence.*;
 
 /**
@@ -7,8 +9,9 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "decoration_nav", schema = "officialnetwork", catalog = "")
-public class DecorationNav {
-    private String tabName;
+public class DecorationNav implements Serializable{
+	private static final long serialVersionUID = 7805130944743371409L;
+	private String tabName;
     private Integer tabOrder;
     private String tabHerf;
     private Integer tabShow;

@@ -1,5 +1,6 @@
 package com.dute.officialNetwork.domain.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
@@ -23,7 +24,10 @@ import com.alibaba.fastjson.annotation.JSONField;
 @Table(name = "global_pic_group")
 @DynamicInsert
 @DynamicUpdate
-public class GlobalPicGroup {
+public class GlobalPicGroup implements Serializable{
+
+	private static final long serialVersionUID = 6023259009505812647L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "gpg_id", updatable = false)
