@@ -34,7 +34,7 @@ spring:
         max-wait: -1ms
         max-idle: 8
         min-idle: 0
-      timeout: 500
+      timeout: 2000
 
   http:
     encoding:

@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.http.HttpMessageConverters;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
@@ -17,8 +18,9 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 
+@EnableCaching
 @SpringBootApplication
-public class OfficialNetworkApplication  {
+public class OfficialNetworkApplication {
 
 	// 配置Fastjson支持
 	@Bean
@@ -56,6 +58,7 @@ public class OfficialNetworkApplication  {
 
 	/**
 	 * 跨域过滤器
+	 * 
 	 * @return
 	 */
 	@Bean

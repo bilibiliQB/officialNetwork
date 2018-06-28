@@ -1,6 +1,7 @@
 package com.dute.officialNetwork.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -16,6 +17,7 @@ public class CorporateNewsServiceImpl implements CorporateNewsService {
 	private CorporateNewsRepository cnr;
 
 	@Override
+	@Cacheable(value = "pcn1-key")
 	public Page<CorporateNews> findAllCreateTimeDesc(Pageable pageable) {
 		return cnr.findAllByOrderByCreateTimeDesc(pageable);
 	}
