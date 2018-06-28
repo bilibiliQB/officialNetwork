@@ -17,7 +17,7 @@ public class CorporateNewsServiceImpl implements CorporateNewsService {
 	private CorporateNewsRepository cnr;
 
 	@Override
-	@Cacheable(value = "pcn1-key")
+	@Cacheable(value = "CorporateNews#30")
 	public Page<CorporateNews> findAllCreateTimeDesc(Pageable pageable) {
 		return cnr.findAllByOrderByCreateTimeDesc(pageable);
 	}
