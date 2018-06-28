@@ -3,6 +3,9 @@ package com.dute.officialNetwork;
 import java.lang.reflect.Method;
 //import java.time.Duration;
 
+import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
+import org.springframework.boot.autoconfigure.data.redis.RedisProperties;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.CachingConfigurerSupport;
 import org.springframework.cache.annotation.EnableCaching;
@@ -14,6 +17,7 @@ import org.springframework.data.redis.cache.RedisCacheConfiguration;
 import org.springframework.data.redis.cache.RedisCacheManager;
 import org.springframework.data.redis.cache.RedisCacheWriter;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
+import org.springframework.data.redis.core.RedisOperations;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
@@ -21,6 +25,8 @@ import com.alibaba.fastjson.support.spring.FastJsonRedisSerializer;
 
 @Configuration
 @EnableCaching
+@ConditionalOnClass(RedisOperations.class)
+@EnableConfigurationProperties(RedisProperties.class)
 public class RedisConfig extends CachingConfigurerSupport {
 	@Bean
 	public KeyGenerator keyGenerator() {
@@ -42,8 +48,6 @@ public class RedisConfig extends CachingConfigurerSupport {
 	public CacheManager cacheManager(RedisConnectionFactory connectionFactory) {
 		RedisCacheWriter redisCacheWriter = RedisCacheWriter.nonLockingRedisCacheWriter(connectionFactory);
 		RedisCacheConfiguration defaultCacheConfig = RedisCacheConfiguration.defaultCacheConfig();
-		// 设置默认超过期时间是30秒
-		// defaultCacheConfig.entryTtl(Duration.ofSeconds(30));
 		// 初始化RedisCacheManager
 		RedisCacheManager rcm = new RedisCacheManager(redisCacheWriter, defaultCacheConfig);
 		return rcm;
@@ -56,16 +60,19 @@ public class RedisConfig extends CachingConfigurerSupport {
 	@Primary
 	public RedisTemplate<String, Object> initRedisTemplate(RedisConnectionFactory factory) {
 		RedisTemplate<String, Object> template = new RedisTemplate<>();
-		template.setConnectionFactory(factory);
+		// 使用fastjson序列化
 		FastJsonRedisSerializer<?> fastJsonRedisSerializer = new FastJsonRedisSerializer<>(Object.class);
 		// redis开启事务
 		template.setEnableTransactionSupport(true);
-		template.setKeySerializer(new StringRedisSerializer());
+		// value值的序列化采用fastJsonRedisSerializer
 		template.setValueSerializer(fastJsonRedisSerializer);
-		template.setHashKeySerializer(new StringRedisSerializer());
 		template.setHashValueSerializer(fastJsonRedisSerializer);
-		template.setDefaultSerializer(new StringRedisSerializer());
-		template.afterPropertiesSet();
+		// key的序列化采用StringRedisSerializer
+		template.setKeySerializer(new StringRedisSerializer());
+		template.setHashKeySerializer(new StringRedisSerializer());
+		// template.setDefaultSerializer(new StringRedisSerializer());
+		// template.afterPropertiesSet();
+		template.setConnectionFactory(factory);
 		return template;
 	}
 }
