@@ -23,6 +23,7 @@ import java.util.regex.Pattern;
  * @author ThinkGem
  * @version 2013-05-22
  */
+@SuppressWarnings("deprecation")
 public class StringUtils extends org.apache.commons.lang3.StringUtils {
 
     private static final char SEPARATOR = '_';

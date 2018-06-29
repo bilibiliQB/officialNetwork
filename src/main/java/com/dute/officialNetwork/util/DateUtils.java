@@ -80,6 +80,7 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 	 * @param endTime   时间参数 2 格式：2009-01-01 12:00:00
 	 * @return String 返回值为：分钟数
 	 */
+	@SuppressWarnings("unused")
 	public static long getDistanceMinute(String startTime, String endTime) {
 		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		Date one;

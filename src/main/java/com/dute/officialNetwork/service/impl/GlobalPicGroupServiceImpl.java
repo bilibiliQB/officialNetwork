@@ -10,5 +10,6 @@ import com.dute.officialNetwork.service.interfaces.GlobalPicGroupService;
 public class GlobalPicGroupServiceImpl implements GlobalPicGroupService {
 
 	@Autowired
+	@SuppressWarnings("unused")
 	private GlobalPicGroupRepository gpgr;
 }

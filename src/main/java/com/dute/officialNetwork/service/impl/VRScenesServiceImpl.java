@@ -10,5 +10,6 @@ import com.dute.officialNetwork.service.interfaces.VRScenesService;
 public class VRScenesServiceImpl implements VRScenesService {
 
 	@Autowired
+	@SuppressWarnings("unused")
 	private VRScenesRepository VRSr;
 }

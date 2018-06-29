@@ -19,6 +19,7 @@ import java.net.URLEncoder;
  * @author calvin
  * @version 2013-01-15
  */
+@SuppressWarnings("deprecation")
 public class Encodes {
 
     private static final String DEFAULT_URL_ENCODING = "UTF-8";

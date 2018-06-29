@@ -10,5 +10,6 @@ import com.dute.officialNetwork.service.interfaces.DecorationClassMainTypeServic
 public class DecorationClassMainTypeServiceImpl implements DecorationClassMainTypeService {
 
 	@Autowired
+	@SuppressWarnings("unused")
 	private DecorationClassMainTypeRepository dcmtr;
 }
