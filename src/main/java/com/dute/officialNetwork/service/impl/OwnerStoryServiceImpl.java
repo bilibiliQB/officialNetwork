@@ -31,7 +31,9 @@ public class OwnerStoryServiceImpl implements OwnerStoryService {
 
 	@Override
 	public OwnerStory getOneById(Long id) {
-		return osr.getOne(id);
+		OwnerStory os = osr.getOne(id);
+		os.getViewingCount();
+		return os;
 	}
 
 	@Override

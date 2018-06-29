@@ -17,14 +17,16 @@ public class CorporateNewsServiceImpl implements CorporateNewsService {
 	private CorporateNewsRepository cnr;
 
 	@Override
-	@Cacheable(value = "CorporateNews#30")
+	@Cacheable(value = "CorporateNewsList#60")
 	public Page<CorporateNews> findAllCreateTimeDesc(Pageable pageable) {
 		return cnr.findAllByOrderByCreateTimeDesc(pageable);
 	}
 
 	@Override
 	public CorporateNews getOneById(Integer id) {
-		return cnr.getOne(id);
+		CorporateNews cn = cnr.getOne(id);
+		cn.getViewingCount();
+		return cn;
 	}
 
 	@Override
