@@ -28,7 +28,7 @@ spring:
       database: 0
       host: 47.104.139.79
       port: 10240
-      password:
+      password: WAq76E3Df_sdAS
       pool:
         max-active: 8
         max-wait: -1ms
