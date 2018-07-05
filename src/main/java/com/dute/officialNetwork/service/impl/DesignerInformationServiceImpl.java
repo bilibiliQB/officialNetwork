@@ -3,6 +3,7 @@ package com.dute.officialNetwork.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import com.dute.officialNetwork.domain.entity.DesignerInformation;
@@ -16,6 +17,7 @@ public class DesignerInformationServiceImpl implements DesignerInformationServic
 	private DesignerInformationRepository dir;
 
 	@Override
+	@Cacheable("ListDesignerInformationAll#1d")
 	public List<DesignerInformation> get5DesignerInformations() {
 		return dir.findTop5ByOrderByCreateTimeDesc();
 	}

@@ -3,6 +3,7 @@ package com.dute.officialNetwork.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -18,6 +19,7 @@ public class ProductCaseServiceImpl implements ProductCaseService {
 	private ProductCaseRepository pcr;
 
 	@Override
+	@Cacheable("get6ProductCases#12h")
 	public List<ProductCase> get6ProductCases() {
 		return pcr.findTop6ByOrderByCreateTimeDesc();
 	}
@@ -49,8 +51,21 @@ public class ProductCaseServiceImpl implements ProductCaseService {
 	}
 
 	@Override
+	@Cacheable("get4ProductCasesByPct_Id#12h")
 	public List<ProductCase> get4ProductCasesByPct_Id(Integer pct_id) {
 		return pcr.findTop4ByProductCaseType_Id(pct_id);
+	}
+
+	@Override
+	public ProductCase getOneById(Long id) {
+		ProductCase pc = pcr.getOne(id);
+		pc.getViewingCount();
+		return pc;
+	}
+
+	@Override
+	public ProductCase updateOne(ProductCase productCase) {
+		return pcr.save(productCase);
 	}
 
 }

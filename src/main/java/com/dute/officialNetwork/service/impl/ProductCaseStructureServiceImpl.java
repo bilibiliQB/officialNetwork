@@ -3,6 +3,7 @@ package com.dute.officialNetwork.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import com.dute.officialNetwork.domain.entity.ProductCaseStructure;
@@ -16,6 +17,7 @@ public class ProductCaseStructureServiceImpl implements ProductCaseStructureServ
 	private ProductCaseStructureRepository pcsr;
 
 	@Override
+	@Cacheable("ListProductCaseStructureAll#1d")
 	public List<ProductCaseStructure> getAll() {
 		return pcsr.findAll();
 	}

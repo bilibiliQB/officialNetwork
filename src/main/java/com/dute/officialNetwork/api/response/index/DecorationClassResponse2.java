@@ -107,6 +107,8 @@ public class DecorationClassResponse2 {
 	}
 
 	class DecorationClassResponse {
+		@ApiModelProperty("返回ID")
+		private Long id;
 
 		@ApiModelProperty("返回主标题")
 		private String mainTitle;
@@ -120,6 +122,14 @@ public class DecorationClassResponse2 {
 		@ApiModelProperty("返回创建时间")
 		@JSONField(format = "yyyy/MM/dd HH:mm:ss")
 		private Date createTime;
+
+		public Long getId() {
+			return id;
+		}
+
+		public void setId(Long id) {
+			this.id = id;
+		}
 
 		public String getMainTitle() {
 			return mainTitle;

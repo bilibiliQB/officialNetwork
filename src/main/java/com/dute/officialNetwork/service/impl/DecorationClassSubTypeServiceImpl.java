@@ -3,6 +3,7 @@ package com.dute.officialNetwork.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import com.dute.officialNetwork.domain.entity.DecorationClassSubType;
@@ -16,6 +17,7 @@ public class DecorationClassSubTypeServiceImpl implements DecorationClassSubType
 	private DecorationClassSubTypeRepository dcstr;
 
 	@Override
+	@Cacheable("DecorationClassByMainTypeIdList#1d")
 	public List<DecorationClassSubType> findByDecorationClassMainType_Id(Integer dcm_id) {
 		return dcstr.findByDecorationClassMainType_IdOrderByCreateTime(dcm_id);
 	}

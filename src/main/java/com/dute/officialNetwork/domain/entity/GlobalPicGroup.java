@@ -24,7 +24,7 @@ import com.alibaba.fastjson.annotation.JSONField;
 @Table(name = "global_pic_group")
 @DynamicInsert
 @DynamicUpdate
-public class GlobalPicGroup implements Serializable{
+public class GlobalPicGroup implements Serializable {
 
 	private static final long serialVersionUID = 6023259009505812647L;
 
@@ -35,6 +35,9 @@ public class GlobalPicGroup implements Serializable{
 
 	@Column(name = "gpg_name")
 	private String name; // 组名
+
+	@Column(name = "gpg_description")
+	private String description; // 描述
 
 	@OneToMany(mappedBy = "globalPicGroup", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<GlobalPicPath> globalPicPaths; // 获取该组下的所有图片
@@ -61,6 +64,14 @@ public class GlobalPicGroup implements Serializable{
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public List<GlobalPicPath> getGlobalPicPaths() {
