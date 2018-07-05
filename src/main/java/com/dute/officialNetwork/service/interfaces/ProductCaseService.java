@@ -14,4 +14,8 @@ public interface ProductCaseService {
 			Integer maxArea, Pageable pageable);
 
 	List<ProductCase> get4ProductCasesByPct_Id(Integer pct_id);
+	
+	ProductCase getOneById(Long id);
+	
+	ProductCase updateOne(ProductCase productCase);
 }

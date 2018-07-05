@@ -53,4 +53,16 @@ public class ProductCaseServiceImpl implements ProductCaseService {
 		return pcr.findTop4ByProductCaseType_Id(pct_id);
 	}
 
+	@Override
+	public ProductCase getOneById(Long id) {
+		ProductCase pc = pcr.getOne(id);
+		pc.getViewingCount();
+		return pc;
+	}
+
+	@Override
+	public ProductCase updateOne(ProductCase productCase) {
+		return pcr.save(productCase);
+	}
+
 }

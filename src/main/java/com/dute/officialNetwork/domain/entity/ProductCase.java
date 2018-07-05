@@ -26,8 +26,8 @@ import com.alibaba.fastjson.annotation.JSONField;
 @Table(name = "product_case")
 @DynamicInsert
 @DynamicUpdate
-public class ProductCase implements Serializable{
-	
+public class ProductCase implements Serializable {
+
 	private static final long serialVersionUID = 4414576449015047476L;
 
 	@Id
@@ -44,10 +44,25 @@ public class ProductCase implements Serializable{
 	@Column(name = "pc_firstpicpath")
 	private String firstPicPath; // 首页图
 
+	@Column(name = "pc_main_title")
+	private String mainTitle; // 主标题
+
+	@Column(name = "pc_sub_title")
+	private String subTitle; // 副标题
+
+	@Column(name = "pc_author_name")
+	private String authorName; // 作者名称
+
+	@Column(name = "pc_viewing_count")
+	private Integer viewingCount; // 浏览数
+
 	@Lob
 	@Basic(fetch = FetchType.LAZY)
-	@Column(name = "pc_details")
-	private String details; // 详情
+	@Column(name = "pc_content")
+	private String content; // 详情
+
+	@Column(name = "pc_keywords")
+	private String keywords; // 关键字
 
 	@ManyToOne(cascade = { CascadeType.MERGE, CascadeType.REFRESH }, optional = false)
 	@JoinColumn(name = "pc_pct_id")
@@ -113,12 +128,52 @@ public class ProductCase implements Serializable{
 		this.firstPicPath = firstPicPath;
 	}
 
-	public String getDetails() {
-		return details;
+	public String getMainTitle() {
+		return mainTitle;
 	}
 
-	public void setDetails(String details) {
-		this.details = details;
+	public void setMainTitle(String mainTitle) {
+		this.mainTitle = mainTitle;
+	}
+
+	public String getSubTitle() {
+		return subTitle;
+	}
+
+	public void setSubTitle(String subTitle) {
+		this.subTitle = subTitle;
+	}
+
+	public String getAuthorName() {
+		return authorName;
+	}
+
+	public void setAuthorName(String authorName) {
+		this.authorName = authorName;
+	}
+
+	public Integer getViewingCount() {
+		return viewingCount;
+	}
+
+	public void setViewingCount(Integer viewingCount) {
+		this.viewingCount = viewingCount;
+	}
+
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
+
+	public String getKeywords() {
+		return keywords;
+	}
+
+	public void setKeywords(String keywords) {
+		this.keywords = keywords;
 	}
 
 	public Date getCreateTime() {
