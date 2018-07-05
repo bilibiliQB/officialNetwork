@@ -9,7 +9,7 @@ import io.swagger.annotations.ApiModelProperty;
 public class CorporateNewsResponse0 {
 
 	@ApiModelProperty("返回编号")
-	private Long id;
+	private Integer id;
 
 	@ApiModelProperty("返回主标题")
 	private String mainTitle;
@@ -18,11 +18,11 @@ public class CorporateNewsResponse0 {
 	@JSONField(format = "yyyy/MM/dd")
 	private Date createTime;
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

@@ -46,3 +46,5 @@ server:
 
 
 up_load_path: "/storage/img/"
+
+PIC_HOST:

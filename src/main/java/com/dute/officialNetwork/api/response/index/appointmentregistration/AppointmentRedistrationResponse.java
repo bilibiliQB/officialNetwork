@@ -1,5 +1,6 @@
 package com.dute.officialNetwork.api.response.index.appointmentregistration;
 
+import com.dute.officialNetwork.api.vo.DesingRecord;
 import io.swagger.annotations.ApiModelProperty;
 
 import java.util.List;
@@ -15,7 +16,7 @@ public class AppointmentRedistrationResponse {
     private Integer quotedPriceNumber;
 
     @ApiModelProperty("轮播集合")
-    private List<String> list;
+    private List<DesingRecord> list;
 
     public Integer getDesignNumber() {
         return designNumber;
@@ -33,11 +34,11 @@ public class AppointmentRedistrationResponse {
         this.quotedPriceNumber = quotedPriceNumber;
     }
 
-    public List<String> getList() {
+    public List<DesingRecord> getList() {
         return list;
     }
 
-    public void setList(List<String> list) {
+    public void setList(List<DesingRecord> list) {
         this.list = list;
     }
 }
