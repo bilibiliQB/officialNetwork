@@ -5,7 +5,7 @@ import io.swagger.annotations.ApiModelProperty;
 public class DecorationClassRequest1 {
 
 	@ApiModelProperty("填写关键字")
-	private String keywords;
+	private String keywords = "";
 
 	@ApiModelProperty("填写页数[默认1]")
 	private Integer pageNumber = 1;

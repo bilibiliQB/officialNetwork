@@ -4,8 +4,8 @@ import io.swagger.annotations.ApiModelProperty;
 
 public class OwnerStoryRequest0 {
 
-	@ApiModelProperty("填写关键字[如果关键字为null则查询所有]")
-	private String keywords;
+	@ApiModelProperty("填写关键字[默认查询所有]")
+	private String keywords = "";
 
 	@ApiModelProperty("填写页数[默认1]")
 	private Integer pageNumber = 1;

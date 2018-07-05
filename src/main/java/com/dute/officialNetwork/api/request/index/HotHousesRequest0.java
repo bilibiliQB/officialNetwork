@@ -3,8 +3,8 @@ package com.dute.officialNetwork.api.request.index;
 import io.swagger.annotations.ApiModelProperty;
 
 public class HotHousesRequest0 {
-	@ApiModelProperty("填写关键字[如果此字段为null就是查询所有]")
-	private String keywords;
+	@ApiModelProperty("填写关键字[默认查询所有]")
+	private String keywords = "";
 
 	@ApiModelProperty("填写页数[默认1]")
 	private Integer pageNumber = 1;

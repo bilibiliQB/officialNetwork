@@ -20,9 +20,7 @@ public class CustomizedRedisCacheManager extends RedisCacheManager {
 	private volatile Set<String> cacheNames = Collections.emptySet();
 
 	/**
-	 * 缓存参数的分隔符 
-	 * 数组元素0=缓存的名称 
-	 * 数组元素1=缓存过期时间TTL
+	 * 缓存参数的分隔符 数组元素0=缓存的名称 数组元素1=缓存过期时间TTL
 	 */
 	private static final String SEPARATOR = "#";
 
@@ -49,7 +47,27 @@ public class CustomizedRedisCacheManager extends RedisCacheManager {
 				cache = this.cacheMap.get(cacheName);
 				if (cache == null) {
 					if (cacheParams.length == 2) {
-						cache = getMissingCache(cacheName, Long.valueOf(cacheParams[1]));
+						String timeStr = cacheParams[1].toLowerCase();
+						Long time = null;
+						if (timeStr.indexOf("s") != -1) {
+							// 时间单位：秒
+							time = Long.valueOf(timeStr.replace("s", ""));
+							cache = getMissingCache(cacheName, Duration.ofSeconds(time));
+						} else if (timeStr.indexOf("m") != -1) {
+							// 时间单位：分钟
+							time = Long.valueOf(timeStr.replace("m", ""));
+							cache = getMissingCache(cacheName, Duration.ofMinutes(time));
+						} else if (timeStr.indexOf("h") != -1) {
+							// 时间单位：小时
+							time = Long.valueOf(timeStr.replace("h", ""));
+							cache = getMissingCache(cacheName, Duration.ofHours(time));
+						} else if (timeStr.indexOf("d") != -1) {
+							// 时间单位：天
+							time = Long.valueOf(timeStr.replace("d", ""));
+							cache = getMissingCache(cacheName, Duration.ofDays(time));
+						} else {
+							throw new RuntimeException("未识别的时间单位[s 秒/m 分钟/h 小时/d 天]");
+						}
 					} else {
 						cache = getMissingCache(cacheName);
 					}
@@ -72,8 +90,8 @@ public class CustomizedRedisCacheManager extends RedisCacheManager {
 		this.cacheNames = Collections.unmodifiableSet(cacheNames);
 	}
 
-	private RedisCache getMissingCache(String name, Long seconds) {
-		RedisCacheConfiguration cacheConfig = defaultCacheConfiguration.entryTtl(Duration.ofSeconds(seconds));
+	private RedisCache getMissingCache(String name, Duration time) {
+		RedisCacheConfiguration cacheConfig = defaultCacheConfiguration.entryTtl(time);
 		return super.createRedisCache(name, cacheConfig);
 	}
 
