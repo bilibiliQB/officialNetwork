@@ -15,15 +15,13 @@ import java.nio.file.StandardCopyOption;
 @Service
 public class ResourceService {
 
-    @Value("up_load_path")
+    @Value("${up_load_path}")
     private String path;
 
     public String upload(MultipartFile file){
-
-
         String location = DateUtils.getDate() + "/";
         // 判断文件夹是否存在，不存在则
-        File targetFile = new File(path + location);
+        File targetFile = new File(path + "/" + location);
         if(!targetFile.exists()){
             targetFile.mkdirs();
         }
@@ -32,7 +30,7 @@ public class ResourceService {
 
         try {
             try {
-                Files.copy(file.getInputStream(), Paths.get(path + location, fileName), StandardCopyOption.REPLACE_EXISTING);
+                Files.copy(file.getInputStream(), Paths.get(path + "/" + location, fileName), StandardCopyOption.REPLACE_EXISTING);
             } catch (IOException e) {
                 e.printStackTrace();
             }

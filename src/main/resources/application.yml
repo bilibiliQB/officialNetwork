@@ -45,6 +45,6 @@ server:
     uri-encoding: utf-8
 
 
-up_load_path: "/storage/img/"
+up_load_path: "/usr/local/img"
 
 PIC_HOST:

@@ -18,7 +18,7 @@ public class FileUtils {
         String uuid = IdGen.uuid();
 
         //生成新文件名
-        String newFileName = uuid + ext;
+        String newFileName = uuid + "." + ext;
 
         return newFileName;
 
