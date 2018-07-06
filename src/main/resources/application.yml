@@ -45,4 +45,5 @@ server:
     uri-encoding: utf-8
 
 
-up_load_path: "/storage/img/"
+up-load:
+  path: "/storage/img"
