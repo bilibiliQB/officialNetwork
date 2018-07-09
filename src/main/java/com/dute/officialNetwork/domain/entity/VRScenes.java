@@ -47,6 +47,28 @@ public class VRScenes implements Serializable{
 	@Column(name = "vs_modify_time")
 	private Date modifyTime; // 修改时间
 
+	@Column(name = "vs_img_url")
+	private String vsImgUrl; //VR图片的地址
+
+	@Column(name = "vs_herf_path")
+	private String vsHerfPath; //VR地址
+
+	public String getVsImgUrl() {
+		return vsImgUrl;
+	}
+
+	public void setVsImgUrl(String vsImgUrl) {
+		this.vsImgUrl = vsImgUrl;
+	}
+
+	public String getVsHerfPath() {
+		return vsHerfPath;
+	}
+
+	public void setVsHerfPath(String vsHerfPath) {
+		this.vsHerfPath = vsHerfPath;
+	}
+
 	public Long getId() {
 		return id;
 	}

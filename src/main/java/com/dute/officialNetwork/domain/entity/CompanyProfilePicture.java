@@ -17,11 +17,43 @@ public class CompanyProfilePicture {
     private Integer id;// ID
 
     @Column(name = "pic_url")
-    private String mainTitle; // 地址
+    private String picUrl; // 地址
 
     @Column(name = "pic_order")
-    private Integer subTitle; // 排序
+    private Integer picOrder; // 排序
 
     @Column(name = "pic_createtime")
-    private Date authorName; // 创建时间
+    private Date picCreatetime; // 创建时间
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getPicUrl() {
+        return picUrl;
+    }
+
+    public void setPicUrl(String picUrl) {
+        this.picUrl = picUrl;
+    }
+
+    public Integer getPicOrder() {
+        return picOrder;
+    }
+
+    public void setPicOrder(Integer picOrder) {
+        this.picOrder = picOrder;
+    }
+
+    public Date getPicCreatetime() {
+        return picCreatetime;
+    }
+
+    public void setPicCreatetime(Date picCreatetime) {
+        this.picCreatetime = picCreatetime;
+    }
 }
