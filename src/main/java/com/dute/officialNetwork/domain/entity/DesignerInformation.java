@@ -38,6 +38,15 @@ public class DesignerInformation implements Serializable{
 	@Column(name = "di_pic_path")
 	private String picPath; // 设计师头像图片
 
+	@Column(name = "di_work_year")
+	private  String workYear; //设计师工作年限
+
+	@Column(name = "di_adept_style")
+	private String adeptStyle; //设计师擅长风格
+
+	@Column(name = "di_level")
+	private String level; //设计师水平
+
 	@JSONField(format = "yyyy/MM/dd HH:mm:ss")
 	@Column(name = "di_create_time")
 	private Date createTime; // 创建时间
@@ -45,6 +54,30 @@ public class DesignerInformation implements Serializable{
 	@JSONField(format = "yyyy/MM/dd HH:mm:ss")
 	@Column(name = "di_modify_time")
 	private Date modifyTime; // 修改时间
+
+	public String getWorkYear() {
+		return workYear;
+	}
+
+	public void setWorkYear(String workYear) {
+		this.workYear = workYear;
+	}
+
+	public String getAdeptStyle() {
+		return adeptStyle;
+	}
+
+	public void setAdeptStyle(String adeptStyle) {
+		this.adeptStyle = adeptStyle;
+	}
+
+	public String getLevel() {
+		return level;
+	}
+
+	public void setLevel(String level) {
+		this.level = level;
+	}
 
 	public Integer getId() {
 		return id;
