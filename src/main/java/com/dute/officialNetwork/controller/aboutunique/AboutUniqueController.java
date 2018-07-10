@@ -3,8 +3,10 @@ package com.dute.officialNetwork.controller.aboutunique;
 import com.dute.officialNetwork.api.po.UniqueVedioPo;
 import com.dute.officialNetwork.api.response.about.AboutMilestonDataResponse;
 import com.dute.officialNetwork.api.response.about.AboutMilestonVideoResponse;
+import com.dute.officialNetwork.api.response.about.CooperativePartnerDataResponse;
 import com.dute.officialNetwork.api.response.index.CorporateNewsResponse0;
 import com.dute.officialNetwork.domain.entity.CorporateNews;
+import com.dute.officialNetwork.service.impl.cooperativepartner.CooperativePartnerServiceImpl;
 import com.dute.officialNetwork.service.impl.milestone.MilestoneRecordServiceImpl;
 import com.dute.officialNetwork.service.impl.uniquevedio.UniqueVedioServiceImpl;
 import com.dute.officialNetwork.service.interfaces.CorporateNewsService;
@@ -34,6 +36,9 @@ public class AboutUniqueController {
 
     @Autowired
     private UniqueVedioServiceImpl uniqueVedioService;
+
+    @Autowired
+    private CooperativePartnerServiceImpl cooperativePartnerService;
 
     @ApiOperation("获取发展历程（里程碑列表）")
     @PostMapping(value = "mileston")
@@ -90,18 +95,18 @@ public class AboutUniqueController {
         return resultData;
     }
 
-//    @ApiOperation("获取独特合作品牌标识")
-//    @PostMapping(value = "mileston")
-//    public ResultData<AboutMilestonDataResponse> getAboutMilestonData(){
-//        ResultData<AboutMilestonDataResponse> resultData = new ResultData<>();
-//        try {
-//            AboutMilestonDataResponse aboutMilestonDataResponse = new AboutMilestonDataResponse();
-//            aboutMilestonDataResponse.setList(milestoneRecordService.findAll());
-//            resultData.setData(aboutMilestonDataResponse);
-//        }catch (Exception e){
-//            resultData.setStatus(ResultData.CODE_FAIL_BIZ);
-//            resultData.setMessage(e.getMessage());
-//        }
-//        return resultData;
-//    }
+    @ApiOperation("获取独特合作品牌标识")
+    @PostMapping(value = "milestonCooperativePartner")
+    public ResultData<CooperativePartnerDataResponse> getMilestonCooperativePartnerData(){
+        ResultData<CooperativePartnerDataResponse> resultData = new ResultData<>();
+        try {
+            CooperativePartnerDataResponse cooperativePartnerDataResponse = new CooperativePartnerDataResponse();
+            cooperativePartnerDataResponse.setList(cooperativePartnerService.findAll());
+            resultData.setData(cooperativePartnerDataResponse);
+        }catch (Exception e){
+            resultData.setStatus(ResultData.CODE_FAIL_BIZ);
+            resultData.setMessage(e.getMessage());
+        }
+        return resultData;
+    }
 }
