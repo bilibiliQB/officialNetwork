@@ -1,5 +1,6 @@
 package com.dute.officialNetwork.api.po;
 
+import com.alibaba.fastjson.annotation.JSONField;
 import io.swagger.annotations.ApiModelProperty;
 
 import java.io.Serializable;
@@ -29,9 +30,11 @@ public class ProductCaseTypePo implements Serializable {
     private Integer price; // 每平价格
 
     @ApiModelProperty("创建时间")
+    @JSONField(format = "yyyy/MM/dd HH:mm:ss")
     private Date createTime; // 创建时间
 
     @ApiModelProperty("修改时间")
+    @JSONField(format = "yyyy/MM/dd HH:mm:ss")
     private Date modifyTime; // 修改时间
 
     public Integer getId() {

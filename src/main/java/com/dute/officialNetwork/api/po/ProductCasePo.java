@@ -48,9 +48,11 @@ public class ProductCasePo implements Serializable {
 //    private ProductCaseStructure productCaseStructure; // 案例结构
 
     @ApiModelProperty("创建时间")
+    @JSONField(format = "yyyy/MM/dd HH:mm:ss")
     private Date createTime; // 创建时间
 
     @ApiModelProperty("修改时间")
+    @JSONField(format = "yyyy/MM/dd HH:mm:ss")
     private Date modifyTime; // 修改时间
 
     public Long getId() {

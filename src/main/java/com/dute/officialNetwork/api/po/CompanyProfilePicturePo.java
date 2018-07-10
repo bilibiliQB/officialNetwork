@@ -1,5 +1,6 @@
 package com.dute.officialNetwork.api.po;
 
+import com.alibaba.fastjson.annotation.JSONField;
 import io.swagger.annotations.ApiModelProperty;
 
 import javax.persistence.Column;
@@ -20,6 +21,7 @@ public class CompanyProfilePicturePo implements Serializable {
     private Integer picOrder; // 排序
 
     @ApiModelProperty("创建时间")
+    @JSONField(format = "yyyy/MM/dd HH:mm:ss")
     private Date picCreatetime; // 创建时间
 
     public Integer getId() {

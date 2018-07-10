@@ -1,5 +1,6 @@
 package com.dute.officialNetwork.api.po;
 
+import com.alibaba.fastjson.annotation.JSONField;
 import io.swagger.annotations.ApiModelProperty;
 
 import java.io.Serializable;
@@ -17,6 +18,7 @@ public class DrawLotteryRafflePo implements Serializable {
     private String drawImgUrl; // 奖品图片地址
 
     @ApiModelProperty("奖品图片创建时间")
+    @JSONField(format = "yyyy/MM/dd HH:mm:ss")
     private Date deawCreateTime; // 奖品图片创建时间
 
     @ApiModelProperty("奖品名称")

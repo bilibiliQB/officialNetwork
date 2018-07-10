@@ -40,9 +40,11 @@ public class DecorationClassPo implements Serializable {
     private String keywords; // 关键字
 
     @ApiModelProperty("创建时间")
+    @JSONField(format = "yyyy/MM/dd HH:mm:ss")
     private Date createTime; // 创建时间
 
     @ApiModelProperty("修改时间")
+    @JSONField(format = "yyyy/MM/dd HH:mm:ss")
     private Date modifyTime; // 修改时间
 
     public Long getId() {

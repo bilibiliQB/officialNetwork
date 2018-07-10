@@ -14,9 +14,15 @@ public class CorporateNewsResponse0 {
 	@ApiModelProperty("返回主标题")
 	private String mainTitle;
 
-	@ApiModelProperty("返回创建时间")
-	@JSONField(format = "yyyy/MM/dd")
-	private Date createTime;
+	@ApiModelProperty("返回创建时间(年月)")
+	@JSONField(format = "yyyy/MM")
+	private Date createTimeYearAndMonth;
+
+	@ApiModelProperty("返回创建时间(年月)")
+	@JSONField(format = "dd")
+	private Date createTimeDay;
+
+
 
 	public Integer getId() {
 		return id;
@@ -34,12 +40,19 @@ public class CorporateNewsResponse0 {
 		this.mainTitle = mainTitle;
 	}
 
-	public Date getCreateTime() {
-		return createTime;
+	public Date getCreateTimeYearAndMonth() {
+		return createTimeYearAndMonth;
 	}
 
-	public void setCreateTime(Date createTime) {
-		this.createTime = createTime;
+	public void setCreateTimeYearAndMonth(Date createTimeYearAndMonth) {
+		this.createTimeYearAndMonth = createTimeYearAndMonth;
 	}
 
+	public Date getCreateTimeDay() {
+		return createTimeDay;
+	}
+
+	public void setCreateTimeDay(Date createTimeDay) {
+		this.createTimeDay = createTimeDay;
+	}
 }

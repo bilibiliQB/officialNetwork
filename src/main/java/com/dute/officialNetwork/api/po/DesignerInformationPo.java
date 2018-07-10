@@ -33,9 +33,11 @@ public class DesignerInformationPo implements Serializable {
     private String level; //设计师水平
 
     @ApiModelProperty("创建时间")
+    @JSONField(format = "yyyy/MM/dd HH:mm:ss")
     private Date createTime; // 创建时间
 
     @ApiModelProperty("修改时间")
+    @JSONField(format = "yyyy/MM/dd HH:mm:ss")
     private Date modifyTime; // 修改时间
 
     public Integer getId() {
