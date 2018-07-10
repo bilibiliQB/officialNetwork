@@ -1,6 +1,6 @@
 package com.dute.officialNetwork.service.interfaces.main;
 
-import com.dute.officialNetwork.domain.entity.CompanyProfilePicture;
+import com.dute.officialNetwork.api.po.CompanyProfilePicturePo;
 
 import java.util.List;
 
@@ -8,5 +8,5 @@ import java.util.List;
  * Created by zhanghongwei on 2018/7/9.
  */
 public interface ICompanyProfilePictureService {
-    List<CompanyProfilePicture> findAll();
+    List<CompanyProfilePicturePo> findAll();
 }

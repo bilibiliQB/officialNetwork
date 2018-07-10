@@ -1,36 +1,25 @@
-package com.dute.officialNetwork.domain.entity;
+package com.dute.officialNetwork.api.po;
 
 import io.swagger.annotations.ApiModelProperty;
-import org.hibernate.annotations.DynamicInsert;
-import org.hibernate.annotations.DynamicUpdate;
 
-import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
-/**
- * Created by zhanghongwei on 2018/7/9.
- */
-@Entity
-@Table(name = "draw_lottery_raffle")
-@DynamicInsert
-@DynamicUpdate
-public class DrawLotteryRaffle implements Serializable {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "draw_id", updatable = false)
+public class DrawLotteryRafflePo implements Serializable {
+
+    @ApiModelProperty("奖品图片编号")
     private Integer id;// 奖品图片编号
 
-    @Column(name = "draw_order")
+    @ApiModelProperty("奖品图片编号")
     private Integer drawOrder; // 奖品图片编号
 
-    @Column(name = "draw_img_url")
+    @ApiModelProperty("奖品图片地址")
     private String drawImgUrl; // 奖品图片地址
 
-    @Column(name = "deaw_create_time")
+    @ApiModelProperty("奖品图片创建时间")
     private Date deawCreateTime; // 奖品图片创建时间
 
-    @Column(name = "draw_name")
+    @ApiModelProperty("奖品名称")
     private String drawName; //奖品名称
 
     public Integer getId() {
@@ -41,14 +30,6 @@ public class DrawLotteryRaffle implements Serializable {
         this.id = id;
     }
 
-    public String getDrawImgUrl() {
-        return drawImgUrl;
-    }
-
-    public void setDrawImgUrl(String drawImgUrl) {
-        this.drawImgUrl = drawImgUrl;
-    }
-
     public Integer getDrawOrder() {
         return drawOrder;
     }
@@ -57,11 +38,27 @@ public class DrawLotteryRaffle implements Serializable {
         this.drawOrder = drawOrder;
     }
 
+    public String getDrawImgUrl() {
+        return drawImgUrl;
+    }
+
+    public void setDrawImgUrl(String drawImgUrl) {
+        this.drawImgUrl = drawImgUrl;
+    }
+
     public Date getDeawCreateTime() {
         return deawCreateTime;
     }
 
     public void setDeawCreateTime(Date deawCreateTime) {
         this.deawCreateTime = deawCreateTime;
+    }
+
+    public String getDrawName() {
+        return drawName;
+    }
+
+    public void setDrawName(String drawName) {
+        this.drawName = drawName;
     }
 }

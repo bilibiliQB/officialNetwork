@@ -1,12 +1,17 @@
 package com.dute.officialNetwork.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import com.dute.officialNetwork.api.po.DesignerInformationPo;
+import com.dute.officialNetwork.api.po.ProductCasePo;
+import com.dute.officialNetwork.domain.entity.DesignerInformation;
+import com.dute.officialNetwork.domain.entity.ProductCase;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
-import com.dute.officialNetwork.domain.entity.DesignerInformation;
 import com.dute.officialNetwork.domain.repository.DesignerInformationRepository;
 import com.dute.officialNetwork.service.interfaces.DesignerInformationService;
 
@@ -18,7 +23,13 @@ public class DesignerInformationServiceImpl implements DesignerInformationServic
 
 	@Override
 	@Cacheable("ListDesignerInformationAll#1d")
-	public List<DesignerInformation> get5DesignerInformations() {
-		return dir.findTop5ByOrderByCreateTimeDesc();
+	public List<DesignerInformationPo> get5DesignerInformations() {
+		List<DesignerInformationPo> list = new ArrayList<>();
+		for(DesignerInformation designerInformation : dir.findTop5ByOrderByCreateTimeDesc()){
+			DesignerInformationPo designerInformationPo = new DesignerInformationPo();
+			BeanUtils.copyProperties(designerInformation,designerInformationPo);
+			list.add(designerInformationPo);
+		}
+		return list;
 	}
 }

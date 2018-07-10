@@ -1,30 +1,25 @@
-package com.dute.officialNetwork.domain.entity;
+package com.dute.officialNetwork.api.po;
 
 import io.swagger.annotations.ApiModelProperty;
-import org.hibernate.annotations.DynamicInsert;
-import org.hibernate.annotations.DynamicUpdate;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.Date;
 
-@Entity
-@Table(name = "company_profile_picture")
-@DynamicInsert
-@DynamicUpdate
-public class CompanyProfilePicture  implements Serializable {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "pic_id", updatable = false)
+public class CompanyProfilePicturePo implements Serializable {
+    @ApiModelProperty("ID")
     private Integer id;// ID
 
-    @Column(name = "pic_url")
+    @ApiModelProperty("地址")
     private String picUrl; // 地址
 
-    @Column(name = "pic_order")
+    @ApiModelProperty("排序")
     private Integer picOrder; // 排序
 
-    @Column(name = "pic_createtime")
+    @ApiModelProperty("创建时间")
     private Date picCreatetime; // 创建时间
 
     public Integer getId() {

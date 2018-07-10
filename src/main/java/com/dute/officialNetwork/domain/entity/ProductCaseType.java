@@ -11,6 +11,7 @@ import javax.persistence.Id;
 
 import javax.persistence.Table;
 
+import io.swagger.annotations.ApiModelProperty;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 

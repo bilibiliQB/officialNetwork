@@ -1,5 +1,6 @@
 package com.dute.officialNetwork.service.impl.main;
 
+import com.dute.officialNetwork.api.po.*;
 import com.dute.officialNetwork.api.response.main.MainDataListResponse;
 import com.dute.officialNetwork.domain.entity.*;
 import com.dute.officialNetwork.service.impl.VRScenesServiceImpl;
@@ -52,23 +53,23 @@ public class MainServiceImpl implements IMainService {
         //1.获取抽奖活动照片 此处设定抽奖活动的图片你编号就是1   一条
         UngroupedPicture ungroupedPicture = ungroupedPictureService.findById(1);
         //2.获取奖品图片列表，并带名称   7条
-        List<DrawLotteryRaffle> drawLotteryRaffleList = drawLotteryRaffleService.findAll();
+        List<DrawLotteryRafflePo> drawLotteryRaffleList = drawLotteryRaffleService.findAll();
         //3.获取装修风格列表  6条
-        List<ProductCaseType> productCaseTypeList = productCaseTypeService.getAll();
+        List<ProductCaseTypePo> productCaseTypeList = productCaseTypeService.getAll();
         //4.获取业主案例列表 6条
-        List<ProductCase> productCaseslist = productCaseService.get6ProductCases();
+        List<ProductCasePo> productCaseslist = productCaseService.get6ProductCases();
         //5.VR列表 三条
-        List<VRScenes> vrScenesList = vrScenesService.getAll();
+        List<VRScenesPo> vrScenesList = vrScenesService.getAll();
         //6.设计师列表
-        List<DesignerInformation> designerInformationList = designerInformationService.get5DesignerInformations();
+        List<DesignerInformationPo> designerInformationList = designerInformationService.get5DesignerInformations();
         //7.走进独特列表
-        List<CompanyProfilePicture> companyProfilePictureList = companyProfilePictureService.findAll();
+        List<CompanyProfilePicturePo> companyProfilePictureList = companyProfilePictureService.findAll();
         //8.准备
-        List<DecorationClass> decorationClassList_1 = decorationClassService.getDecorationClassByMainTypeId(1); //装修课堂 1 准备阶段  6 条
+        List<DecorationClassPo> decorationClassList_1 = decorationClassService.getDecorationClassByMainTypeId(1); //装修课堂 1 准备阶段  6 条
         //9.施工
-		List<DecorationClass> decorationClassList_2 = decorationClassService.getDecorationClassByMainTypeId(2); //装修课堂 2 施工阶段  6 条
+		List<DecorationClassPo> decorationClassList_2 = decorationClassService.getDecorationClassByMainTypeId(2); //装修课堂 2 施工阶段  6 条
         //10.收尾
-		List<DecorationClass> decorationClassList_3 = decorationClassService.getDecorationClassByMainTypeId(3); //装修课堂 3 收尾阶段  6 条
+		List<DecorationClassPo> decorationClassList_3 = decorationClassService.getDecorationClassByMainTypeId(3); //装修课堂 3 收尾阶段  6 条
 
         //装数据
         MainDataListResponse mainDataListResponse = new MainDataListResponse();

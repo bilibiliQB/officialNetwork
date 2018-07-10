@@ -106,24 +106,24 @@ public class DesignerInformationController {
 
 
 
-	@ApiOperation("获取5个最新设计师信息")
-	@PostMapping("/get5DesignerInformation")
-	public ResultData<List<DesignerInformationResponse0>> get5DesignerInformations() {
-		ResultData<List<DesignerInformationResponse0>> result = new ResultData<>();
-		List<DesignerInformationResponse0> dirs = new ArrayList<>();
-		try {
-			for (DesignerInformation di : dis.get5DesignerInformations()) {
-				DesignerInformationResponse0 dir = new DesignerInformationResponse0();
-				BeanUtils.copyProperties(di, dir);
-				dirs.add(dir);
-				dir = null;
-			}
-			result.setData(dirs);
-			result.setStatus(ResultData.CODE_SUCCESS);
-		} catch (Exception e) {
-			result.setStatus(ResultData.CODE_FAIL_BIZ);
-			result.setMessage(e.getMessage());
-		}
-		return result;
-	}
+//	@ApiOperation("获取5个最新设计师信息")
+//	@PostMapping("/get5DesignerInformation")
+//	public ResultData<List<DesignerInformationResponse0>> get5DesignerInformations() {
+//		ResultData<List<DesignerInformationResponse0>> result = new ResultData<>();
+//		List<DesignerInformationResponse0> dirs = new ArrayList<>();
+//		try {
+//			for (DesignerInformation di : dis.get5DesignerInformations()) {
+//				DesignerInformationResponse0 dir = new DesignerInformationResponse0();
+//				BeanUtils.copyProperties(di, dir);
+//				dirs.add(dir);
+//				dir = null;
+//			}
+//			result.setData(dirs);
+//			result.setStatus(ResultData.CODE_SUCCESS);
+//		} catch (Exception e) {
+//			result.setStatus(ResultData.CODE_FAIL_BIZ);
+//			result.setMessage(e.getMessage());
+//		}
+//		return result;
+//	}
 }

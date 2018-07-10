@@ -1,5 +1,6 @@
 package com.dute.officialNetwork.service.interfaces.main;
 
+import com.dute.officialNetwork.api.po.DrawLotteryRafflePo;
 import com.dute.officialNetwork.domain.entity.DrawLotteryRaffle;
 
 import java.util.List;
@@ -10,5 +11,5 @@ import java.util.List;
 public interface IDrawLotteryRaffleService {
     DrawLotteryRaffle findById(int i);
 
-    List<DrawLotteryRaffle> findAll();
+    List<DrawLotteryRafflePo> findAll();
 }

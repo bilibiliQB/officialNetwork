@@ -1,5 +1,6 @@
 package com.dute.officialNetwork.api.response.main;
 
+import com.dute.officialNetwork.api.po.*;
 import com.dute.officialNetwork.api.response.index.CorporateNewsResponse0;
 import com.dute.officialNetwork.api.response.index.DesignerInformationResponse0;
 import com.dute.officialNetwork.api.response.index.ProductCaseResponse0;
@@ -15,31 +16,31 @@ public class MainDataListResponse {
     private String previews;
 
     @ApiModelProperty("奖品列表")
-    private List<DrawLotteryRaffle> prizeList;
+    private List<DrawLotteryRafflePo> prizeList;
 
     @ApiModelProperty("装修风格列表")
-    private List<ProductCaseType> decorationStyleList;
+    private List<ProductCaseTypePo> decorationStyleList;
 
     @ApiModelProperty("业主案例列表")
-    private List<ProductCase> decorationCaseLsit;
+    private List<ProductCasePo> decorationCaseLsit;
 
     @ApiModelProperty("VR列表")
-    private List<VRScenes> vrList;
+    private List<VRScenesPo> vrList;
 
     @ApiModelProperty("设计师列表")
-    private List<DesignerInformation> designerInformationList;
+    private List<DesignerInformationPo> designerInformationList;
 
     @ApiModelProperty("走进独特列表")
-    private List<CompanyProfilePicture> companyProfilePictureList;
+    private List<CompanyProfilePicturePo> companyProfilePictureList;
 
     @ApiModelProperty("企业新闻列表，准备阶段")
-    private List<DecorationClass> decorationClassForReadyList;
+    private List<DecorationClassPo> decorationClassForReadyList;
 
     @ApiModelProperty("企业新闻列表，施工阶段")
-    private List<DecorationClass> decorationClassForOnstructionList;
+    private List<DecorationClassPo> decorationClassForOnstructionList;
 
     @ApiModelProperty("企业新闻列表，首尾入住")
-    private List<DecorationClass> decorationClassForWinfUpList;
+    private List<DecorationClassPo> decorationClassForWinfUpList;
 
     public String getPreviews() {
         return previews;
@@ -49,75 +50,75 @@ public class MainDataListResponse {
         this.previews = previews;
     }
 
-    public List<DrawLotteryRaffle> getPrizeList() {
+    public List<DrawLotteryRafflePo> getPrizeList() {
         return prizeList;
     }
 
-    public void setPrizeList(List<DrawLotteryRaffle> prizeList) {
+    public void setPrizeList(List<DrawLotteryRafflePo> prizeList) {
         this.prizeList = prizeList;
     }
 
-    public List<ProductCaseType> getDecorationStyleList() {
+    public List<ProductCaseTypePo> getDecorationStyleList() {
         return decorationStyleList;
     }
 
-    public void setDecorationStyleList(List<ProductCaseType> decorationStyleList) {
+    public void setDecorationStyleList(List<ProductCaseTypePo> decorationStyleList) {
         this.decorationStyleList = decorationStyleList;
     }
 
-    public List<ProductCase> getDecorationCaseLsit() {
+    public List<ProductCasePo> getDecorationCaseLsit() {
         return decorationCaseLsit;
     }
 
-    public void setDecorationCaseLsit(List<ProductCase> decorationCaseLsit) {
+    public void setDecorationCaseLsit(List<ProductCasePo> decorationCaseLsit) {
         this.decorationCaseLsit = decorationCaseLsit;
     }
 
-    public List<VRScenes> getVrList() {
+    public List<VRScenesPo> getVrList() {
         return vrList;
     }
 
-    public void setVrList(List<VRScenes> vrList) {
+    public void setVrList(List<VRScenesPo> vrList) {
         this.vrList = vrList;
     }
 
-    public List<DesignerInformation> getDesignerInformationList() {
+    public List<DesignerInformationPo> getDesignerInformationList() {
         return designerInformationList;
     }
 
-    public void setDesignerInformationList(List<DesignerInformation> designerInformationList) {
+    public void setDesignerInformationList(List<DesignerInformationPo> designerInformationList) {
         this.designerInformationList = designerInformationList;
     }
 
-    public List<CompanyProfilePicture> getCompanyProfilePictureList() {
+    public List<CompanyProfilePicturePo> getCompanyProfilePictureList() {
         return companyProfilePictureList;
     }
 
-    public void setCompanyProfilePictureList(List<CompanyProfilePicture> companyProfilePictureList) {
+    public void setCompanyProfilePictureList(List<CompanyProfilePicturePo> companyProfilePictureList) {
         this.companyProfilePictureList = companyProfilePictureList;
     }
 
-    public List<DecorationClass> getDecorationClassForReadyList() {
+    public List<DecorationClassPo> getDecorationClassForReadyList() {
         return decorationClassForReadyList;
     }
 
-    public void setDecorationClassForReadyList(List<DecorationClass> decorationClassForReadyList) {
+    public void setDecorationClassForReadyList(List<DecorationClassPo> decorationClassForReadyList) {
         this.decorationClassForReadyList = decorationClassForReadyList;
     }
 
-    public List<DecorationClass> getDecorationClassForOnstructionList() {
+    public List<DecorationClassPo> getDecorationClassForOnstructionList() {
         return decorationClassForOnstructionList;
     }
 
-    public void setDecorationClassForOnstructionList(List<DecorationClass> decorationClassForOnstructionList) {
+    public void setDecorationClassForOnstructionList(List<DecorationClassPo> decorationClassForOnstructionList) {
         this.decorationClassForOnstructionList = decorationClassForOnstructionList;
     }
 
-    public List<DecorationClass> getDecorationClassForWinfUpList() {
+    public List<DecorationClassPo> getDecorationClassForWinfUpList() {
         return decorationClassForWinfUpList;
     }
 
-    public void setDecorationClassForWinfUpList(List<DecorationClass> decorationClassForWinfUpList) {
+    public void setDecorationClassForWinfUpList(List<DecorationClassPo> decorationClassForWinfUpList) {
         this.decorationClassForWinfUpList = decorationClassForWinfUpList;
     }
 }

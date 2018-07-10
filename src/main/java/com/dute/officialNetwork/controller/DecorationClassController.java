@@ -3,6 +3,7 @@ package com.dute.officialNetwork.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.dute.officialNetwork.api.po.DecorationClassPo;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -41,16 +42,11 @@ public class DecorationClassController {
 
 	@ApiOperation("获取装修课堂7条信息[id 选项][1 准备阶段 2 施工阶段 3 收尾阶段]")
 	@PostMapping("/getByMainTypeId0/{id}")
-	public ResultData<List<DecorationClassResponse0>> getDecorationClass0(@PathVariable Integer id) {
-		ResultData<List<DecorationClassResponse0>> result = new ResultData<>();
-		List<DecorationClassResponse0> dcr = new ArrayList<>();
+	public ResultData<List<DecorationClassPo>> getDecorationClass0(@PathVariable Integer id) {
+		ResultData<List<DecorationClassPo>> result = new ResultData<>();
+		List<DecorationClassPo> dcr = new ArrayList<>();
 		try {
-			for (DecorationClass dc : dcs.getDecorationClassByMainTypeId(id)) {
-				DecorationClassResponse0 dc0 = new DecorationClassResponse0();
-				BeanUtils.copyProperties(dc, dc0);
-				dcr.add(dc0);
-				dc0 = null;
-			}
+			dcr = dcs.getDecorationClassByMainTypeId(id);
 			result.setData(dcr);
 			result.setStatus(ResultData.CODE_SUCCESS);
 		} catch (Exception e) {

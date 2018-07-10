@@ -8,23 +8,24 @@ import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @Api(description = "首页相关数据")
-@RequestMapping("main")
 @RestController
+@RequestMapping("main")
 public class MainController {
 
     @Autowired
     private MainServiceImpl mainService;
 
-    @PostMapping("mainData")
+    @PostMapping(value = "mainData")
+    @ResponseBody
     public ResultData<MainDataListResponse> getMainData(){
-        ResultData<MainDataListResponse> resultData = new ResultData<>();
+        ResultData<MainDataListResponse> resultData = new ResultData<MainDataListResponse>();
         try {
             MainDataListResponse mainDataListResponse = mainService.getMainData();
             resultData.setData(mainDataListResponse);
-            resultData.setStatus(ResultData.CODE_SUCCESS);
         }catch (Exception e){
             resultData.setStatus(ResultData.CODE_FAIL_BIZ);
             resultData.setMessage("系统开小差了~");

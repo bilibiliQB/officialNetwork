@@ -1,10 +1,10 @@
 package com.dute.officialNetwork.service.interfaces;
 
-import com.dute.officialNetwork.domain.entity.VRScenes;
+import com.dute.officialNetwork.api.po.VRScenesPo;
 
 import java.util.List;
 
 public interface VRScenesService {
 
-    List<VRScenes> getAll();
+    List<VRScenesPo> getAll();
 }

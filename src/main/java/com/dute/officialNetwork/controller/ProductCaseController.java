@@ -3,6 +3,7 @@ package com.dute.officialNetwork.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.dute.officialNetwork.api.po.ProductCasePo;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -33,18 +34,11 @@ public class ProductCaseController {
 
 	@ApiOperation("获取6个最新装修案例")
 	@PostMapping("/get6ProductCase")
-	public ResultData<List<ProductCaseResponse0>> get6ProductCases() {
-		ResultData<List<ProductCaseResponse0>> result = new ResultData<>();
-		List<ProductCaseResponse0> lpcr = new ArrayList<>();
+	public ResultData<List<ProductCasePo>> get6ProductCases() {
+		ResultData<List<ProductCasePo>> result = new ResultData<>();
+		List<ProductCasePo> lpcr = new ArrayList<>();
 		try {
-			for (ProductCase pc : pcs.get6ProductCases()) {
-				ProductCaseResponse0 pcr = new ProductCaseResponse0();
-				BeanUtils.copyProperties(pc, pcr);
-				BeanUtils.copyProperties(pc.getProductCaseType(), pcr.getProductCaseTypeResponse());
-				BeanUtils.copyProperties(pc.getProductCaseStructure(), pcr.getProductCaseStructureResponse());
-				lpcr.add(pcr);
-				pcr = null;
-			}
+			lpcr = pcs.get6ProductCases();
 			result.setData(lpcr);
 			result.setStatus(ResultData.CODE_SUCCESS);
 		} catch (Exception e) {

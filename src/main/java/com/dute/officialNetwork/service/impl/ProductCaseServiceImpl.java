@@ -1,7 +1,12 @@
 package com.dute.officialNetwork.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import com.dute.officialNetwork.api.po.DrawLotteryRafflePo;
+import com.dute.officialNetwork.api.po.ProductCasePo;
+import com.dute.officialNetwork.domain.entity.DrawLotteryRaffle;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
@@ -20,8 +25,14 @@ public class ProductCaseServiceImpl implements ProductCaseService {
 
 	@Override
 	@Cacheable("get6ProductCases#12h")
-	public List<ProductCase> get6ProductCases() {
-		return pcr.findTop6ByOrderByCreateTimeDesc();
+	public List<ProductCasePo> get6ProductCases() {
+		List<ProductCasePo> list = new ArrayList<>();
+		for(ProductCase productCase : pcr.findTop6ByOrderByCreateTimeDesc()){
+			ProductCasePo productCasePo = new ProductCasePo();
+			BeanUtils.copyProperties(productCase,productCasePo);
+			list.add(productCasePo);
+		}
+		return list;
 	}
 
 	@Override
