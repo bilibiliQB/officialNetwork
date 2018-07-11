@@ -1,56 +1,43 @@
-package com.dute.officialNetwork.domain.entity;
+package com.dute.officialNetwork.api.po;
 
-import com.alibaba.fastjson.annotation.JSONField;
-import org.hibernate.annotations.DynamicInsert;
-import org.hibernate.annotations.DynamicUpdate;
+import io.swagger.annotations.ApiModelProperty;
 
-import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
-/**
- * Created by zhanghongwei on 2018/7/10.
- */
-@Entity
-@Table(name = "integral_decoration")
-@DynamicInsert
-@DynamicUpdate
-public class IntegralDecoration {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Integral_decoration_id", updatable = false)
+public class IntegralDecorationPo {
+    @ApiModelProperty("ID")
     private Integer id;// ID
 
-    @Column(name = "Integral_decoration_name")
+    @ApiModelProperty("整装名称")
     private String IntegralDecorationName; // 整装名称
 
-    @Column(name = "Integral_decoration_english_name")
+    @ApiModelProperty("整装英文名称")
     private String IntegralDecorationEnglishName; // 整装英文名称
 
-    @Column(name = "Integral_decoration_content")
-    private String IntegralDecorationContent; // 整装描述
+    @ApiModelProperty("整装描述数组")
+    private String[] IntegralDecorationContents; // 整装描述
 
-    @Column(name = "Integral_decoration_price")
+    @ApiModelProperty("整装价格")
     private Integer IntegralDecorationPrice; //整装价格
 
-    @Column(name = "Integral_decoration_unit")
+    @ApiModelProperty("整装价格单位")
     private String IntegralDecorationUnit; //整装价格单位
 
-    @Column(name = "Integral_decoration_area_unit")
+    @ApiModelProperty("整装面积单位")
     private String IntegralDecorationAreaUnit; //整装面积单位
 
-    @Column(name = "Integral_decoration_create_time")
-    @JSONField(format = "yyyy/MM/dd HH:mm:ss")
+    @ApiModelProperty("整装数据插入时间")
     private Date IntegralDecorationCreateTime; //整装数据插入时间
 
-    @Column(name = "Integral_decoration_order")
+    @ApiModelProperty("整装排序")
     private Integer IntegralDecorationOrder; //整装排序
 
-    @Column(name = "Integral_decoration_is_show")
+    @ApiModelProperty("整装是否展示")
     private Integer IntegralDecorationIsShow; //整装是否展示
 
-    @OneToMany(mappedBy = "integralDecoration", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<IntegralDecorationImg> integralDecorationImgList;   //整装图片集合
+    @ApiModelProperty("整装图片集合")
+    private List<IntegralDecorationImgPo> integralDecorationImgList;   //整装图片集合
 
     public Integer getId() {
         return id;
@@ -76,12 +63,12 @@ public class IntegralDecoration {
         IntegralDecorationEnglishName = integralDecorationEnglishName;
     }
 
-    public String getIntegralDecorationContent() {
-        return IntegralDecorationContent;
+    public String[] getIntegralDecorationContents() {
+        return IntegralDecorationContents;
     }
 
-    public void setIntegralDecorationContent(String integralDecorationContent) {
-        IntegralDecorationContent = integralDecorationContent;
+    public void setIntegralDecorationContents(String[] integralDecorationContents) {
+        IntegralDecorationContents = integralDecorationContents;
     }
 
     public Integer getIntegralDecorationPrice() {
@@ -132,11 +119,11 @@ public class IntegralDecoration {
         IntegralDecorationIsShow = integralDecorationIsShow;
     }
 
-    public List<IntegralDecorationImg> getIntegralDecorationImgList() {
+    public List<IntegralDecorationImgPo> getIntegralDecorationImgList() {
         return integralDecorationImgList;
     }
 
-    public void setIntegralDecorationImgList(List<IntegralDecorationImg> integralDecorationImgList) {
+    public void setIntegralDecorationImgList(List<IntegralDecorationImgPo> integralDecorationImgList) {
         this.integralDecorationImgList = integralDecorationImgList;
     }
 }
