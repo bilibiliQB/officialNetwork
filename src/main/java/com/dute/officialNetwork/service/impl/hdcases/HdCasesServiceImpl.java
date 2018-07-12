@@ -26,7 +26,7 @@ public class HdCasesServiceImpl implements IHdCasesService {
     @Override
     public List<HdCasesPo> findByRequest(HdCasesRequest hdCasesRequest) {
         List<HdCasesPo> list = new ArrayList<>();
-        PageRequest pageRequest = new PageRequest(hdCasesRequest.getPageNumber(),12,new Sort(Sort.Direction.DESC,"hdCasesOrder"));
+        PageRequest pageRequest = new PageRequest(hdCasesRequest.getPageNumber()-1,12,new Sort(Sort.Direction.DESC,"hdCasesOrder"));
         //创建多条件查询对象
         Specification specification = new Specification<HdCases>(){
             @Override
