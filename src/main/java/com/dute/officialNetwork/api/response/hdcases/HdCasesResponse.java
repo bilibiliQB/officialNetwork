@@ -10,16 +10,16 @@ public class HdCasesResponse {
     private List<HdCasesPo> list;
 
     @ApiModelProperty("总条数")
-    private Integer total;
+    private Long total;
 
     @ApiModelProperty("总页数")
     private Integer pageTotal;
 
-    public Integer getTotal() {
+    public Long getTotal() {
         return total;
     }
 
-    public void setTotal(Integer total) {
+    public void setTotal(Long total) {
         this.total = total;
     }
 

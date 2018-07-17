@@ -54,6 +54,28 @@ public class VRScenes implements Serializable{
 	@Column(name = "vs_herf_path")
 	private String vsHerfPath; //VR地址
 
+	@Column(name = "vs_designer_id")
+	private Integer vsDesignerId;
+
+	@Column(name = "vs_order")
+	private Integer vsOrder;
+
+	public Integer getVsOrder() {
+		return vsOrder;
+	}
+
+	public void setVsOrder(Integer vsOrder) {
+		this.vsOrder = vsOrder;
+	}
+
+	public Integer getVsDesignerId() {
+		return vsDesignerId;
+	}
+
+	public void setVsDesignerId(Integer vsDesignerId) {
+		this.vsDesignerId = vsDesignerId;
+	}
+
 	public String getVsImgUrl() {
 		return vsImgUrl;
 	}

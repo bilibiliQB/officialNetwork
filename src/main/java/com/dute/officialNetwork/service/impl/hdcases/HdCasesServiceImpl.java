@@ -2,6 +2,7 @@ package com.dute.officialNetwork.service.impl.hdcases;
 
 import com.dute.officialNetwork.api.po.HdCasesPo;
 import com.dute.officialNetwork.api.request.hdcases.HdCasesRequest;
+import com.dute.officialNetwork.api.response.hdcases.HdCasesResponse;
 import com.dute.officialNetwork.domain.entity.HdCases;
 import com.dute.officialNetwork.domain.repository.hdcases.HdCasesRepository;
 import com.dute.officialNetwork.service.interfaces.hdcases.IHdCasesService;
@@ -24,7 +25,7 @@ public class HdCasesServiceImpl implements IHdCasesService {
 
 
     @Override
-    public List<HdCasesPo> findByRequest(HdCasesRequest hdCasesRequest) {
+    public HdCasesResponse findByRequest(HdCasesRequest hdCasesRequest) {
         List<HdCasesPo> list = new ArrayList<>();
         PageRequest pageRequest = new PageRequest(hdCasesRequest.getPageNumber()-1,12,new Sort(Sort.Direction.DESC,"hdCasesOrder"));
         //创建多条件查询对象
@@ -65,6 +66,11 @@ public class HdCasesServiceImpl implements IHdCasesService {
             BeanUtils.copyProperties(hdCases,hdCasesPo);
             list.add(hdCasesPo);
         }
-        return list;
+
+        HdCasesResponse hdCasesResponse = new HdCasesResponse();
+        hdCasesResponse.setList(list);
+        hdCasesResponse.setTotal(page.getTotalElements());
+        hdCasesResponse.setPageTotal(page.getTotalPages());
+        return hdCasesResponse;
     }
 }

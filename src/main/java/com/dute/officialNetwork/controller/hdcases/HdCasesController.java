@@ -24,8 +24,7 @@ public class HdCasesController {
     public ResultData<HdCasesResponse> getHdDataByRequest(HdCasesRequest hdCasesRequest){
         ResultData<HdCasesResponse> responseResultData = new ResultData<>();
         try {
-            HdCasesResponse hdCasesResponse = new HdCasesResponse();
-            hdCasesResponse.setList(hdCasesService.findByRequest(hdCasesRequest));
+            HdCasesResponse hdCasesResponse = hdCasesService.findByRequest(hdCasesRequest);
             responseResultData.setData(hdCasesResponse);
         }catch (Exception e){
             responseResultData.setStatus(ResultData.CODE_FAIL_BIZ);

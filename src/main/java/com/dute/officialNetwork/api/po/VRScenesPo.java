@@ -32,6 +32,28 @@ public class VRScenesPo implements Serializable {
     @ApiModelProperty("VR地址")
     private String vsHerfPath; //VR地址
 
+    @ApiModelProperty("vr顺序")
+    private Integer vsOrder; //vr顺序
+
+    @ApiModelProperty("vr所属设计师编号")
+    private Integer vsDesignerId;
+
+    public Integer getVsOrder() {
+        return vsOrder;
+    }
+
+    public void setVsOrder(Integer vsOrder) {
+        this.vsOrder = vsOrder;
+    }
+
+    public Integer getVsDesignerId() {
+        return vsDesignerId;
+    }
+
+    public void setVsDesignerId(Integer vsDesignerId) {
+        this.vsDesignerId = vsDesignerId;
+    }
+
     public Long getId() {
         return id;
     }
