@@ -1,11 +1,16 @@
 package com.dute.officialNetwork.service.impl.hdcases;
 
+import com.dute.officialNetwork.api.em.CaseAreaEnum;
+import com.dute.officialNetwork.api.em.CaseSizeEnum;
+import com.dute.officialNetwork.api.em.CaseStyleEnum;
 import com.dute.officialNetwork.api.po.HdCasesPo;
 import com.dute.officialNetwork.api.request.hdcases.HdCasesRequest;
 import com.dute.officialNetwork.api.response.hdcases.HdCasesResponse;
+import com.dute.officialNetwork.api.response.hdcases.HdSelectResponse;
 import com.dute.officialNetwork.domain.entity.HdCases;
 import com.dute.officialNetwork.domain.repository.hdcases.HdCasesRepository;
 import com.dute.officialNetwork.service.interfaces.hdcases.IHdCasesService;
+import com.google.common.collect.Lists;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -26,6 +31,13 @@ public class HdCasesServiceImpl implements IHdCasesService {
 
     @Override
     public HdCasesResponse findByRequest(HdCasesRequest hdCasesRequest) {
+        //根据传值匹配枚举
+        String areas = CaseAreaEnum.get(hdCasesRequest.getAreasFlag()).getArerValue();
+
+        String style = CaseStyleEnum.get(hdCasesRequest.getStyleFlag()).getArerValue();
+
+        String size = CaseSizeEnum.get(hdCasesRequest.getSizeFlag()).getArerValue();
+
         List<HdCasesPo> list = new ArrayList<>();
         PageRequest pageRequest = new PageRequest(hdCasesRequest.getPageNumber()-1,12,new Sort(Sort.Direction.DESC,"hdCasesOrder"));
         //创建多条件查询对象
@@ -36,15 +48,13 @@ public class HdCasesServiceImpl implements IHdCasesService {
                 Path<String> hdCasesStyle = root.get("hdCasesStyle");
                 Path<String> hdCasesSize = root.get("hdCasesSize");
                 List<Predicate> predicates = new ArrayList<>();
-                if(hdCasesRequest.getStyle() != null && !"".equals(hdCasesRequest.getStyle())){
-                    predicates.add(criteriaBuilder.like(hdCasesStyle,hdCasesRequest.getStyle()));
+                if(style != null && !"".equals(style)){
+                    predicates.add(criteriaBuilder.like(hdCasesStyle,style));
                 }
-                if(hdCasesRequest.getSize() != null && !"".equals(hdCasesRequest.getSize())){
-                    predicates.add(criteriaBuilder.like(hdCasesSize,hdCasesRequest.getSize()));
+                if(size != null && !"".equals(size)){
+                    predicates.add(criteriaBuilder.like(hdCasesSize,size));
                 }
-                if(hdCasesRequest.getAreas() != null && !"".equals(hdCasesRequest.getAreas())){
-                    String areas = hdCasesRequest.getAreas();
-                    areas = areas.substring(0,areas.lastIndexOf("0")+1);
+                if(areas != null && !"".equals(areas)){
                     String[] split = areas.split("-");
                     if(split.length == 1){
                         if("60".equals(split[0])){
@@ -67,8 +77,33 @@ public class HdCasesServiceImpl implements IHdCasesService {
             list.add(hdCasesPo);
         }
 
+        //返回筛选条件
+        ArrayList<HdSelectResponse> caseSizeEnumList = Lists.newArrayList();
+        for(CaseSizeEnum caseSizeEnum : CaseSizeEnum.values()){
+            HdSelectResponse hdSelectResponse = new HdSelectResponse();
+            hdSelectResponse.setFalg(caseSizeEnum.getAreaFlag());
+            hdSelectResponse.setName(caseSizeEnum.getAreaContent());
+            caseSizeEnumList.add(hdSelectResponse);
+        }
+        ArrayList<HdSelectResponse> caseStyleEnumList = Lists.newArrayList();
+        for(CaseStyleEnum caseStyleEnum : CaseStyleEnum.values()){
+            HdSelectResponse hdSelectResponse = new HdSelectResponse();
+            hdSelectResponse.setFalg(caseStyleEnum.getAreaFlag());
+            hdSelectResponse.setName(caseStyleEnum.getAreaContent());
+            caseStyleEnumList.add(hdSelectResponse);
+        }
+        ArrayList<HdSelectResponse> caseAreaEnumList = Lists.newArrayList();
+        for(CaseAreaEnum caseAreaEnum : CaseAreaEnum.values()){
+            HdSelectResponse hdSelectResponse = new HdSelectResponse();
+            hdSelectResponse.setFalg(caseAreaEnum.getAreaFlag());
+            hdSelectResponse.setName(caseAreaEnum.getAreaContent());
+            caseAreaEnumList.add(hdSelectResponse);
+        }
         HdCasesResponse hdCasesResponse = new HdCasesResponse();
         hdCasesResponse.setList(list);
+        hdCasesResponse.setCaseAreaList(caseAreaEnumList);
+        hdCasesResponse.setCaseSizeList(caseSizeEnumList);
+        hdCasesResponse.setCaseStyleList(caseStyleEnumList);
         hdCasesResponse.setTotal(page.getTotalElements());
         hdCasesResponse.setPageTotal(page.getTotalPages());
         return hdCasesResponse;

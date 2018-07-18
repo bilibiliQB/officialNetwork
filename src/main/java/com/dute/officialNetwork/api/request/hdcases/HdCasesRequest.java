@@ -5,13 +5,13 @@ import io.swagger.annotations.ApiModelProperty;
 
 public class HdCasesRequest {
     @ApiModelProperty("面积")
-    private String areas;
+    private Integer areasFlag;
 
     @ApiModelProperty("风格")
-    private String style;
+    private Integer styleFlag;
 
     @ApiModelProperty("大小")
-    private String size;
+    private Integer sizeFlag;
 
     @ApiModelProperty("当前页数")
     private Integer pageNumber;
@@ -24,27 +24,27 @@ public class HdCasesRequest {
         this.pageNumber = pageNumber;
     }
 
-    public String getAreas() {
-        return areas;
+    public Integer getAreasFlag() {
+        return areasFlag;
     }
 
-    public void setAreas(String areas) {
-        this.areas = areas;
+    public void setAreasFlag(Integer areasFlag) {
+        this.areasFlag = areasFlag;
     }
 
-    public String getStyle() {
-        return style;
+    public Integer getStyleFlag() {
+        return styleFlag;
     }
 
-    public void setStyle(String style) {
-        this.style = style;
+    public void setStyleFlag(Integer styleFlag) {
+        this.styleFlag = styleFlag;
     }
 
-    public String getSize() {
-        return size;
+    public Integer getSizeFlag() {
+        return sizeFlag;
     }
 
-    public void setSize(String size) {
-        this.size = size;
+    public void setSizeFlag(Integer sizeFlag) {
+        this.sizeFlag = sizeFlag;
     }
 }
