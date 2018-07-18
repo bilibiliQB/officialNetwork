@@ -2,6 +2,7 @@ package com.dute.officialNetwork.controller.hdcases;
 
 import com.dute.officialNetwork.api.request.hdcases.HdCasesRequest;
 import com.dute.officialNetwork.api.response.hdcases.HdCasesResponse;
+import com.dute.officialNetwork.api.response.hdcases.HdSelectListResponse;
 import com.dute.officialNetwork.service.interfaces.hdcases.IHdCasesService;
 import com.dute.officialNetwork.util.ResultData;
 import io.swagger.annotations.Api;
@@ -26,6 +27,20 @@ public class HdCasesController {
         try {
             HdCasesResponse hdCasesResponse = hdCasesService.findByRequest(hdCasesRequest);
             responseResultData.setData(hdCasesResponse);
+        }catch (Exception e){
+            responseResultData.setStatus(ResultData.CODE_FAIL_BIZ);
+            responseResultData.setMessage(e.getMessage());
+        }
+        return responseResultData;
+    }
+
+    @ApiOperation("高清案例搜索条件列表")
+    @PostMapping("selectData")
+    public ResultData<HdSelectListResponse> selectData(){
+        ResultData<HdSelectListResponse> responseResultData = new ResultData<>();
+        try {
+            HdSelectListResponse hdSelectListResponse = hdCasesService.findSelectData();
+            responseResultData.setData(hdSelectListResponse);
         }catch (Exception e){
             responseResultData.setStatus(ResultData.CODE_FAIL_BIZ);
             responseResultData.setMessage(e.getMessage());

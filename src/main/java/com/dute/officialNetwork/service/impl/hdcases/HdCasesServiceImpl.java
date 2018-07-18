@@ -6,6 +6,7 @@ import com.dute.officialNetwork.api.em.CaseStyleEnum;
 import com.dute.officialNetwork.api.po.HdCasesPo;
 import com.dute.officialNetwork.api.request.hdcases.HdCasesRequest;
 import com.dute.officialNetwork.api.response.hdcases.HdCasesResponse;
+import com.dute.officialNetwork.api.response.hdcases.HdSelectListResponse;
 import com.dute.officialNetwork.api.response.hdcases.HdSelectResponse;
 import com.dute.officialNetwork.domain.entity.HdCases;
 import com.dute.officialNetwork.domain.repository.hdcases.HdCasesRepository;
@@ -77,6 +78,15 @@ public class HdCasesServiceImpl implements IHdCasesService {
             list.add(hdCasesPo);
         }
 
+        HdCasesResponse hdCasesResponse = new HdCasesResponse();
+        hdCasesResponse.setList(list);
+        hdCasesResponse.setTotal(page.getTotalElements());
+        hdCasesResponse.setPageTotal(page.getTotalPages());
+        return hdCasesResponse;
+    }
+
+    @Override
+    public HdSelectListResponse findSelectData() {
         //返回筛选条件
         ArrayList<HdSelectResponse> caseSizeEnumList = Lists.newArrayList();
         for(CaseSizeEnum caseSizeEnum : CaseSizeEnum.values()){
@@ -99,13 +109,10 @@ public class HdCasesServiceImpl implements IHdCasesService {
             hdSelectResponse.setName(caseAreaEnum.getAreaContent());
             caseAreaEnumList.add(hdSelectResponse);
         }
-        HdCasesResponse hdCasesResponse = new HdCasesResponse();
-        hdCasesResponse.setList(list);
-        hdCasesResponse.setCaseAreaList(caseAreaEnumList);
-        hdCasesResponse.setCaseSizeList(caseSizeEnumList);
-        hdCasesResponse.setCaseStyleList(caseStyleEnumList);
-        hdCasesResponse.setTotal(page.getTotalElements());
-        hdCasesResponse.setPageTotal(page.getTotalPages());
-        return hdCasesResponse;
+        HdSelectListResponse hdSelectListResponse = new HdSelectListResponse();
+        hdSelectListResponse.setCaseAreaList(caseAreaEnumList);
+        hdSelectListResponse.setCaseSizeList(caseSizeEnumList);
+        hdSelectListResponse.setCaseStyleList(caseStyleEnumList);
+        return hdSelectListResponse;
     }
 }
