@@ -3,6 +3,7 @@ package com.dute.officialNetwork.domain.repository;
 import java.util.Date;
 import java.util.List;
 
+import com.dute.officialNetwork.domain.entity.CorporateNews;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -14,5 +15,7 @@ public interface CustomerInformationRepository extends JpaRepository<CustomerInf
 	Page<CustomerInformation> findAllByProblemDescriptionLikeAndCreateTimeBetween(String problemDescription,
 			Date startTime, Date endTime, Pageable pageable);
 
-    Page<CustomerInformation> findAllByProblemDescriptionLike(PageRequest createTime, String 申请家装团购);
+	Page<CustomerInformation> findAllByProblemDescriptionLikeAndCreateTimeLike(String str, Date format, Pageable pageable);
+
+//    Page<CustomerInformation> findAllByProblemDescriptionLike(PageRequest createTime, String 申请家装团购);
 }

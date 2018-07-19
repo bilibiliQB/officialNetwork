@@ -18,6 +18,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -67,18 +68,27 @@ public class BuildingServiceImpl implements IBuildingService {
         }
 
         //获取预约成功的列表集合(查询预约表数据)
-        List<CustomerInformation> customerInformationList = customerInformationRepository.findAllByProblemDescriptionLikeAndCreateTimeBetween("申请家装团购",new Date(),new Date(),new PageRequest(0,6,new Sort(Sort.Direction.ASC,"createTime"))).getContent();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat sdfmat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Date parse = null;
+        Date parse1 = null;
+        try {
+            parse = sdfmat.parse(sdfmat.format(sdf.parse(sdf.format(new Date())).getTime()));
+            parse1 =  sdfmat.parse(sdfmat.format(sdf.parse(sdf.format(new Date())).getTime() + 86400000));
+        } catch (Exception e) {
+        }
+        List<CustomerInformation> customerInformationList = customerInformationRepository.findAllByProblemDescriptionLikeAndCreateTimeBetween("申请家装团购",parse,parse1,new PageRequest(0,6,new Sort(Sort.Direction.ASC,"createTime"))).getContent();
 
         if(customerInformationList != null && customerInformationList.size() > 0){
             for(CustomerInformation customerInformation : customerInformationList){
                 Date createTime = customerInformation.getCreateTime();
                 String startTime = DateUtils.formatDateTime(createTime);
                 String endTime = DateUtils.formatDateTime(new Date());
-                long towTime12 = DateUtils.getMinsBetweenTowTime12(startTime, endTime);
+                long towTime12 = DateUtils.getDistanceMinute(endTime,startTime);
                 StringBuffer sb = new StringBuffer();
                 String phoneNumber = customerInformation.getPhoneNumber();
                 String phoneNumber_two = phoneNumber.substring(0,3) + "******" + phoneNumber.substring(9,phoneNumber.length());
-                sb.append(customerInformation.getName().substring(0,1)).append("**").append(phoneNumber_two).append(towTime12).append("分钟前申请成功");
+                sb.append(customerInformation.getName().substring(0,1)).append("**").append(phoneNumber_two).append(",").append(towTime12).append("分钟前申请成功");
                 applicationRecordList.add(sb.toString());
             }
         }
