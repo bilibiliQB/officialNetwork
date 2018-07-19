@@ -11,8 +11,8 @@ import io.swagger.annotations.ApiModelProperty;
 
 public class OwnerStoryResponse0 {
 
-	@ApiModelProperty("返回用户输入的关键字")
-	private String keywords;
+//	@ApiModelProperty("返回用户输入的关键字")
+//	private String keywords;
 
 	@ApiModelProperty("返回当前页号")
 	private Integer currentPageNumber;
@@ -29,13 +29,13 @@ public class OwnerStoryResponse0 {
 		osr = null;
 	}
 
-	public String getKeywords() {
-		return keywords;
-	}
-
-	public void setKeywords(String keywords) {
-		this.keywords = keywords;
-	}
+//	public String getKeywords() {
+//		return keywords;
+//	}
+//
+//	public void setKeywords(String keywords) {
+//		this.keywords = keywords;
+//	}
 
 	public Integer getCurrentPageNumber() {
 		return currentPageNumber;

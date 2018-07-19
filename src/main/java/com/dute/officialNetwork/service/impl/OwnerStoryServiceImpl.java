@@ -17,13 +17,13 @@ public class OwnerStoryServiceImpl implements OwnerStoryService {
 	private OwnerStoryRepository osr;
 
 	@Override
-	@Cacheable("ListOwnerStoryAll#12h")
+//	@Cacheable("ListOwnerStoryAll#12h")
 	public Page<OwnerStory> findAll(Pageable pageable) {
 		return osr.findAll(pageable);
 	}
 
 	@Override
-	@Cacheable("ListOwnerStoryByKeywordsLike#12h")
+//	@Cacheable("ListOwnerStoryByKeywordsLike#12h")
 	public Page<OwnerStory> findAllByKeywordsLike(String keywords, Pageable pageable) {
 		StringBuffer str = new StringBuffer();
 		str.append("%");
