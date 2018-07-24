@@ -34,7 +34,8 @@ public class BuildingServiceImpl implements IBuildingService {
     @Override
     public BuildingDataResponse getBuildingData(BuildingPageRequest buildingPageRequest) {
         //获取楼盘列表
-        List<BuildingTable> buildingTableList = buildingRepository.findAll(new PageRequest(buildingPageRequest.getPageNumber() - 1, 5)).getContent();
+        Page<BuildingTable> buildingRepositoryAll = buildingRepository.findAll(new PageRequest(buildingPageRequest.getPageNumber() - 1, 5));
+        List<BuildingTable> buildingTableList = buildingRepositoryAll.getContent();
         //创建变量集合
         List<BuildinglistDataResponse> buildinglistDataResponseList = Lists.newArrayList();
         List<String> applicationRecordList = Lists.newArrayList();
@@ -95,6 +96,7 @@ public class BuildingServiceImpl implements IBuildingService {
 
         buildingDataResponse.setBuildinglistDataResponseList(buildinglistDataResponseList);
         buildingDataResponse.setApplicationRecordList(applicationRecordList);
+        buildingDataResponse.setTotalNumber(buildingRepositoryAll.getTotalElements());
         return buildingDataResponse;
     }
 }

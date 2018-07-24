@@ -15,6 +15,17 @@ public class BuildingDataResponse {
     @ApiModelProperty("预约成功记录列表")
     private List<String> applicationRecordList;
 
+    @ApiModelProperty("记录总条数")
+    private Long totalNumber;
+
+    public Long getTotalNumber() {
+        return totalNumber;
+    }
+
+    public void setTotalNumber(Long totalNumber) {
+        this.totalNumber = totalNumber;
+    }
+
     public List<BuildinglistDataResponse> getBuildinglistDataResponseList() {
         return buildinglistDataResponseList;
     }
