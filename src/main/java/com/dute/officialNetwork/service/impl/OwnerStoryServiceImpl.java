@@ -43,4 +43,14 @@ public class OwnerStoryServiceImpl implements OwnerStoryService {
 	public OwnerStory updateOne(OwnerStory os) {
 		return osr.save(os);
 	}
+
+	@Override
+	public OwnerStory findNextByOrder(Integer order) {
+		return osr.findByOsOrder(order + 1) == null ? osr.getOne(1L) : osr.findByOsOrder(order + 1);
+	}
+
+	@Override
+	public OwnerStory findPrveByOrder(Integer order) {
+		return order - 1 == 0 ? osr.getOne(1L) : osr.findPrveByOsOrder(order - 1);
+	}
 }

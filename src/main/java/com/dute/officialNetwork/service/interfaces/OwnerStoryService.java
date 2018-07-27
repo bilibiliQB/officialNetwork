@@ -13,4 +13,8 @@ public interface OwnerStoryService {
 	OwnerStory getOneById(Long id);
 	
 	OwnerStory updateOne(OwnerStory os);
+
+	OwnerStory findNextByOrder(Integer order);
+
+	OwnerStory findPrveByOrder(Integer order);
 }

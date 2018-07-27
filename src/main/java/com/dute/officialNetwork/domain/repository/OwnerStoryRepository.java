@@ -8,4 +8,9 @@ import com.dute.officialNetwork.domain.entity.OwnerStory;
 
 public interface OwnerStoryRepository extends JpaRepository<OwnerStory, Long> {
 	Page<OwnerStory> findAllByKeywordsLike(String keywords, Pageable pageable);
+
+    OwnerStory findByOsOrder(int i);
+
+    OwnerStory findPrveByOsOrder(int i);
 }
+

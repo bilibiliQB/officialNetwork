@@ -63,6 +63,17 @@ public class OwnerStory implements Serializable{
 	@Column(name = "os_modify_time")
 	private Date modifyTime; // 修改时间
 
+	@Column(name = "os_order")
+	private Integer osOrder; // 排序
+
+	public Integer getOsOrder() {
+		return osOrder;
+	}
+
+	public void setOsOrder(Integer osOrder) {
+		this.osOrder = osOrder;
+	}
+
 	public Long getId() {
 		return id;
 	}

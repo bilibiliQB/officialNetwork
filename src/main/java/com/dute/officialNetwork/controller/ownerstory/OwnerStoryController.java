@@ -69,6 +69,13 @@ public class OwnerStoryController {
 				oss.updateOne(os);
 			}
 			BeanUtils.copyProperties(os, osp);
+			//查询上一篇和下一篇文章
+			OwnerStory next = oss.findNextByOrder(os.getOsOrder());
+			OwnerStory prve = oss.findPrveByOrder(os.getOsOrder());
+
+			osp.setNextOwnerStory(next);
+			osp.setPrveOwnerStory(prve);
+
 			result.setData(osp);
 			result.setStatus(ResultData.CODE_SUCCESS);
 		} catch (Exception e) {
