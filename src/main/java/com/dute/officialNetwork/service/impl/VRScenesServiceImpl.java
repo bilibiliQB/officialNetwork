@@ -1,9 +1,8 @@
 package com.dute.officialNetwork.service.impl;
 
-import com.dute.officialNetwork.api.po.DrawLotteryRafflePo;
 import com.dute.officialNetwork.api.po.VRScenesPo;
 import com.dute.officialNetwork.api.request.vr.VrPageDataRequest;
-import com.dute.officialNetwork.domain.entity.DrawLotteryRaffle;
+import com.dute.officialNetwork.api.response.vr.VrScenesResponse;
 import com.dute.officialNetwork.domain.entity.VRScenes;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,15 +38,19 @@ public class VRScenesServiceImpl implements VRScenesService {
     }
 
     @Override
-    public List<VRScenesPo> getPageDataByRequest(VrPageDataRequest vrPageDataRequest) {
+    public VrScenesResponse getPageDataByRequest(VrPageDataRequest vrPageDataRequest) {
+        VrScenesResponse vrScenesResponse = new VrScenesResponse();
         List<VRScenesPo> list = new ArrayList<>();
         PageRequest pageable = new PageRequest(vrPageDataRequest.getPageNumber() -1 ,vrPageDataRequest.getPageSize());
-        List<VRScenes> vrSrAll = VRSr.findAll(pageable).getContent();
+        Page<VRScenes> all = VRSr.findAll(pageable);
+        List<VRScenes> vrSrAll = all.getContent();
         for(VRScenes vrScenes : vrSrAll){
             VRScenesPo vrScenesPo = new VRScenesPo();
             BeanUtils.copyProperties(vrScenes,vrScenesPo);
             list.add(vrScenesPo);
         }
-        return list;
+        vrScenesResponse.setList(list);
+        vrScenesResponse.setTotalNum(all.getTotalElements());
+        return vrScenesResponse;
     }
 }

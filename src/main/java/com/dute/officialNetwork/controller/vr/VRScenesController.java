@@ -3,6 +3,7 @@ package com.dute.officialNetwork.controller.vr;
 
 import com.dute.officialNetwork.api.po.VRScenesPo;
 import com.dute.officialNetwork.api.request.vr.VrPageDataRequest;
+import com.dute.officialNetwork.api.response.vr.VrScenesResponse;
 import com.dute.officialNetwork.service.impl.VRScenesServiceImpl;
 import com.dute.officialNetwork.util.ResultData;
 import io.swagger.annotations.Api;
@@ -23,8 +24,8 @@ public class VRScenesController {
 
     @ApiOperation("获取vr导航页数据，分页返回")
     @PostMapping("getVrPageData")
-    public ResultData<List<VRScenesPo>> getVrPageData(VrPageDataRequest vrPageDataRequest){
-        ResultData<List<VRScenesPo>> resultData = new ResultData<>();
+    public ResultData<VrScenesResponse> getVrPageData(VrPageDataRequest vrPageDataRequest){
+        ResultData<VrScenesResponse> resultData = new ResultData<>();
         try {
             resultData.setData(vrScenesService.getPageDataByRequest(vrPageDataRequest));
         }catch (Exception e){
