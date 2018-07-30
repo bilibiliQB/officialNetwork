@@ -46,5 +46,9 @@ server:
 
 
 up_load_path: "/usr/local/img"
-
+springfox:
+  documentation:
+    swagger:
+      v2:
+        host: 47.104.139.79/backstage
 PIC_HOST:
