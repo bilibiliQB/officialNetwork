@@ -33,6 +33,14 @@ public class DrawLotteryRaffle implements Serializable {
     @Column(name = "draw_name")
     private String drawName; //奖品名称
 
+    public String getDrawName() {
+        return drawName;
+    }
+
+    public void setDrawName(String drawName) {
+        this.drawName = drawName;
+    }
+
     public Integer getId() {
         return id;
     }

@@ -50,5 +50,6 @@ springfox:
   documentation:
     swagger:
       v2:
-        host: 47.104.139.79/backstage
+        host: localhost:8080
+#        host: 47.104.139.79/backstage
 PIC_HOST:

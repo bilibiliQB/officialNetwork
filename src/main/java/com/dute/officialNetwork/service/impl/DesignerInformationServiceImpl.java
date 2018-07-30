@@ -22,7 +22,6 @@ public class DesignerInformationServiceImpl implements DesignerInformationServic
 	private DesignerInformationRepository dir;
 
 	@Override
-	@Cacheable("ListDesignerInformationAll#1d")
 	public List<DesignerInformationPo> get5DesignerInformations() {
 		List<DesignerInformationPo> list = new ArrayList<>();
 		for(DesignerInformation designerInformation : dir.findTop5ByOrderByCreateTimeDesc()){

@@ -24,7 +24,6 @@ public class DecorationClassServiceImpl implements DecorationClassService {
 	private DecorationClassRepository dcr;
 
 	@Override
-//	@Cacheable("ListDecorationClassByMainTypeId#30m")
 	public List<DecorationClassPo> getDecorationClassByMainTypeId(Integer id) {
 		List<DecorationClassPo> list = new ArrayList<>();
 		for(DecorationClass decorationClass : dcr.findByMainTypeIdOrderByCreateTime(id)){
@@ -36,13 +35,11 @@ public class DecorationClassServiceImpl implements DecorationClassService {
 	}
 
 	@Override
-	@Cacheable("ListDecorationClassBySubTypeId#30m")
 	public Page<DecorationClass> findByDecorationClassSubType_Id(Integer dcs_id, Pageable pageable) {
 		return dcr.findByDecorationClassSubType_IdOrderByViewingCount(dcs_id, pageable);
 	}
 
 	@Override
-	@Cacheable("ListDecorationClassByKeywordsLike#30m")
 	public Page<DecorationClass> findByKeywordsLike(String keywords, Pageable pageable) {
 		StringBuffer str = new StringBuffer();
 		str.append("%");

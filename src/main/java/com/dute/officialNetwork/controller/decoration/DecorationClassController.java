@@ -159,8 +159,8 @@ public class DecorationClassController {
 //	}
 //
 	@ApiOperation("根据ID获取装修课堂文章详情页")
-	@PostMapping("/getOneById/{id}")
-	public ResultData<DecorationClassResponse4> getDecorationClass4(@PathVariable Long id) {
+	@PostMapping("/getOneById")
+	public ResultData<DecorationClassResponse4> getDecorationClass4(Long id) {
 		ResultData<DecorationClassResponse4> result = new ResultData<>();
 		DecorationClassResponse4 decorationClassResponse4 = new DecorationClassResponse4();
 		try {

@@ -42,6 +42,18 @@ public class MainDataListResponse {
     @ApiModelProperty("企业新闻列表，首尾入住")
     private List<DecorationClassPo> decorationClassForWinfUpList;
 
+    @ApiModelProperty("首页banner图")
+    private List<BannerTablePo> bannerTablePoList;
+
+    public List<BannerTablePo> getBannerTablePoList() {
+        return bannerTablePoList;
+    }
+
+    public void setBannerTablePoList(List<BannerTablePo> bannerTablePoList) {
+        this.bannerTablePoList = bannerTablePoList;
+    }
+
+
     public String getPreviews() {
         return previews;
     }

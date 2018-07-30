@@ -41,11 +41,11 @@ public class ProductCasePo implements Serializable {
     @ApiModelProperty("关键字")
     private String keywords; // 关键字
 
-//    @ApiModelProperty("案例类型")
-//    private ProductCaseType productCaseType; // 案例类型
-//
-//    @ApiModelProperty("案例结构")
-//    private ProductCaseStructure productCaseStructure; // 案例结构
+    @ApiModelProperty("案例类型")
+    private String productCaseTypes; // 案例类型
+
+    @ApiModelProperty("案例结构")
+    private String productCaseStructures; // 案例结构
 
     @ApiModelProperty("创建时间")
     @JSONField(format = "yyyy/MM/dd HH:mm:ss")
@@ -135,21 +135,21 @@ public class ProductCasePo implements Serializable {
         this.keywords = keywords;
     }
 
-//    public ProductCaseType getProductCaseType() {
-//        return productCaseType;
-//    }
-//
-//    public void setProductCaseType(ProductCaseType productCaseType) {
-//        this.productCaseType = productCaseType;
-//    }
-//
-//    public ProductCaseStructure getProductCaseStructure() {
-//        return productCaseStructure;
-//    }
-//
-//    public void setProductCaseStructure(ProductCaseStructure productCaseStructure) {
-//        this.productCaseStructure = productCaseStructure;
-//    }
+    public String getProductCaseTypes() {
+        return productCaseTypes;
+    }
+
+    public void setProductCaseTypes(String productCaseTypes) {
+        this.productCaseTypes = productCaseTypes;
+    }
+
+    public String getProductCaseStructures() {
+        return productCaseStructures;
+    }
+
+    public void setProductCaseStructures(String productCaseStructures) {
+        this.productCaseStructures = productCaseStructures;
+    }
 
     public Date getCreateTime() {
         return createTime;

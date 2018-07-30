@@ -24,12 +24,13 @@ public class ProductCaseServiceImpl implements ProductCaseService {
 	private ProductCaseRepository pcr;
 
 	@Override
-	@Cacheable("get6ProductCases#12h")
 	public List<ProductCasePo> get6ProductCases() {
 		List<ProductCasePo> list = new ArrayList<>();
 		for(ProductCase productCase : pcr.findTop6ByOrderByCreateTimeDesc()){
 			ProductCasePo productCasePo = new ProductCasePo();
 			BeanUtils.copyProperties(productCase,productCasePo);
+			productCasePo.setProductCaseTypes(productCase.getProductCaseType().getFullName());
+			productCasePo.setProductCaseStructures(productCase.getProductCaseStructure().getName());
 			list.add(productCasePo);
 		}
 		return list;

@@ -8,6 +8,7 @@ import com.dute.officialNetwork.service.interfaces.DecorationClassService;
 import com.dute.officialNetwork.service.interfaces.DesignerInformationService;
 import com.dute.officialNetwork.service.interfaces.ProductCaseService;
 import com.dute.officialNetwork.service.interfaces.ProductCaseTypeService;
+import com.dute.officialNetwork.service.interfaces.banner.BannerTableServiceImpl;
 import com.dute.officialNetwork.service.interfaces.main.IMainService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -44,6 +45,9 @@ public class MainServiceImpl implements IMainService {
     @Autowired
 	private DecorationClassService decorationClassService;
 
+    @Autowired
+    private BannerTableServiceImpl bannerTableService;
+
     /**
      * 获取主页数据
      * @return MainDataListResponse
@@ -52,6 +56,7 @@ public class MainServiceImpl implements IMainService {
     public MainDataListResponse getMainData() {
         //1.获取抽奖活动照片 此处设定抽奖活动的图片你编号就是1   一条
         UngroupedPicture ungroupedPicture = ungroupedPictureService.findById(1);
+
         //2.获取奖品图片列表，并带名称   7条
         List<DrawLotteryRafflePo> drawLotteryRaffleList = drawLotteryRaffleService.findAll();
         //3.获取装修风格列表  6条
@@ -70,7 +75,8 @@ public class MainServiceImpl implements IMainService {
 		List<DecorationClassPo> decorationClassList_2 = decorationClassService.getDecorationClassByMainTypeId(2); //装修课堂 2 施工阶段  6 条
         //10.收尾
 		List<DecorationClassPo> decorationClassList_3 = decorationClassService.getDecorationClassByMainTypeId(3); //装修课堂 3 收尾阶段  6 条
-
+        //12.首页banner
+        List<BannerTablePo> bannerTablePoList = bannerTableService.findAllByBannerType(1);
         //装数据
         MainDataListResponse mainDataListResponse = new MainDataListResponse();
         mainDataListResponse.setCompanyProfilePictureList(companyProfilePictureList);
@@ -83,6 +89,7 @@ public class MainServiceImpl implements IMainService {
         mainDataListResponse.setPrizeList(drawLotteryRaffleList);
         mainDataListResponse.setVrList(vrScenesList);
         mainDataListResponse.setDecorationStyleList(productCaseTypeList);
+        mainDataListResponse.setBannerTablePoList(bannerTablePoList);
         return mainDataListResponse;
     }
 }

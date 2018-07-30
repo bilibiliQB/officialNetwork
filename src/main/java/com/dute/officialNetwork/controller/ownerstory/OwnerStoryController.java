@@ -57,8 +57,8 @@ public class OwnerStoryController {
 	}
 
 	@ApiOperation("根据ID获取业主故事文章详情页")
-	@PostMapping("/getOneById/{id}")
-	public ResultData<OwnerStoryResponse1> getDecorationClass4(@PathVariable Long id) {
+	@PostMapping("/getOneById")
+	public ResultData<OwnerStoryResponse1> getDecorationClass4(Long id) {
 		ResultData<OwnerStoryResponse1> result = new ResultData<>();
 		OwnerStoryResponse1 osp = new OwnerStoryResponse1();
 		try {
