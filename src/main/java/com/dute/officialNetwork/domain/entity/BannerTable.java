@@ -25,7 +25,12 @@ public class BannerTable {
     private String bannerUrl; // banner地址
 
     @Column(name = "banner_order")
-    private Date bannerOrder; // banner排序
+    private Integer bannerOrder; // banner排序
+
+    @Column(name = "banner_href")
+    private String bannerHref; // banner跳转地址
+
+
 
     public Integer getId() {
         return id;
@@ -51,11 +56,19 @@ public class BannerTable {
         this.bannerUrl = bannerUrl;
     }
 
-    public Date getBannerOrder() {
+    public Integer getBannerOrder() {
         return bannerOrder;
     }
 
-    public void setBannerOrder(Date bannerOrder) {
+    public void setBannerOrder(Integer bannerOrder) {
         this.bannerOrder = bannerOrder;
+    }
+
+    public String getBannerHref() {
+        return bannerHref;
+    }
+
+    public void setBannerHref(String bannerHref) {
+        this.bannerHref = bannerHref;
     }
 }
