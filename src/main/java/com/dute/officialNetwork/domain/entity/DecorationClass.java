@@ -27,8 +27,8 @@ import com.alibaba.fastjson.annotation.JSONField;
 @Table(name = "decoration_class")
 @DynamicInsert
 @DynamicUpdate
-public class DecorationClass implements Serializable{
-	
+public class DecorationClass implements Serializable {
+
 	private static final long serialVersionUID = 4469565900950361796L;
 
 	@Id
@@ -73,6 +73,9 @@ public class DecorationClass implements Serializable{
 	@Column(name = "dc_modify_time")
 	@JSONField(format = "yyyy/MM/dd HH:mm:ss")
 	private Date modifyTime; // 修改时间
+
+	@Column(name = "dc_status")
+	private Integer status; // 状态
 
 	public Long getId() {
 		return id;
@@ -168,6 +171,14 @@ public class DecorationClass implements Serializable{
 
 	public void setModifyTime(Date modifyTime) {
 		this.modifyTime = modifyTime;
+	}
+
+	public Integer getStatus() {
+		return status;
+	}
+
+	public void setStatus(Integer status) {
+		this.status = status;
 	}
 
 }

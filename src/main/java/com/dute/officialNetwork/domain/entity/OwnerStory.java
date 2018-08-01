@@ -23,7 +23,7 @@ import com.alibaba.fastjson.annotation.JSONField;
 @Table(name = "owner_story")
 @DynamicInsert
 @DynamicUpdate
-public class OwnerStory implements Serializable{
+public class OwnerStory implements Serializable {
 
 	private static final long serialVersionUID = 1498602281132402965L;
 
@@ -65,6 +65,9 @@ public class OwnerStory implements Serializable{
 
 	@Column(name = "os_order")
 	private Integer osOrder; // 排序
+
+	@Column(name = "os_status")
+	private Integer status;
 
 	public Integer getOsOrder() {
 		return osOrder;
@@ -152,6 +155,14 @@ public class OwnerStory implements Serializable{
 
 	public void setModifyTime(Date modifyTime) {
 		this.modifyTime = modifyTime;
+	}
+
+	public Integer getStatus() {
+		return status;
+	}
+
+	public void setStatus(Integer status) {
+		this.status = status;
 	}
 
 }
