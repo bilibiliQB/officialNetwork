@@ -24,10 +24,54 @@ public class HdCasesPo {
     private String hdCasesImgUrl; // 案例图片
 
     @ApiModelProperty("案例排序")
-    private String hdCasesOrder; // 案例排序
+    private Integer hdCasesOrder; // 案例排序
 
     @ApiModelProperty("案例创建时间")
     private Date hdCasesCreateTime; // 案例创建时间
+
+    @ApiModelProperty("案例详情")
+    private String hdCasesContent; // 案例详情
+
+    @ApiModelProperty("案例浏览量")
+    private Integer hdCasesViewcount; // 案例浏览量
+
+    @ApiModelProperty("案例作者")
+    private String hdCasesAuther; // 案例作者
+
+    @ApiModelProperty("案例状态")
+    private Integer hdStatus; // 案例状态
+
+    public String getHdCasesContent() {
+        return hdCasesContent;
+    }
+
+    public void setHdCasesContent(String hdCasesContent) {
+        this.hdCasesContent = hdCasesContent;
+    }
+
+    public Integer getHdCasesViewcount() {
+        return hdCasesViewcount;
+    }
+
+    public void setHdCasesViewcount(Integer hdCasesViewcount) {
+        this.hdCasesViewcount = hdCasesViewcount;
+    }
+
+    public String getHdCasesAuther() {
+        return hdCasesAuther;
+    }
+
+    public void setHdCasesAuther(String hdCasesAuther) {
+        this.hdCasesAuther = hdCasesAuther;
+    }
+
+    public Integer getHdStatus() {
+        return hdStatus;
+    }
+
+    public void setHdStatus(Integer hdStatus) {
+        this.hdStatus = hdStatus;
+    }
 
     public Integer getId() {
         return id;
@@ -77,11 +121,11 @@ public class HdCasesPo {
         this.hdCasesImgUrl = hdCasesImgUrl;
     }
 
-    public String getHdCasesOrder() {
+    public Integer getHdCasesOrder() {
         return hdCasesOrder;
     }
 
-    public void setHdCasesOrder(String hdCasesOrder) {
+    public void setHdCasesOrder(Integer hdCasesOrder) {
         this.hdCasesOrder = hdCasesOrder;
     }
 

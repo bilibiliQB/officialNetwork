@@ -25,8 +25,14 @@ public class MainDataListResponse {
     @ApiModelProperty("业主案例列表")
     private List<ProductCasePo> decorationCaseLsit;
 
-    @ApiModelProperty("VR列表")
-    private List<VRScenesPo> vrList;
+    @ApiModelProperty("VR列表第一个对象")
+    private VRScenesPo vrOne;
+
+    @ApiModelProperty("VR列表第二个对象")
+    private VRScenesPo vrTwo;
+
+    @ApiModelProperty("VR列表第三个对象")
+    private VRScenesPo vrThree;
 
     @ApiModelProperty("设计师列表")
     private List<DesignerInformationPo> designerInformationList;
@@ -86,12 +92,28 @@ public class MainDataListResponse {
         this.decorationCaseLsit = decorationCaseLsit;
     }
 
-    public List<VRScenesPo> getVrList() {
-        return vrList;
+    public VRScenesPo getVrOne() {
+        return vrOne;
     }
 
-    public void setVrList(List<VRScenesPo> vrList) {
-        this.vrList = vrList;
+    public void setVrOne(VRScenesPo vrOne) {
+        this.vrOne = vrOne;
+    }
+
+    public VRScenesPo getVrTwo() {
+        return vrTwo;
+    }
+
+    public void setVrTwo(VRScenesPo vrTwo) {
+        this.vrTwo = vrTwo;
+    }
+
+    public VRScenesPo getVrThree() {
+        return vrThree;
+    }
+
+    public void setVrThree(VRScenesPo vrThree) {
+        this.vrThree = vrThree;
     }
 
     public List<DesignerInformationPo> getDesignerInformationList() {

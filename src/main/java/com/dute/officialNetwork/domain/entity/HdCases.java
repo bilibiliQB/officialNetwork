@@ -34,11 +34,55 @@ public class HdCases {
     private String hdCasesImgUrl; // 案例图片
 
     @Column(name = "hd_cases_order")
-    private String hdCasesOrder; // 案例排序
+    private Integer hdCasesOrder; // 案例排序
 
     @Column(name = "hd_cases_create_time")
     @JSONField(format = "yyyy/MM/dd HH:mm:ss")
     private Date hdCasesCreateTime; // 案例创建时间
+
+    @Column(name = "hd_cases_content")
+    private String hdCasesContent; // 案例详情
+
+    @Column(name = "hd_cases_viewcount")
+    private Integer hdCasesViewcount; // 案例浏览量
+
+    @Column(name = "hd_cases_auther")
+    private String hdCasesAuther; // 案例作者
+
+    @Column(name = "hd_status")
+    private Integer hdStatus; // 案例状态
+
+    public String getHdCasesContent() {
+        return hdCasesContent;
+    }
+
+    public void setHdCasesContent(String hdCasesContent) {
+        this.hdCasesContent = hdCasesContent;
+    }
+
+    public Integer getHdCasesViewcount() {
+        return hdCasesViewcount;
+    }
+
+    public void setHdCasesViewcount(Integer hdCasesViewcount) {
+        this.hdCasesViewcount = hdCasesViewcount;
+    }
+
+    public String getHdCasesAuther() {
+        return hdCasesAuther;
+    }
+
+    public void setHdCasesAuther(String hdCasesAuther) {
+        this.hdCasesAuther = hdCasesAuther;
+    }
+
+    public Integer getHdStatus() {
+        return hdStatus;
+    }
+
+    public void setHdStatus(Integer hdStatus) {
+        this.hdStatus = hdStatus;
+    }
 
     public Integer getId() {
         return id;
@@ -88,11 +132,11 @@ public class HdCases {
         this.hdCasesImgUrl = hdCasesImgUrl;
     }
 
-    public String getHdCasesOrder() {
+    public Integer getHdCasesOrder() {
         return hdCasesOrder;
     }
 
-    public void setHdCasesOrder(String hdCasesOrder) {
+    public void setHdCasesOrder(Integer hdCasesOrder) {
         this.hdCasesOrder = hdCasesOrder;
     }
 

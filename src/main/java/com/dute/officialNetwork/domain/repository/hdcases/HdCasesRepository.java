@@ -9,4 +9,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
 public interface HdCasesRepository extends JpaRepository<HdCases,Integer>,JpaSpecificationExecutor<HdCases> {
+    HdCases findByHdCasesOrder(int i);
 }
