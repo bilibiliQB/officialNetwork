@@ -39,6 +39,8 @@ public class HdCasesServiceImpl implements IHdCasesService {
 
         String size = CaseSizeEnum.get(hdCasesRequest.getSizeFlag()).getArerValue();
 
+        String selectStr = hdCasesRequest.getSelectStr();
+
         List<HdCasesPo> list = new ArrayList<>();
         PageRequest pageRequest = new PageRequest(hdCasesRequest.getPageNumber()-1,12,new Sort(Sort.Direction.DESC,"hdCasesOrder"));
         //创建多条件查询对象
@@ -48,6 +50,7 @@ public class HdCasesServiceImpl implements IHdCasesService {
                 Path<Integer> hdCasesArea = root.get("hdCasesArea");
                 Path<String> hdCasesStyle = root.get("hdCasesStyle");
                 Path<String> hdCasesSize = root.get("hdCasesSize");
+                Path<String> hdCasesName = root.get("hdCasesName");
                 List<Predicate> predicates = new ArrayList<>();
                 if(style != null && !"".equals(style)){
                     predicates.add(criteriaBuilder.like(hdCasesStyle,style));
@@ -66,6 +69,9 @@ public class HdCasesServiceImpl implements IHdCasesService {
                     }else{
                         predicates.add(criteriaBuilder.between(hdCasesArea,Integer.parseInt(split[0]),Integer.parseInt(split[1])));
                     }
+                }
+                if(selectStr != null && !"".equals(selectStr)){
+                    predicates.add(criteriaBuilder.like(hdCasesName,"%"+selectStr+"%"));
                 }
                 return criteriaBuilder.and(predicates.toArray(new Predicate[predicates.size()]));
             }

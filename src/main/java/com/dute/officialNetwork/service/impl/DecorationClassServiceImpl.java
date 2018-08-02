@@ -45,7 +45,7 @@ public class DecorationClassServiceImpl implements DecorationClassService {
 		str.append("%");
 		str.append(keywords);
 		str.append("%");
-		return dcr.findByKeywordsLike(str.toString(), pageable);
+		return dcr.findByMainTitleLike(str.toString(), pageable);
 	}
 
 	@Override

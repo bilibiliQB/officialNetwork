@@ -16,5 +16,5 @@ public interface DecorationClassRepository extends JpaRepository<DecorationClass
 
 	Page<DecorationClass> findByDecorationClassSubType_IdOrderByViewingCount(Integer dcs_id, Pageable pageable);
 
-	Page<DecorationClass> findByKeywordsLike(String keywords, Pageable pageable);
+	Page<DecorationClass> findByMainTitleLike(String keywords, Pageable pageable);
 }

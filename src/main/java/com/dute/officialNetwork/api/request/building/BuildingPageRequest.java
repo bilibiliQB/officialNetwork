@@ -8,6 +8,16 @@ import io.swagger.annotations.ApiModelProperty;
 public class BuildingPageRequest {
     @ApiModelProperty("当前页数")
     private Integer pageNumber;
+    @ApiModelProperty("搜索关键字")
+    private String selectStr;
+
+    public String getSelectStr() {
+        return selectStr;
+    }
+
+    public void setSelectStr(String selectStr) {
+        this.selectStr = selectStr;
+    }
 
 
     public Integer getPageNumber() {

@@ -138,25 +138,25 @@ public class DecorationClassController {
 //		return result;
 //	}
 //
-//	@ApiOperation("关键字查询装修课堂列表[分页]")
-//	@PostMapping("/getByKeywordsLike")
-//	public ResultData<DecorationClassResponse3> getDecorationClass3(DecorationClassRequest1 dcrq) {
-//		ResultData<DecorationClassResponse3> result = new ResultData<>();
-//		DecorationClassResponse3 dcr = new DecorationClassResponse3();
-//		try {
-//			for (DecorationClass dc : dcs.findByKeywordsLike(dcrq.getKeywords(),
-//					PageRequest.of(dcrq.getPageNumber() - 1, dcrq.getShowCount()))) {
-//				dcr.copyProperties(dc);
-//			}
-//			dcr.setKeywords(dcrq.getKeywords());
-//			result.setData(dcr);
-//			result.setStatus(ResultData.CODE_SUCCESS);
-//		} catch (Exception e) {
-//			result.setStatus(ResultData.CODE_FAIL_BIZ);
-//			result.setMessage(e.getMessage());
-//		}
-//		return result;
-//	}
+	@ApiOperation("关键字查询装修课堂列表[分页]")
+	@PostMapping("/getByKeywordsLike")
+	public ResultData<DecorationClassResponse3> getDecorationClass3(DecorationClassRequest1 dcrq) {
+		ResultData<DecorationClassResponse3> result = new ResultData<>();
+		DecorationClassResponse3 dcr = new DecorationClassResponse3();
+		try {
+			for (DecorationClass dc : decorationClassService.findByKeywordsLike(dcrq.getKeywords(),
+					PageRequest.of(dcrq.getPageNumber() - 1, dcrq.getShowCount()))) {
+				dcr.copyProperties(dc);
+			}
+			dcr.setKeywords(dcrq.getKeywords());
+			result.setData(dcr);
+			result.setStatus(ResultData.CODE_SUCCESS);
+		} catch (Exception e) {
+			result.setStatus(ResultData.CODE_FAIL_BIZ);
+			result.setMessage(e.getMessage());
+		}
+		return result;
+	}
 //
 	@ApiOperation("根据ID获取装修课堂文章详情页")
 	@PostMapping("/getOneById")

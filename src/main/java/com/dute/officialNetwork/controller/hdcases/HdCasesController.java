@@ -47,4 +47,20 @@ public class HdCasesController {
         }
         return responseResultData;
     }
+
+    @ApiOperation("高清案例详情")
+    @PostMapping("getHdContent")
+    public ResultData<HdSelectListResponse> getHdContent(){
+        ResultData<HdSelectListResponse> responseResultData = new ResultData<>();
+        try {
+            HdSelectListResponse hdSelectListResponse = hdCasesService.findSelectData();
+            responseResultData.setData(hdSelectListResponse);
+        }catch (Exception e){
+            responseResultData.setStatus(ResultData.CODE_FAIL_BIZ);
+            responseResultData.setMessage(e.getMessage());
+        }
+        return responseResultData;
+    }
+
+
 }
