@@ -149,4 +149,17 @@ public class HdCasesServiceImpl implements IHdCasesService {
         hdContentResponse.setPrvie(prive);
         return hdContentResponse;
     }
+
+    @Override
+    public List<HdCasesPo> findByHdCasesStyle(PageRequest pageRequest, String integralDecorationName) {
+        Page<HdCases> page = hdCasesRepository.findByHdCasesStyle(pageRequest,integralDecorationName);
+        List<HdCases> hdCasesList = page.getContent();
+        List<HdCasesPo> list = new ArrayList<>();
+        for(HdCases hdCases : hdCasesList){
+            HdCasesPo hdCasesPo = new HdCasesPo();
+            BeanUtils.copyProperties(hdCases,hdCasesPo);
+            list.add(hdCasesPo);
+        }
+        return list;
+    }
 }

@@ -49,8 +49,8 @@ public class IntegralDecoration {
     @Column(name = "Integral_decoration_is_show")
     private Integer IntegralDecorationIsShow; //整装是否展示
 
-    @OneToMany(mappedBy = "integralDecoration", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<IntegralDecorationImg> integralDecorationImgList;   //整装图片集合
+//    @OneToMany(mappedBy = "integralDecoration", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+//    private List<IntegralDecorationImg> integralDecorationImgList;   //整装图片集合
 
     public Integer getId() {
         return id;
@@ -132,11 +132,11 @@ public class IntegralDecoration {
         IntegralDecorationIsShow = integralDecorationIsShow;
     }
 
-    public List<IntegralDecorationImg> getIntegralDecorationImgList() {
-        return integralDecorationImgList;
-    }
-
-    public void setIntegralDecorationImgList(List<IntegralDecorationImg> integralDecorationImgList) {
-        this.integralDecorationImgList = integralDecorationImgList;
-    }
+//    public List<IntegralDecorationImg> getIntegralDecorationImgList() {
+//        return integralDecorationImgList;
+//    }
+//
+//    public void setIntegralDecorationImgList(List<IntegralDecorationImg> integralDecorationImgList) {
+//        this.integralDecorationImgList = integralDecorationImgList;
+//    }
 }

@@ -10,4 +10,6 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
 public interface HdCasesRepository extends JpaRepository<HdCases,Integer>,JpaSpecificationExecutor<HdCases> {
     HdCases findByHdCasesOrder(int i);
+
+    Page<HdCases> findByHdCasesStyle(Pageable pageRequest, String integralDecorationName);
 }
