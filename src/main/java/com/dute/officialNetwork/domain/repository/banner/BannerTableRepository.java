@@ -9,5 +9,5 @@ import java.util.List;
  * Created by zhanghongwei on 2018/7/30.
  */
 public interface BannerTableRepository extends JpaRepository<BannerTable,Integer> {
-    List<BannerTable> findAllByBannerType(int i);
+    List<BannerTable> findAllByBannerTypeOrderByBannerOrderAsc(int i);
 }

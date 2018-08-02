@@ -1,6 +1,7 @@
 package com.dute.officialNetwork.api.response.main;
 
 import com.dute.officialNetwork.api.po.*;
+import com.dute.officialNetwork.api.response.banner.BannerPicResponse;
 import com.dute.officialNetwork.api.response.index.CorporateNewsResponse0;
 import com.dute.officialNetwork.api.response.index.DesignerInformationResponse0;
 import com.dute.officialNetwork.api.response.index.ProductCaseResponse0;
@@ -43,16 +44,15 @@ public class MainDataListResponse {
     private List<DecorationClassPo> decorationClassForWinfUpList;
 
     @ApiModelProperty("首页banner图")
-    private List<BannerTablePo> bannerTablePoList;
+    private BannerPicResponse bannerPicResponse;
 
-    public List<BannerTablePo> getBannerTablePoList() {
-        return bannerTablePoList;
+    public BannerPicResponse getBannerPicResponse() {
+        return bannerPicResponse;
     }
 
-    public void setBannerTablePoList(List<BannerTablePo> bannerTablePoList) {
-        this.bannerTablePoList = bannerTablePoList;
+    public void setBannerPicResponse(BannerPicResponse bannerPicResponse) {
+        this.bannerPicResponse = bannerPicResponse;
     }
-
 
     public String getPreviews() {
         return previews;

@@ -21,7 +21,7 @@ public class BannerTableServiceImpl implements IBannerTableService {
     @Override
     public List<BannerTablePo> findAllByBannerType(int i) {
         List<BannerTablePo> bannerTablePoList = new ArrayList<>();
-        for(BannerTable bannerTable : bannerTableRepository.findAllByBannerType(1)){
+        for(BannerTable bannerTable : bannerTableRepository.findAllByBannerTypeOrderByBannerOrderAsc(1)){
             BannerTablePo bannerTablePo = new BannerTablePo();
             BeanUtils.copyProperties(bannerTable,bannerTablePo);
             bannerTablePoList.add(bannerTablePo);

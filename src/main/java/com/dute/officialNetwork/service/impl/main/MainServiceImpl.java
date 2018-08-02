@@ -1,6 +1,7 @@
 package com.dute.officialNetwork.service.impl.main;
 
 import com.dute.officialNetwork.api.po.*;
+import com.dute.officialNetwork.api.response.banner.BannerPicResponse;
 import com.dute.officialNetwork.api.response.main.MainDataListResponse;
 import com.dute.officialNetwork.domain.entity.*;
 import com.dute.officialNetwork.service.impl.VRScenesServiceImpl;
@@ -77,6 +78,11 @@ public class MainServiceImpl implements IMainService {
 		List<DecorationClassPo> decorationClassList_3 = decorationClassService.getDecorationClassByMainTypeId(3); //装修课堂 3 收尾阶段  6 条
         //12.首页banner
         List<BannerTablePo> bannerTablePoList = bannerTableService.findAllByBannerType(1);
+        BannerPicResponse bannerPicResponse = new BannerPicResponse();
+        bannerPicResponse.setBannerOne(bannerTablePoList.get(0));
+        bannerPicResponse.setBannerTwo(bannerTablePoList.get(1));
+        bannerPicResponse.setBannerThree(bannerTablePoList.get(2));
+        bannerPicResponse.setBannerFour(bannerTablePoList.get(3));
         //装数据
         MainDataListResponse mainDataListResponse = new MainDataListResponse();
         mainDataListResponse.setCompanyProfilePictureList(companyProfilePictureList);
@@ -89,7 +95,7 @@ public class MainServiceImpl implements IMainService {
         mainDataListResponse.setPrizeList(drawLotteryRaffleList);
         mainDataListResponse.setVrList(vrScenesList);
         mainDataListResponse.setDecorationStyleList(productCaseTypeList);
-        mainDataListResponse.setBannerTablePoList(bannerTablePoList);
+        mainDataListResponse.setBannerPicResponse(bannerPicResponse);
         return mainDataListResponse;
     }
 }
