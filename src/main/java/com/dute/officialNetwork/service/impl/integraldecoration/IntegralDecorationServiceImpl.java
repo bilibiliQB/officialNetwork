@@ -1,13 +1,18 @@
 package com.dute.officialNetwork.service.impl.integraldecoration;
 
+import com.dute.officialNetwork.api.po.HdCasesPo;
 import com.dute.officialNetwork.api.po.IntegralDecorationImgPo;
 import com.dute.officialNetwork.api.po.IntegralDecorationPo;
 import com.dute.officialNetwork.domain.entity.IntegralDecoration;
 import com.dute.officialNetwork.domain.entity.IntegralDecorationImg;
 import com.dute.officialNetwork.domain.repository.integraldecoration.IntegralDecorationRepository;
+import com.dute.officialNetwork.service.interfaces.hdcases.IHdCasesService;
 import com.dute.officialNetwork.service.interfaces.integraldecoration.IIntegralDecorationService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -17,6 +22,9 @@ import java.util.List;
 public class IntegralDecorationServiceImpl implements IIntegralDecorationService {
     @Autowired
     private IntegralDecorationRepository integralDecorationRepository;
+
+    @Autowired
+    private IHdCasesService hdCasesService;
 
     @Override
     public List<IntegralDecorationPo> findAll() {
@@ -51,17 +59,21 @@ public class IntegralDecorationServiceImpl implements IIntegralDecorationService
                 integralDecorationPo.setIntegralDecorationContents(integralDecorationContents_1);
             }
             //处理图片集合
-            List<IntegralDecorationImg> integralDecorationImgList = integralDecoration.getIntegralDecorationImgList();
-            List<IntegralDecorationImgPo> integralDecorationImgPoList = new ArrayList<>();
-            for(IntegralDecorationImg integralDecorationImg : integralDecorationImgList){
-                IntegralDecorationImgPo integralDecorationImgPo = new IntegralDecorationImgPo();
-                integralDecorationImgPo.setIntegralDecorationImgUrl(integralDecorationImg.getIntegralDecorationImgUrl());
-                integralDecorationImgPo.setIntegralDecorationOrder(integralDecorationImg.getIntegralDecorationOrder());
-                integralDecorationImgPo.setId(integralDecorationImg.getId());
-                integralDecorationImgPoList.add(integralDecorationImgPo);
-            }
+//            List<IntegralDecorationImg> integralDecorationImgList = integralDecoration.getIntegralDecorationImgList();
+//            List<IntegralDecorationImgPo> integralDecorationImgPoList = new ArrayList<>();
+//            for(IntegralDecorationImg integralDecorationImg : integralDecorationImgList){
+//                IntegralDecorationImgPo integralDecorationImgPo = new IntegralDecorationImgPo();
+//                integralDecorationImgPo.setIntegralDecorationImgUrl(integralDecorationImg.getIntegralDecorationImgUrl());
+//                integralDecorationImgPo.setIntegralDecorationOrder(integralDecorationImg.getIntegralDecorationOrder());
+//                integralDecorationImgPo.setId(integralDecorationImg.getId());
+//                integralDecorationImgPoList.add(integralDecorationImgPo);
+//            }
+//
+//            integralDecorationPo.setIntegralDecorationImgList(integralDecorationImgPoList);
 
-            integralDecorationPo.setIntegralDecorationImgList(integralDecorationImgPoList);
+            //根据类型获取高清案例的图片
+            List<HdCasesPo> hdCasesPoList = hdCasesService.findByHdCasesStyle(new PageRequest(0,4,new Sort(Sort.Direction.ASC,"hdCasesOrder")),integralDecoration.getIntegralDecorationName());
+            integralDecorationPo.setHdCasesPoList(hdCasesPoList);
             list.add(integralDecorationPo);
         }
         return list;

@@ -6,6 +6,7 @@ import com.dute.officialNetwork.api.em.CaseStyleEnum;
 import com.dute.officialNetwork.api.po.HdCasesPo;
 import com.dute.officialNetwork.api.request.hdcases.HdCasesRequest;
 import com.dute.officialNetwork.api.response.hdcases.HdCasesResponse;
+import com.dute.officialNetwork.api.response.hdcases.HdContentResponse;
 import com.dute.officialNetwork.api.response.hdcases.HdSelectListResponse;
 import com.dute.officialNetwork.api.response.hdcases.HdSelectResponse;
 import com.dute.officialNetwork.domain.entity.HdCases;
@@ -120,5 +121,45 @@ public class HdCasesServiceImpl implements IHdCasesService {
         hdSelectListResponse.setCaseSizeList(caseSizeEnumList);
         hdSelectListResponse.setCaseStyleList(caseStyleEnumList);
         return hdSelectListResponse;
+    }
+
+    @Override
+    public void updateViewCount(Integer id) {
+        HdCases hdCases1 = hdCasesRepository.getOne(id);
+        HdCases hdCases = new HdCases();
+        BeanUtils.copyProperties(hdCases1,hdCases);
+        hdCases.setHdCasesViewcount(hdCases1.getHdCasesViewcount() + 1);
+        hdCasesRepository.save(hdCases);
+    }
+
+    @Override
+    public HdContentResponse getHdContent(Integer id) {
+        HdCases hdCases = hdCasesRepository.getOne(id);
+        HdCasesPo next = new HdCasesPo();
+        HdCasesPo prive = new HdCasesPo();
+        HdContentResponse hdContentResponse = new HdContentResponse();
+        BeanUtils.copyProperties(hdCases,hdContentResponse);
+        //查找上一个和下一个
+        HdCases hdCases1 = hdCasesRepository.findByHdCasesOrder(hdCases.getHdCasesOrder() + 1);
+        hdCases1 = hdCases1 == null ? hdCasesRepository.getOne(1) : hdCases1;
+        HdCases hdCases2 = hdCases.getHdCasesOrder() - 1 == 0 ? hdCasesRepository.getOne(1) : hdCasesRepository.findByHdCasesOrder(hdCases.getHdCasesOrder() - 1);
+        BeanUtils.copyProperties(hdCases1,next);
+        BeanUtils.copyProperties(hdCases2,prive);
+        hdContentResponse.setNext(next);
+        hdContentResponse.setPrvie(prive);
+        return hdContentResponse;
+    }
+
+    @Override
+    public List<HdCasesPo> findByHdCasesStyle(PageRequest pageRequest, String integralDecorationName) {
+        Page<HdCases> page = hdCasesRepository.findByHdCasesStyle(pageRequest,integralDecorationName);
+        List<HdCases> hdCasesList = page.getContent();
+        List<HdCasesPo> list = new ArrayList<>();
+        for(HdCases hdCases : hdCasesList){
+            HdCasesPo hdCasesPo = new HdCasesPo();
+            BeanUtils.copyProperties(hdCases,hdCasesPo);
+            list.add(hdCasesPo);
+        }
+        return list;
     }
 }

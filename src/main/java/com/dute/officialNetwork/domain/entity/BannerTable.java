@@ -1,5 +1,6 @@
 package com.dute.officialNetwork.domain.entity;
 
+import jdk.nashorn.internal.objects.annotations.Setter;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 

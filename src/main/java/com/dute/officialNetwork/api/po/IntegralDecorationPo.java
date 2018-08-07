@@ -1,5 +1,6 @@
 package com.dute.officialNetwork.api.po;
 
+import com.dute.officialNetwork.domain.entity.HdCases;
 import io.swagger.annotations.ApiModelProperty;
 
 import java.util.Date;
@@ -37,7 +38,10 @@ public class IntegralDecorationPo {
     private Integer IntegralDecorationIsShow; //整装是否展示
 
     @ApiModelProperty("整装图片集合")
-    private List<IntegralDecorationImgPo> integralDecorationImgList;   //整装图片集合
+    private List<HdCasesPo> hdCasesPoList;
+
+//    @ApiModelProperty("整装图片集合")
+//    private List<IntegralDecorationImgPo> integralDecorationImgList;   //整装图片集合
 
     public Integer getId() {
         return id;
@@ -119,11 +123,19 @@ public class IntegralDecorationPo {
         IntegralDecorationIsShow = integralDecorationIsShow;
     }
 
-    public List<IntegralDecorationImgPo> getIntegralDecorationImgList() {
-        return integralDecorationImgList;
+    public List<HdCasesPo> getHdCasesPoList() {
+        return hdCasesPoList;
     }
 
-    public void setIntegralDecorationImgList(List<IntegralDecorationImgPo> integralDecorationImgList) {
-        this.integralDecorationImgList = integralDecorationImgList;
+    public void setHdCasesPoList(List<HdCasesPo> hdCasesPoList) {
+        this.hdCasesPoList = hdCasesPoList;
     }
+
+    //    public List<IntegralDecorationImgPo> getIntegralDecorationImgList() {
+//        return integralDecorationImgList;
+//    }
+//
+//    public void setIntegralDecorationImgList(List<IntegralDecorationImgPo> integralDecorationImgList) {
+//        this.integralDecorationImgList = integralDecorationImgList;
+//    }
 }

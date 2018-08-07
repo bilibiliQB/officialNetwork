@@ -2,6 +2,7 @@ package com.dute.officialNetwork.controller.hdcases;
 
 import com.dute.officialNetwork.api.request.hdcases.HdCasesRequest;
 import com.dute.officialNetwork.api.response.hdcases.HdCasesResponse;
+import com.dute.officialNetwork.api.response.hdcases.HdContentResponse;
 import com.dute.officialNetwork.api.response.hdcases.HdSelectListResponse;
 import com.dute.officialNetwork.service.interfaces.hdcases.IHdCasesService;
 import com.dute.officialNetwork.util.ResultData;
@@ -10,6 +11,7 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @Api(description = "高清案例相关控制器")
@@ -50,11 +52,12 @@ public class HdCasesController {
 
     @ApiOperation("高清案例详情")
     @PostMapping("getHdContent")
-    public ResultData<HdSelectListResponse> getHdContent(){
-        ResultData<HdSelectListResponse> responseResultData = new ResultData<>();
+    public ResultData<HdContentResponse> getHdContent(@RequestParam Integer id){
+        ResultData<HdContentResponse> responseResultData = new ResultData<HdContentResponse>();
         try {
-            HdSelectListResponse hdSelectListResponse = hdCasesService.findSelectData();
-            responseResultData.setData(hdSelectListResponse);
+            hdCasesService.updateViewCount(id);
+            HdContentResponse hdContentResponse = hdCasesService.getHdContent(id);
+            responseResultData.setData(hdContentResponse);
         }catch (Exception e){
             responseResultData.setStatus(ResultData.CODE_FAIL_BIZ);
             responseResultData.setMessage(e.getMessage());

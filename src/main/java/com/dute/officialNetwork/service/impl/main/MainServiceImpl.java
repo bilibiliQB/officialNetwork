@@ -93,7 +93,6 @@ public class MainServiceImpl implements IMainService {
         mainDataListResponse.setDesignerInformationList(designerInformationList);
         mainDataListResponse.setPreviews(ungroupedPicture.getUpImgUrl());
         mainDataListResponse.setPrizeList(drawLotteryRaffleList);
-        mainDataListResponse.setVrList(vrScenesList);
         mainDataListResponse.setDecorationStyleList(productCaseTypeList);
         mainDataListResponse.setBannerTablePoList(bannerTablePoList);
         return mainDataListResponse;
