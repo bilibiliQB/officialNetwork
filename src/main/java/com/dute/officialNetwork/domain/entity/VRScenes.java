@@ -60,6 +60,18 @@ public class VRScenes implements Serializable{
 	@Column(name = "vs_order")
 	private Integer vsOrder;
 
+
+	@Column(name = "vs_index_one_path")
+	private String vsIndexOnePath;
+
+	public String getVsIndexOnePath() {
+		return vsIndexOnePath;
+	}
+
+	public void setVsIndexOnePath(String vsIndexOnePath) {
+		this.vsIndexOnePath = vsIndexOnePath;
+	}
+
 	public Integer getVsOrder() {
 		return vsOrder;
 	}

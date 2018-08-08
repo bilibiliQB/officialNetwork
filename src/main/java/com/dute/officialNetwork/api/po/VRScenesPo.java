@@ -38,6 +38,17 @@ public class VRScenesPo implements Serializable {
     @ApiModelProperty("vr所属设计师编号")
     private Integer vsDesignerId;
 
+    @ApiModelProperty("首页 vr 首位展示大规格图片链接")
+    private String vsIndexOnePath;
+
+    public String getVsIndexOnePath() {
+        return vsIndexOnePath;
+    }
+
+    public void setVsIndexOnePath(String vsIndexOnePath) {
+        this.vsIndexOnePath = vsIndexOnePath;
+    }
+
     public Integer getVsOrder() {
         return vsOrder;
     }
