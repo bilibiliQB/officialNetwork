@@ -8,6 +8,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
@@ -42,7 +43,7 @@ public class VRScenesServiceImpl implements VRScenesService {
     public VrScenesResponse getPageDataByRequest(VrPageDataRequest vrPageDataRequest) {
         VrScenesResponse vrScenesResponse = new VrScenesResponse();
         List<VRScenesPo> list = new ArrayList<>();
-        PageRequest pageable = new PageRequest(vrPageDataRequest.getPageNumber() -1 ,vrPageDataRequest.getPageSize());
+        Pageable pageable = new PageRequest(vrPageDataRequest.getPageNumber() -1 ,vrPageDataRequest.getPageSize());
         Page<VRScenes> all = VRSr.findAll(pageable);
         List<VRScenes> vrSrAll = all.getContent();
         for(VRScenes vrScenes : vrSrAll){
