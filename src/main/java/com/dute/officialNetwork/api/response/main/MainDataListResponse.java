@@ -50,14 +50,14 @@ public class MainDataListResponse {
     private List<DecorationClassPo> decorationClassForWinfUpList;
 
     @ApiModelProperty("首页banner图")
-    private BannerPicResponse bannerPicResponse;
+    private List<BannerTablePo> bannerTablePoList;
 
-    public BannerPicResponse getBannerPicResponse() {
-        return bannerPicResponse;
+    public List<BannerTablePo> getBannerTablePoList() {
+        return bannerTablePoList;
     }
 
-    public void setBannerPicResponse(BannerPicResponse bannerPicResponse) {
-        this.bannerPicResponse = bannerPicResponse;
+    public void setBannerTablePoList(List<BannerTablePo> bannerTablePoList) {
+        this.bannerTablePoList = bannerTablePoList;
     }
 
     public String getPreviews() {

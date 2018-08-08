@@ -24,7 +24,7 @@ public class DesignerInformationServiceImpl implements DesignerInformationServic
 	@Override
 	public List<DesignerInformationPo> get5DesignerInformations() {
 		List<DesignerInformationPo> list = new ArrayList<>();
-		for(DesignerInformation designerInformation : dir.findTop5ByOrderByCreateTimeDesc()){
+		for(DesignerInformation designerInformation : dir.findTop6ByOrderByCreateTimeDesc()){
 			DesignerInformationPo designerInformationPo = new DesignerInformationPo();
 			BeanUtils.copyProperties(designerInformation,designerInformationPo);
 			list.add(designerInformationPo);
