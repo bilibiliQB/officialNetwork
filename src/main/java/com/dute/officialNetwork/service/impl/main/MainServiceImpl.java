@@ -3,6 +3,7 @@ package com.dute.officialNetwork.service.impl.main;
 import com.dute.officialNetwork.api.po.*;
 import com.dute.officialNetwork.api.response.banner.BannerPicResponse;
 import com.dute.officialNetwork.api.response.main.MainDataListResponse;
+import com.dute.officialNetwork.api.response.main.VRResponse;
 import com.dute.officialNetwork.domain.entity.*;
 import com.dute.officialNetwork.service.impl.VRScenesServiceImpl;
 import com.dute.officialNetwork.service.interfaces.DecorationClassService;
@@ -66,6 +67,7 @@ public class MainServiceImpl implements IMainService {
         List<ProductCasePo> productCaseslist = productCaseService.get6ProductCases();
         //5.VR列表 三条
         List<VRScenesPo> vrScenesList = vrScenesService.getAll();
+
         //6.设计师列表
         List<DesignerInformationPo> designerInformationList = designerInformationService.get5DesignerInformations();
         //7.走进独特列表
@@ -95,6 +97,9 @@ public class MainServiceImpl implements IMainService {
         mainDataListResponse.setPrizeList(drawLotteryRaffleList);
         mainDataListResponse.setDecorationStyleList(productCaseTypeList);
         mainDataListResponse.setBannerTablePoList(bannerTablePoList);
+        mainDataListResponse.setVrOne(vrScenesList.get(0));
+        mainDataListResponse.setVrTwo(vrScenesList.get(1));
+        mainDataListResponse.setVrThree(vrScenesList.get(2));
         return mainDataListResponse;
     }
 }
