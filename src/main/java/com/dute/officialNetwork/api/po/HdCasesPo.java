@@ -1,5 +1,6 @@
 package com.dute.officialNetwork.api.po;
 
+import com.alibaba.fastjson.annotation.JSONField;
 import io.swagger.annotations.ApiModelProperty;
 
 import java.util.Date;
@@ -10,6 +11,9 @@ public class HdCasesPo {
 
     @ApiModelProperty("案例名称")
     private String hdCasesName; // 案例名称
+
+    @ApiModelProperty("案例所属楼盘")
+    private String hdBuilding;
 
     @ApiModelProperty("案例面积")
     private Integer hdCasesArea; // 案例面积
@@ -27,6 +31,7 @@ public class HdCasesPo {
     private Integer hdCasesOrder; // 案例排序
 
     @ApiModelProperty("案例创建时间")
+    @JSONField(format = "yyyy/MM/dd")
     private Date hdCasesCreateTime; // 案例创建时间
 
     @ApiModelProperty("案例详情")
@@ -40,6 +45,14 @@ public class HdCasesPo {
 
     @ApiModelProperty("案例状态")
     private Integer hdStatus; // 案例状态
+
+    public String getHdBuilding() {
+        return hdBuilding;
+    }
+
+    public void setHdBuilding(String hdBuilding) {
+        this.hdBuilding = hdBuilding;
+    }
 
     public String getHdCasesContent() {
         return hdCasesContent;

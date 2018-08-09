@@ -2,6 +2,7 @@ package com.dute.officialNetwork.controller.customerinfomation;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.alibaba.fastjson.JSONObject;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,8 +27,9 @@ public class CustomerInformationController {
 
 	@ApiOperation("存储客户信息")
 	@PostMapping("/save")
-	public ResultData<Boolean> commitInfo(CustomerInformationRequest0 cir, HttpServletRequest request) {
-		ResultData<Boolean> result = new ResultData<>();
+	public ResultData<Boolean> commitInfo(String data, HttpServletRequest request) {
+        CustomerInformationRequest0 cir = JSONObject.parseObject(data, CustomerInformationRequest0.class);
+        ResultData<Boolean> result = new ResultData<>();
 		CustomerInformation ci = new CustomerInformation();
 		try {
 			BeanUtils.copyProperties(cir, ci);

@@ -94,6 +94,7 @@ public class DecorationClassController {
 			decorationClassResponse1.setCurrentPageNumber(decorationClassRequest0.getPageNumber());
 			decorationClassResponse1.setPageCount(decorationClassPage.getTotalPages());
 			decorationClassResponse1.setDcsId(decorationClassRequest0.getDcsId());
+			decorationClassResponse1.setTotalCount(decorationClassPage.getTotalElements());
 			for (DecorationClass decorationClass : decorationClassPage.getContent()) {
 				decorationClassResponse1.copyProperties(decorationClass);
 			}

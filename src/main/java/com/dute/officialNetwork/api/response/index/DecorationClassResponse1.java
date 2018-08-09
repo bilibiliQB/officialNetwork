@@ -21,6 +21,17 @@ public class DecorationClassResponse1 {
 	@ApiModelProperty("返回当前副分类ID")
 	private Integer dcsId;
 
+	@ApiModelProperty("总条数")
+	private Long totalCount;
+
+	public Long getTotalCount() {
+		return totalCount;
+	}
+
+	public void setTotalCount(Long totalCount) {
+		this.totalCount = totalCount;
+	}
+
 	private List<DecorationClassResponse> decorationClass = new ArrayList<>(); // 装修课堂列表
 
 	public void copyProperties(DecorationClass dc) {

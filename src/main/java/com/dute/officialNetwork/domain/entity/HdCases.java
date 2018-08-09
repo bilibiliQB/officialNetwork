@@ -21,6 +21,9 @@ public class HdCases {
     @Column(name = "hd_cases_name")
     private String hdCasesName; // 案例名称
 
+    @Column(name = "hd_building")
+    private String hdBuilding;
+
     @Column(name = "hd_cases_area")
     private Integer hdCasesArea; // 案例面积
 
@@ -37,7 +40,7 @@ public class HdCases {
     private Integer hdCasesOrder; // 案例排序
 
     @Column(name = "hd_cases_create_time")
-    @JSONField(format = "yyyy/MM/dd HH:mm:ss")
+    @JSONField(format = "yyyy/MM/dd")
     private Date hdCasesCreateTime; // 案例创建时间
 
     @Column(name = "hd_cases_content")
@@ -51,6 +54,14 @@ public class HdCases {
 
     @Column(name = "hd_status")
     private Integer hdStatus; // 案例状态
+
+    public String getHdBuilding() {
+        return hdBuilding;
+    }
+
+    public void setHdBuilding(String hdBuilding) {
+        this.hdBuilding = hdBuilding;
+    }
 
     public String getHdCasesContent() {
         return hdCasesContent;
