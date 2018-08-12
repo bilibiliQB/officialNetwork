@@ -59,4 +59,9 @@ public class DecorationClassServiceImpl implements DecorationClassService {
 	public DecorationClass updateOne(DecorationClass dc) {
 		return dcr.save(dc);
 	}
+
+	@Override
+	public List<DecorationClass> findAll() {
+		return dcr.findAll();
+	}
 }

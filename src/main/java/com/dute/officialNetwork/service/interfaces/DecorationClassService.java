@@ -18,4 +18,6 @@ public interface DecorationClassService {
 	DecorationClass getOneById(Long id);
 
 	DecorationClass updateOne(DecorationClass dc);
+
+    List<DecorationClass> findAll();
 }

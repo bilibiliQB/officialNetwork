@@ -35,29 +35,48 @@ public class IntegralDecorationServiceImpl implements IIntegralDecorationService
 
             String integralDecorationContent = integralDecoration.getIntegralDecorationContent();
             //创建数组
-            String[] integralDecorationContents_1 = new String[1];
-            String[] integralDecorationContents_2 = new String[2];
-            String[] integralDecorationContents_3 = new String[3];
+//            String[] integralDecorationContents_2 = new String[2];
+//            String[] integralDecorationContents_3 = new String[3];
 
             BeanUtils.copyProperties(integralDecoration,integralDecorationPo);
 
-            if(integralDecorationContent.length() >= 17 ){
-                integralDecorationContents_2[0] = integralDecorationContent.substring(0, 17);
-                integralDecorationContents_3[0] = integralDecorationContent.substring(0, 17);
-                //判断剩下的数据
-                String substring = integralDecorationContent.substring(17, integralDecorationContent.length());
-                if(substring.length() >= 15){
-                    integralDecorationContents_3[1] = substring.substring(0, 15);
-                    integralDecorationContents_3[2] = substring.substring(15, substring.length());
-                    integralDecorationPo.setIntegralDecorationContents(integralDecorationContents_3);
-                }else{
-                    integralDecorationContents_2[1] = substring;
-                    integralDecorationPo.setIntegralDecorationContents(integralDecorationContents_2);
-                }
-            }else{
-                integralDecorationContents_1[0] = integralDecorationContent;
-                integralDecorationPo.setIntegralDecorationContents(integralDecorationContents_1);
+            //直接把字符串拆分成长度一样的字符串数组
+            int size = integralDecorationContent.length() / 19;
+            if (integralDecorationContent.length() % 19 != 0) {
+                size += 1;
             }
+
+            String[] integralDecorationContents_1 = new String[size];
+
+            for (int index = 0; index < size; index++) {
+                int start = index * 19;
+                int end = 19 * (index + 1);
+                if(end > integralDecorationContent.length()){
+                    end = integralDecorationContent.length();
+                }
+                String substring = integralDecorationContent.substring(start, end);
+                integralDecorationContents_1[index] = substring;
+            }
+
+            integralDecorationPo.setIntegralDecorationContents(integralDecorationContents_1);
+
+//            if(integralDecorationContent.length() >= 19 ){
+//                integralDecorationContents_2[0] = integralDecorationContent.substring(0, 19);
+//                integralDecorationContents_3[0] = integralDecorationContent.substring(0, 19);
+//                //判断剩下的数据
+//                String substring = integralDecorationContent.substring(19, integralDecorationContent.length());
+//                if(substring.length() >= 19){
+//                    integralDecorationContents_3[1] = substring.substring(0, 19);
+//                    integralDecorationContents_3[2] = substring.substring(19, substring.length());
+//                    integralDecorationPo.setIntegralDecorationContents(integralDecorationContents_3);
+//                }else{
+//                    integralDecorationContents_2[1] = substring;
+//                    integralDecorationPo.setIntegralDecorationContents(integralDecorationContents_2);
+//                }
+//            }else{
+//                integralDecorationContents_1[0] = integralDecorationContent;
+//                integralDecorationPo.setIntegralDecorationContents(integralDecorationContents_1);
+//            }
             //处理图片集合
 //            List<IntegralDecorationImg> integralDecorationImgList = integralDecoration.getIntegralDecorationImgList();
 //            List<IntegralDecorationImgPo> integralDecorationImgPoList = new ArrayList<>();

@@ -2,10 +2,13 @@ package com.dute.officialNetwork.controller.decoration;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import com.dute.officialNetwork.api.po.DecorationClassPo;
 import com.dute.officialNetwork.api.response.decoration.DecorationClassMainTypeResponse;
 import com.dute.officialNetwork.api.response.decoration.DecorationMainTypeAndSubTypeResponse;
+import com.dute.officialNetwork.api.response.decoration.ResponseDataToDecoration;
+import com.dute.officialNetwork.api.response.index.*;
 import com.dute.officialNetwork.domain.entity.DecorationClassMainType;
 import com.dute.officialNetwork.service.interfaces.DecorationClassMainTypeService;
 import org.springframework.beans.BeanUtils;
@@ -19,11 +22,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.dute.officialNetwork.api.request.index.DecorationClassRequest0;
 import com.dute.officialNetwork.api.request.index.DecorationClassRequest1;
-import com.dute.officialNetwork.api.response.index.DecorationClassResponse0;
-import com.dute.officialNetwork.api.response.index.DecorationClassResponse1;
-import com.dute.officialNetwork.api.response.index.DecorationClassResponse2;
-import com.dute.officialNetwork.api.response.index.DecorationClassResponse3;
-import com.dute.officialNetwork.api.response.index.DecorationClassResponse4;
 import com.dute.officialNetwork.domain.entity.DecorationClass;
 import com.dute.officialNetwork.domain.entity.DecorationClassSubType;
 import com.dute.officialNetwork.service.interfaces.DecorationClassService;
@@ -172,6 +170,18 @@ public class DecorationClassController {
 				decorationClassService.updateOne(decorationClass);
 			}
 			BeanUtils.copyProperties(decorationClass, decorationClassResponse4);
+			//获取上一个和下一个
+			List<DecorationClass> list = decorationClassService.findAll();
+			int flag_1 = new Random().nextInt(list.size());
+			int flag_2 = new Random().nextInt(list.size());
+			DecorationClass nextd = list.get(flag_1);
+			DecorationClass prved = list.get(flag_2);
+			ResponseDataToDecoration responseDataToDecorationN = new ResponseDataToDecoration();
+			ResponseDataToDecoration responseDataToDecorationP = new ResponseDataToDecoration();
+			BeanUtils.copyProperties(nextd,responseDataToDecorationN);
+			BeanUtils.copyProperties(prved,responseDataToDecorationP);
+			decorationClassResponse4.setResponseDataToDecorationN(responseDataToDecorationN);
+			decorationClassResponse4.setResponseDataToDecorationP(responseDataToDecorationP);
 			result.setData(decorationClassResponse4);
 			result.setStatus(ResultData.CODE_SUCCESS);
 		} catch (Exception e) {

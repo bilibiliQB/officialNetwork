@@ -19,6 +19,17 @@ public class CustomerInformationRequest0 {
 	@ApiModelProperty("填写楼盘名称")
 	private String housesName;// 楼盘名称
 
+	@ApiModelProperty("描述")
+	private String ciComment;//描述
+
+	public String getCiComment() {
+		return ciComment;
+	}
+
+	public void setCiComment(String ciComment) {
+		this.ciComment = ciComment;
+	}
+
 	public String getName() {
 		return name;
 	}

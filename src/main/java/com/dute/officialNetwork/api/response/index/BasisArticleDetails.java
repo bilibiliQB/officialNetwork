@@ -7,6 +7,9 @@ import com.alibaba.fastjson.annotation.JSONField;
 import io.swagger.annotations.ApiModelProperty;
 
 public abstract class BasisArticleDetails {
+	@ApiModelProperty("返回编号")
+	private Long id;
+
 	@ApiModelProperty("返回主标题")
 	private String mainTitle;
 
@@ -25,6 +28,14 @@ public abstract class BasisArticleDetails {
 	@ApiModelProperty("返回创建时间")
 	@JSONField(format = "yyyy/MM/dd HH:mm:ss")
 	private Date createTime;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 
 	public String getMainTitle() {
 		return mainTitle;

@@ -54,7 +54,7 @@ public class HdCasesServiceImpl implements IHdCasesService {
                 Path<String> hdCasesName = root.get("hdCasesName");
                 List<Predicate> predicates = new ArrayList<>();
                 if(style != null && !"".equals(style)){
-                    predicates.add(criteriaBuilder.like(hdCasesStyle,style));
+                    predicates.add(criteriaBuilder.like(hdCasesStyle,"%"+style+"%"));
                 }
                 if(size != null && !"".equals(size)){
                     predicates.add(criteriaBuilder.like(hdCasesSize,size));

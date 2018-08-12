@@ -6,7 +6,8 @@ public enum CaseSizeEnum {
     LJ(2,"两居","两居"),
     SJ(3,"三居","三居"),
     SIJ(4,"四居","四居"),
-    FS(5,"复式","复式");
+    FS(5,"复式","复式"),
+    BS(6,"别墅","别墅");
 
     private final Integer areaFlag;
 

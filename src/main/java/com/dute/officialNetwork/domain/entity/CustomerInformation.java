@@ -52,6 +52,17 @@ public class CustomerInformation implements Serializable{
 	@JSONField(format = "yyyy/MM/dd HH:mm:ss")
 	private Date createTime; // 创建时间
 
+	@Column(name = "ci_commnet")
+	private String ciComment;//描述
+
+	public String getCiComment() {
+		return ciComment;
+	}
+
+	public void setCiComment(String ciComment) {
+		this.ciComment = ciComment;
+	}
+
 	public String getIP() {
 		return IP;
 	}
