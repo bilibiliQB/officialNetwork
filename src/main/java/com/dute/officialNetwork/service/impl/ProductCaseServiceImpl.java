@@ -3,9 +3,7 @@ package com.dute.officialNetwork.service.impl;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.dute.officialNetwork.api.po.DrawLotteryRafflePo;
 import com.dute.officialNetwork.api.po.ProductCasePo;
-import com.dute.officialNetwork.domain.entity.DrawLotteryRaffle;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
@@ -29,8 +27,8 @@ public class ProductCaseServiceImpl implements ProductCaseService {
 		for(ProductCase productCase : pcr.findTop6ByOrderByCreateTimeDesc()){
 			ProductCasePo productCasePo = new ProductCasePo();
 			BeanUtils.copyProperties(productCase,productCasePo);
-			productCasePo.setProductCaseTypes(productCase.getProductCaseType().getFullName());
-			productCasePo.setProductCaseStructures(productCase.getProductCaseStructure().getName());
+			productCasePo.setProductCaseTypesName(productCase.getProductCaseType().getShortName());
+			productCasePo.setProductCaseStructuresName(productCase.getProductCaseStructure().getName());
 			list.add(productCasePo);
 		}
 		return list;

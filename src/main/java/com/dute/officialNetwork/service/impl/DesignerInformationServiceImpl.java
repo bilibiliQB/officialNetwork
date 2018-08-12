@@ -4,12 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.dute.officialNetwork.api.po.DesignerInformationPo;
-import com.dute.officialNetwork.api.po.ProductCasePo;
 import com.dute.officialNetwork.domain.entity.DesignerInformation;
-import com.dute.officialNetwork.domain.entity.ProductCase;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import com.dute.officialNetwork.domain.repository.DesignerInformationRepository;
