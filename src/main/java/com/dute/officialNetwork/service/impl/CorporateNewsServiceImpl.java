@@ -17,7 +17,7 @@ public class CorporateNewsServiceImpl implements CorporateNewsService {
 	private CorporateNewsRepository cnr;
 
 	@Override
-	@Cacheable("CorporateNewsList#12h")
+	// @Cacheable("CorporateNewsList#12h")
 	public Page<CorporateNews> findAllCreateTimeDesc(Pageable pageable) {
 		return cnr.findAllByOrderByCreateTimeDesc(pageable);
 	}
@@ -32,6 +32,24 @@ public class CorporateNewsServiceImpl implements CorporateNewsService {
 	@Override
 	public CorporateNews updateOne(CorporateNews cn) {
 		return cnr.save(cn);
+	}
+
+	@Override
+	public CorporateNews nextCorporateNews(Integer id) {
+		CorporateNews cn = cnr.nextCorporateNews(id);
+		if (cn == null) {
+			cn = cnr.firstCorporateNews();
+		}
+		return cn;
+	}
+
+	@Override
+	public CorporateNews prvieCorporateNews(Integer id) {
+		CorporateNews cn = cnr.prvieCorporateNews(id);
+		if (cn == null) {
+			cn = cnr.lastCorporateNews();
+		}
+		return cn;
 	}
 
 }

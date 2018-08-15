@@ -11,4 +11,8 @@ public interface CorporateNewsService {
 	CorporateNews getOneById(Integer id);
 
 	CorporateNews updateOne(CorporateNews cn);
+
+	CorporateNews nextCorporateNews(Integer id);
+
+	CorporateNews prvieCorporateNews(Integer id);
 }

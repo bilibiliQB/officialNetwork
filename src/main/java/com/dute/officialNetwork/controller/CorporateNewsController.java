@@ -58,6 +58,10 @@ public class CorporateNewsController {
 		CorporateNewsResponse1 cnr = new CorporateNewsResponse1();
 		try {
 			CorporateNews cn = cns.getOneById(id);
+			CorporateNews next = cns.nextCorporateNews(id);
+			CorporateNews prvie = cns.prvieCorporateNews(id);
+			BeanUtils.copyProperties(next, cnr.getNext());
+			BeanUtils.copyProperties(prvie,cnr.getPrvie());
 			// 更新浏览数
 			if (cn != null) {
 				cn.setViewingCount(cn.getViewingCount() + 1);
