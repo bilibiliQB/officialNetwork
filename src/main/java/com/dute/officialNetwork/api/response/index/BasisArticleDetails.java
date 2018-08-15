@@ -26,7 +26,7 @@ public abstract class BasisArticleDetails {
 	private String content;
 
 	@ApiModelProperty("返回创建时间")
-	@JSONField(format = "yyyy/MM/dd HH:mm:ss")
+	@JSONField(format = "yyyy/MM/dd")
 	private Date createTime;
 
 	public Long getId() {

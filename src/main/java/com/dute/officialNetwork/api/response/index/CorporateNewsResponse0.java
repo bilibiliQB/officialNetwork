@@ -22,8 +22,6 @@ public class CorporateNewsResponse0 {
 	@JSONField(format = "dd")
 	private Date createTimeDay;
 
-
-
 	public Integer getId() {
 		return id;
 	}
