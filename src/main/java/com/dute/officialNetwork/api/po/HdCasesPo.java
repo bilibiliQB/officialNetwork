@@ -46,6 +46,29 @@ public class HdCasesPo {
     @ApiModelProperty("案例状态")
     private Integer hdStatus; // 案例状态
 
+    @ApiModelProperty("关键字")
+    private String hdCasesKeywords;
+
+    @JSONField(format = "yyyy/MM/dd")
+    @ApiModelProperty("不知道什么时间")
+    private Date hdCasesModifyTime;
+
+    public String getHdCasesKeywords() {
+        return hdCasesKeywords;
+    }
+
+    public void setHdCasesKeywords(String hdCasesKeywords) {
+        this.hdCasesKeywords = hdCasesKeywords;
+    }
+
+    public Date getHdCasesModifyTime() {
+        return hdCasesModifyTime;
+    }
+
+    public void setHdCasesModifyTime(Date hdCasesModifyTime) {
+        this.hdCasesModifyTime = hdCasesModifyTime;
+    }
+
     public String getHdBuilding() {
         return hdBuilding;
     }

@@ -47,6 +47,7 @@ public class OwnerStoryController {
 			for (OwnerStory os : pos.getContent()) {
 				osp.copyProperties(os);
 			}
+			osp.setTotalNumber(pos.getTotalElements());
 			result.setData(osp);
 			result.setStatus(ResultData.CODE_SUCCESS);
 		} catch (Exception e) {

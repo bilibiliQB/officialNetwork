@@ -20,6 +20,17 @@ public class OwnerStoryResponse0 {
 	@ApiModelProperty("返回当前总页数")
 	private Integer pageCount;
 
+	@ApiModelProperty("返回总条数")
+	private Long totalNumber;
+
+	public Long getTotalNumber() {
+		return totalNumber;
+	}
+
+	public void setTotalNumber(Long totalNumber) {
+		this.totalNumber = totalNumber;
+	}
+
 	List<OwnerStoryResponse> ownerStory = new ArrayList<>(); // 业主故事列表
 
 	public void copyProperties(OwnerStory os) {

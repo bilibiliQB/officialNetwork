@@ -24,7 +24,7 @@ import com.alibaba.fastjson.support.spring.FastJsonRedisSerializer;
 import com.dute.officialNetwork.redis.CustomizedRedisCacheManager;
 
 @Configuration
-@EnableCaching
+//@EnableCaching
 @ConditionalOnClass(RedisOperations.class)
 @EnableConfigurationProperties(RedisProperties.class)
 public class RedisConfig extends CachingConfigurerSupport {

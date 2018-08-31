@@ -26,6 +26,9 @@ public class CustomerInformationServiceImpl implements CustomerInformationServic
 	public long save(CustomerInformation ci, HttpServletRequest request) {
 		ci.setIP(IPUtil.getIpAddr(request));
 		ci.setCreateTime(new Date());
+		if (ci.getProblemDescription() == null) {
+			ci.setProblemDescription("");
+		}
 		CustomerInformation saveData = cir.save(ci);
 		if (saveData == null) {
 			throw new RuntimeException("申请失败");

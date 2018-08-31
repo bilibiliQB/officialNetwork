@@ -141,8 +141,8 @@ public class HdCasesServiceImpl implements IHdCasesService {
         BeanUtils.copyProperties(hdCases,hdContentResponse);
         //查找上一个和下一个
         HdCases hdCases1 = hdCasesRepository.findByHdCasesOrder(hdCases.getHdCasesOrder() + 1);
-        hdCases1 = hdCases1 == null ? hdCasesRepository.getOne(1) : hdCases1;
-        HdCases hdCases2 = hdCases.getHdCasesOrder() - 1 == 0 ? hdCasesRepository.getOne(1) : hdCasesRepository.findByHdCasesOrder(hdCases.getHdCasesOrder() - 1);
+        hdCases1 = hdCases1 == null ? hdCasesRepository.getOne(34) : hdCases1;
+        HdCases hdCases2 = hdCases.getHdCasesOrder() - 1 == 0 ? hdCasesRepository.getOne(34) : hdCasesRepository.findByHdCasesOrder(hdCases.getHdCasesOrder() - 1);
         BeanUtils.copyProperties(hdCases1,next);
         BeanUtils.copyProperties(hdCases2,prive);
         hdContentResponse.setNext(next);

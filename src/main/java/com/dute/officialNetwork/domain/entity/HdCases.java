@@ -55,6 +55,29 @@ public class HdCases {
     @Column(name = "hd_status")
     private Integer hdStatus; // 案例状态
 
+    @Column(name = "hd_cases_keywords")
+    private String hdCasesKeywords;
+
+    @Column(name = "hd_cases_modify_time")
+    @JSONField(format = "yyyy/MM/dd")
+    private Date hdCasesModifyTime;
+
+    public String getHdCasesKeywords() {
+        return hdCasesKeywords;
+    }
+
+    public void setHdCasesKeywords(String hdCasesKeywords) {
+        this.hdCasesKeywords = hdCasesKeywords;
+    }
+
+    public Date getHdCasesModifyTime() {
+        return hdCasesModifyTime;
+    }
+
+    public void setHdCasesModifyTime(Date hdCasesModifyTime) {
+        this.hdCasesModifyTime = hdCasesModifyTime;
+    }
+
     public String getHdBuilding() {
         return hdBuilding;
     }

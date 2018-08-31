@@ -22,6 +22,17 @@ public class DecorationClassResponse3 {
 	@ApiModelProperty("返回用户输入的关键字")
 	private String keywords;
 
+	@ApiModelProperty("返回总条数")
+	private Long totalNumber;
+
+	public Long getTotalNumber() {
+		return totalNumber;
+	}
+
+	public void setTotalNumber(Long totalNumber) {
+		this.totalNumber = totalNumber;
+	}
+
 	private List<DecorationClassResponse> decorationClass = new ArrayList<>(); // 装修课堂列表
 
 	public void copyProperties(DecorationClass dc) {

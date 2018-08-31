@@ -142,11 +142,12 @@ public class DecorationClassController {
 	public ResultData<DecorationClassResponse3> getDecorationClass3(DecorationClassRequest1 dcrq) {
 		ResultData<DecorationClassResponse3> result = new ResultData<>();
 		DecorationClassResponse3 dcr = new DecorationClassResponse3();
+		Page<DecorationClass> byKeywordsLike = decorationClassService.findByKeywordsLike(dcrq.getKeywords(), PageRequest.of(dcrq.getPageNumber() - 1, dcrq.getShowCount()));
 		try {
-			for (DecorationClass dc : decorationClassService.findByKeywordsLike(dcrq.getKeywords(),
-					PageRequest.of(dcrq.getPageNumber() - 1, dcrq.getShowCount()))) {
+			for (DecorationClass dc : byKeywordsLike) {
 				dcr.copyProperties(dc);
 			}
+			dcr.setTotalNumber(byKeywordsLike.getTotalElements());
 			dcr.setKeywords(dcrq.getKeywords());
 			result.setData(dcr);
 			result.setStatus(ResultData.CODE_SUCCESS);
