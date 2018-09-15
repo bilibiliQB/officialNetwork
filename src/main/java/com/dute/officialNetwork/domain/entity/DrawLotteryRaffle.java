@@ -1,6 +1,5 @@
 package com.dute.officialNetwork.domain.entity;
 
-import io.swagger.annotations.ApiModelProperty;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 
@@ -16,7 +15,10 @@ import java.util.Date;
 @DynamicInsert
 @DynamicUpdate
 public class DrawLotteryRaffle implements Serializable {
-    @Id
+    
+	private static final long serialVersionUID = 1L;
+
+	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "draw_id", updatable = false)
     private Integer id;// 奖品图片编号

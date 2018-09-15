@@ -1,7 +1,6 @@
 package com.dute.officialNetwork.api.response.hdcases;
 
 import com.dute.officialNetwork.api.po.HdCasesPo;
-import com.dute.officialNetwork.domain.entity.HdCases;
 import io.swagger.annotations.ApiModelProperty;
 
 public class HdContentResponse extends HdCasesPo {

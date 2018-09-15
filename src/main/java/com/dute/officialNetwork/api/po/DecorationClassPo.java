@@ -1,15 +1,16 @@
 package com.dute.officialNetwork.api.po;
 
 import com.alibaba.fastjson.annotation.JSONField;
-import com.dute.officialNetwork.domain.entity.DecorationClassSubType;
 import io.swagger.annotations.ApiModelProperty;
 
-import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
 public class DecorationClassPo implements Serializable {
-    @ApiModelProperty("ID")
+    
+	private static final long serialVersionUID = 1L;
+
+	@ApiModelProperty("ID")
     private Long id;// ID
 
     @ApiModelProperty("主标题")

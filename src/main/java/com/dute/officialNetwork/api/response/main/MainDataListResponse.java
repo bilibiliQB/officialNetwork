@@ -1,13 +1,6 @@
 package com.dute.officialNetwork.api.response.main;
 
 import com.dute.officialNetwork.api.po.*;
-import com.dute.officialNetwork.api.response.banner.BannerPicResponse;
-import com.dute.officialNetwork.api.response.index.CorporateNewsResponse0;
-import com.dute.officialNetwork.api.response.index.DesignerInformationResponse0;
-import com.dute.officialNetwork.api.response.index.ProductCaseResponse0;
-import com.dute.officialNetwork.api.response.index.ProductCaseTypeResponse0;
-import com.dute.officialNetwork.domain.entity.*;
-import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiModelProperty;
 
 import java.util.List;

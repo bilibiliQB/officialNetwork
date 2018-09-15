@@ -1,6 +1,5 @@
 package com.dute.officialNetwork.controller.aboutunique;
 
-import com.dute.officialNetwork.api.po.UniqueVedioPo;
 import com.dute.officialNetwork.api.response.about.AboutMilestonDataResponse;
 import com.dute.officialNetwork.api.response.about.AboutMilestonVideoResponse;
 import com.dute.officialNetwork.api.response.about.CooperativePartnerDataResponse;
@@ -20,7 +19,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.xml.transform.Result;
 import java.util.ArrayList;
 import java.util.List;
 

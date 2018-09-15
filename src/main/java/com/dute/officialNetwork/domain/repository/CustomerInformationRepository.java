@@ -1,11 +1,7 @@
 package com.dute.officialNetwork.domain.repository;
 
 import java.util.Date;
-import java.util.List;
-
-import com.dute.officialNetwork.domain.entity.CorporateNews;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 

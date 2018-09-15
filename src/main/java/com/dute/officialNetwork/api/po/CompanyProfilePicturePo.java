@@ -3,15 +3,14 @@ package com.dute.officialNetwork.api.po;
 import com.alibaba.fastjson.annotation.JSONField;
 import io.swagger.annotations.ApiModelProperty;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.Date;
 
 public class CompanyProfilePicturePo implements Serializable {
-    @ApiModelProperty("ID")
+  
+	private static final long serialVersionUID = 1L;
+
+	@ApiModelProperty("ID")
     private Integer id;// ID
 
     @ApiModelProperty("地址")

@@ -1,7 +1,6 @@
 package com.dute.officialNetwork.api.response.index;
 
 import com.dute.officialNetwork.api.response.decoration.ResponseDataToDecoration;
-import com.dute.officialNetwork.domain.entity.DecorationClass;
 import io.swagger.annotations.ApiModelProperty;
 
 // 装修课堂文章详情页

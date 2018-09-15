@@ -17,7 +17,6 @@ import java.util.List;
 public class DecorationClassMainTypeServiceImpl implements DecorationClassMainTypeService {
 
 	@Autowired
-	@SuppressWarnings("unused")
 	private DecorationClassMainTypeRepository decorationClassMainTypeRepository;
 
 	@Override

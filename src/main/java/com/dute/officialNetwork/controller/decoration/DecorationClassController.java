@@ -1,21 +1,17 @@
 package com.dute.officialNetwork.controller.decoration;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import com.dute.officialNetwork.api.po.DecorationClassPo;
 import com.dute.officialNetwork.api.response.decoration.DecorationClassMainTypeResponse;
 import com.dute.officialNetwork.api.response.decoration.DecorationMainTypeAndSubTypeResponse;
 import com.dute.officialNetwork.api.response.decoration.ResponseDataToDecoration;
 import com.dute.officialNetwork.api.response.index.*;
-import com.dute.officialNetwork.domain.entity.DecorationClassMainType;
 import com.dute.officialNetwork.service.interfaces.DecorationClassMainTypeService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,7 +19,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.dute.officialNetwork.api.request.index.DecorationClassRequest0;
 import com.dute.officialNetwork.api.request.index.DecorationClassRequest1;
 import com.dute.officialNetwork.domain.entity.DecorationClass;
-import com.dute.officialNetwork.domain.entity.DecorationClassSubType;
 import com.dute.officialNetwork.service.interfaces.DecorationClassService;
 import com.dute.officialNetwork.service.interfaces.DecorationClassSubTypeService;
 import com.dute.officialNetwork.util.ResultData;
@@ -39,6 +34,7 @@ public class DecorationClassController {
 	@Autowired
 	private DecorationClassService decorationClassService;
 
+	@SuppressWarnings("unused")
 	@Autowired
 	private DecorationClassSubTypeService decorationClassSubTypeService;
 

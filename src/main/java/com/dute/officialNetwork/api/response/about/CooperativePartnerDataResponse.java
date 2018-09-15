@@ -1,7 +1,6 @@
 package com.dute.officialNetwork.api.response.about;
 
 import com.dute.officialNetwork.api.po.CooperativePartnerPo;
-import com.dute.officialNetwork.domain.entity.CooperativePartner;
 
 import java.util.List;
 

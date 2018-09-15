@@ -3,15 +3,13 @@ package com.dute.officialNetwork.api.po;
 import com.alibaba.fastjson.annotation.JSONField;
 import io.swagger.annotations.ApiModelProperty;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.Date;
 
 public class DesignerInformationPo implements Serializable {
-    @ApiModelProperty("设计师ID")
+	private static final long serialVersionUID = 1L;
+
+	@ApiModelProperty("设计师ID")
     private Integer id;// 设计师ID
 
     @ApiModelProperty("设计师姓名")

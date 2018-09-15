@@ -1,6 +1,5 @@
 package com.dute.officialNetwork.api.po;
 
-import com.dute.officialNetwork.domain.entity.HdCases;
 import io.swagger.annotations.ApiModelProperty;
 
 import java.util.Date;

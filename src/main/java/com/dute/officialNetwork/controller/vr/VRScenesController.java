@@ -1,7 +1,5 @@
 package com.dute.officialNetwork.controller.vr;
 
-
-import com.dute.officialNetwork.api.po.VRScenesPo;
 import com.dute.officialNetwork.api.request.vr.VrPageDataRequest;
 import com.dute.officialNetwork.api.response.vr.VrScenesResponse;
 import com.dute.officialNetwork.service.impl.VRScenesServiceImpl;
@@ -12,8 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
 
 @Api(description = "VR控制器相关")
 @RestController

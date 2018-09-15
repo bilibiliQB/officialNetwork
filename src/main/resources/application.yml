@@ -50,6 +50,6 @@ springfox:
   documentation:
     swagger:
       v2:
-#        host: localhost:8080
-        host: www.duteyijia.com/backstage
+        host: localhost:8080
+        #host: www.duteyijia.com/backstage
 PIC_HOST:

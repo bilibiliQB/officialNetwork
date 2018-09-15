@@ -8,7 +8,9 @@ import java.util.Date;
 
 public class DrawLotteryRafflePo implements Serializable {
 
-    @ApiModelProperty("奖品图片编号")
+	private static final long serialVersionUID = 1760518822400592875L;
+
+	@ApiModelProperty("奖品图片编号")
     private Integer id;// 奖品图片编号
 
     @ApiModelProperty("奖品图片编号")

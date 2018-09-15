@@ -25,9 +25,9 @@ public class CustomerInformationController {
 	@Autowired
 	private CustomerInformationService cis;
 
-	@ApiOperation("存储客户信息")
+	@ApiOperation("存储客户信息-1")
 	@PostMapping("/save")
-	public ResultData<Boolean> commitInfo(String data, HttpServletRequest request) {
+	public ResultData<Boolean> commitInfo(String name,String data, HttpServletRequest request) {
         CustomerInformationRequest0 cir = JSONObject.parseObject(data, CustomerInformationRequest0.class);
         ResultData<Boolean> result = new ResultData<>();
 		CustomerInformation ci = new CustomerInformation();
@@ -42,10 +42,36 @@ public class CustomerInformationController {
 				result.setData(false);
 			}
 		} catch (Exception e) {
+			e.printStackTrace();
 			result.setStatus(ResultData.CODE_FAIL_BIZ);
 			result.setMessage(e.getMessage());
 			result.setData(false);
 		}
 		return result;
 	}
+	
+	@ApiOperation("存储客户信息-2")
+	@PostMapping("/save_ob")
+	public ResultData<Boolean> commitInfo(CustomerInformationRequest0 cir, HttpServletRequest request) {
+        ResultData<Boolean> result = new ResultData<>();
+		CustomerInformation ci = new CustomerInformation();
+		try {
+			BeanUtils.copyProperties(cir, ci);
+			long flag = cis.save(ci, request);
+			if(flag != 0){
+				result.setData(true);
+			}else{
+				result.setStatus(ResultData.CODE_FAIL_BIZ);
+				result.setMessage("申请失败");
+				result.setData(false);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			result.setStatus(ResultData.CODE_FAIL_BIZ);
+			result.setMessage(e.getMessage());
+			result.setData(false);
+		}
+		return result;
+	}
+	
 }

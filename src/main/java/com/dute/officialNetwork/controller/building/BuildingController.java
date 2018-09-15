@@ -21,7 +21,7 @@ public class BuildingController {
     @PostMapping("/getBuildingData")
     @ApiOperation("获取热装楼盘数据")
     public ResultData<BuildingDataResponse> getBuildingData(BuildingPageRequest buildingPageRequest){
-        ResultData<BuildingDataResponse> resultData = new ResultData();
+        ResultData<BuildingDataResponse> resultData = new ResultData<>();
         try {
             resultData.setData(buildingService.getBuildingData(buildingPageRequest));
         }catch (Exception e){

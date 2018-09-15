@@ -1,6 +1,5 @@
 package com.dute.officialNetwork.api.response.decoration;
 
-import com.dute.officialNetwork.domain.entity.DecorationClassMainType;
 import io.swagger.annotations.ApiModelProperty;
 
 import java.util.List;

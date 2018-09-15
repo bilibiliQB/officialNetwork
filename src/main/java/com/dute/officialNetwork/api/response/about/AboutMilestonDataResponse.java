@@ -1,7 +1,6 @@
 package com.dute.officialNetwork.api.response.about;
 
 import com.dute.officialNetwork.api.po.MilestoneRecordPo;
-import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiModelProperty;
 
 import java.util.List;

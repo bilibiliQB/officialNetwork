@@ -1,6 +1,5 @@
 package com.dute.officialNetwork.api.response.building;
 
-import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiModelProperty;
 
 import java.util.List;

@@ -1,6 +1,5 @@
 package com.dute.officialNetwork.domain.entity;
 
-import io.swagger.annotations.ApiModelProperty;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 
@@ -13,7 +12,10 @@ import java.util.Date;
 @DynamicInsert
 @DynamicUpdate
 public class CompanyProfilePicture  implements Serializable {
-    @Id
+
+	private static final long serialVersionUID = 6926097416077407859L;
+
+	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "pic_id", updatable = false)
     private Integer id;// ID

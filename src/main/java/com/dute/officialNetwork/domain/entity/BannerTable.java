@@ -1,11 +1,9 @@
 package com.dute.officialNetwork.domain.entity;
 
-import jdk.nashorn.internal.objects.annotations.Setter;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
-import java.util.Date;
 
 /**
  */

@@ -24,12 +24,10 @@ public class VRScenesServiceImpl implements VRScenesService {
 	@Autowired
 	private VRScenesRepository VRSr;
 
-
-
     @Override
     public List<VRScenesPo> getAll() {
         List<VRScenesPo> list = new ArrayList<>();
-        PageRequest pageable = new PageRequest(0,3,new Sort(Sort.Direction.ASC,"vsOrder"));
+        PageRequest pageable = PageRequest.of(0,3,new Sort(Sort.Direction.ASC,"vsOrder"));
         Page<VRScenes> vrSrAll = VRSr.findAll(pageable);
         for(VRScenes vrScenes : vrSrAll.getContent()){
             VRScenesPo vrScenesPo = new VRScenesPo();
@@ -43,7 +41,7 @@ public class VRScenesServiceImpl implements VRScenesService {
     public VrScenesResponse getPageDataByRequest(VrPageDataRequest vrPageDataRequest) {
         VrScenesResponse vrScenesResponse = new VrScenesResponse();
         List<VRScenesPo> list = new ArrayList<>();
-        Pageable pageable = new PageRequest(vrPageDataRequest.getPageNumber() -1 ,vrPageDataRequest.getPageSize());
+        Pageable pageable = PageRequest.of(vrPageDataRequest.getPageNumber() -1, vrPageDataRequest.getPageSize()); 
         Page<VRScenes> all = VRSr.findAll(pageable);
         List<VRScenes> vrSrAll = all.getContent();
         for(VRScenes vrScenes : vrSrAll){
