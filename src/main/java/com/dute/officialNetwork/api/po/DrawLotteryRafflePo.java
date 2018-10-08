@@ -2,13 +2,11 @@ package com.dute.officialNetwork.api.po;
 
 import com.alibaba.fastjson.annotation.JSONField;
 import io.swagger.annotations.ApiModelProperty;
-
 import java.io.Serializable;
 import java.util.Date;
 
 public class DrawLotteryRafflePo implements Serializable {
-
-	private static final long serialVersionUID = 1760518822400592875L;
+	private static final long serialVersionUID = 1L;
 
 	@ApiModelProperty("奖品图片编号")
     private Integer id;// 奖品图片编号

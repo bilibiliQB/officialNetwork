@@ -7,8 +7,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class ProductCaseTypePo implements Serializable {
-
-	private static final long serialVersionUID = -5588167831202279988L;
+	private static final long serialVersionUID = 1L;
 
 	@ApiModelProperty("ID")
     private Integer id;// ID

@@ -2,12 +2,11 @@ package com.dute.officialNetwork.api.po;
 
 import com.alibaba.fastjson.annotation.JSONField;
 import io.swagger.annotations.ApiModelProperty;
-
 import java.io.Serializable;
 import java.util.Date;
 
 public class DecorationClassPo implements Serializable {
-    
+
 	private static final long serialVersionUID = 1L;
 
 	@ApiModelProperty("ID")

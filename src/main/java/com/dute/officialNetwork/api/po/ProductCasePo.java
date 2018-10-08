@@ -4,8 +4,7 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
 
 public class ProductCasePo implements Serializable {
-
-	private static final long serialVersionUID = -1192722977877443629L;
+	private static final long serialVersionUID = 1L;
 
 	@ApiModelProperty("ID")
 	private Long id;// ID

@@ -1,13 +1,13 @@
 package com.dute.officialNetwork;
 
 import java.lang.reflect.Method;
-//import java.time.Duration;
 
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.data.redis.RedisProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.CachingConfigurerSupport;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.cache.interceptor.KeyGenerator;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -23,7 +23,7 @@ import com.alibaba.fastjson.support.spring.FastJsonRedisSerializer;
 import com.dute.officialNetwork.redis.CustomizedRedisCacheManager;
 
 @Configuration
-//@EnableCaching
+@EnableCaching
 @ConditionalOnClass(RedisOperations.class)
 @EnableConfigurationProperties(RedisProperties.class)
 public class RedisConfig extends CachingConfigurerSupport {

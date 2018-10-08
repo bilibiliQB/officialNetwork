@@ -2,13 +2,11 @@ package com.dute.officialNetwork.api.po;
 
 import com.alibaba.fastjson.annotation.JSONField;
 import io.swagger.annotations.ApiModelProperty;
-
 import java.io.Serializable;
 import java.util.Date;
 
 public class VRScenesPo implements Serializable {
-
-	private static final long serialVersionUID = -5483346477932531058L;
+	private static final long serialVersionUID = 1L;
 
 	@ApiModelProperty("ID")
     private Long id;// ID

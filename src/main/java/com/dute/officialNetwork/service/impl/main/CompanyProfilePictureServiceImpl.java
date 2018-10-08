@@ -1,9 +1,7 @@
 package com.dute.officialNetwork.service.impl.main;
 
 import com.dute.officialNetwork.api.po.CompanyProfilePicturePo;
-import com.dute.officialNetwork.api.po.DesignerInformationPo;
 import com.dute.officialNetwork.domain.entity.CompanyProfilePicture;
-import com.dute.officialNetwork.domain.entity.DesignerInformation;
 import com.dute.officialNetwork.domain.repository.main.CompanyProfilePictureRepository;
 import com.dute.officialNetwork.service.interfaces.main.ICompanyProfilePictureService;
 import org.springframework.beans.BeanUtils;

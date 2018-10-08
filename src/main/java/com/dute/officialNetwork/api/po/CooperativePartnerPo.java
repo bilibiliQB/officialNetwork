@@ -1,7 +1,6 @@
 package com.dute.officialNetwork.api.po;
 
 import io.swagger.annotations.ApiModelProperty;
-
 import java.util.Date;
 
 /**

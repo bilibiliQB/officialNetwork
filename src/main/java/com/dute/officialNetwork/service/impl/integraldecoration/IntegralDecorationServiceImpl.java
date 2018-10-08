@@ -1,16 +1,13 @@
 package com.dute.officialNetwork.service.impl.integraldecoration;
 
 import com.dute.officialNetwork.api.po.HdCasesPo;
-import com.dute.officialNetwork.api.po.IntegralDecorationImgPo;
 import com.dute.officialNetwork.api.po.IntegralDecorationPo;
 import com.dute.officialNetwork.domain.entity.IntegralDecoration;
-import com.dute.officialNetwork.domain.entity.IntegralDecorationImg;
 import com.dute.officialNetwork.domain.repository.integraldecoration.IntegralDecorationRepository;
 import com.dute.officialNetwork.service.interfaces.hdcases.IHdCasesService;
 import com.dute.officialNetwork.service.interfaces.integraldecoration.IIntegralDecorationService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
@@ -26,7 +23,8 @@ public class IntegralDecorationServiceImpl implements IIntegralDecorationService
     @Autowired
     private IHdCasesService hdCasesService;
 
-    @Override
+    @SuppressWarnings("deprecation")
+	@Override
     public List<IntegralDecorationPo> findAll() {
         List<IntegralDecorationPo> list = new ArrayList<>();
         for(IntegralDecoration integralDecoration : integralDecorationRepository.findAll()){

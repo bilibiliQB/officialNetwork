@@ -2,7 +2,6 @@ package com.dute.officialNetwork.api.po;
 
 import com.alibaba.fastjson.annotation.JSONField;
 import io.swagger.annotations.ApiModelProperty;
-
 import java.io.Serializable;
 import java.util.Date;
 

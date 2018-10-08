@@ -52,15 +52,15 @@ public class CustomerInformation implements Serializable{
 	@JSONField(format = "yyyy/MM/dd HH:mm:ss")
 	private Date createTime; // 创建时间
 
-	@Column(name = "ci_commnet")
-	private String ciComment;//描述
+	@Column(name = "ci_from")
+	private String from;// 来源 [推广时候通过地址栏参数获得]
 
-	public String getCiComment() {
-		return ciComment;
+	public String getFrom() {
+		return from;
 	}
 
-	public void setCiComment(String ciComment) {
-		this.ciComment = ciComment;
+	public void setFrom(String from) {
+		this.from = from;
 	}
 
 	public String getIP() {

@@ -10,7 +10,7 @@ public class CustomerInformationRequest0 {
 	@ApiModelProperty("填写客户手机号")
 	private String phoneNumber;// 客户手机号
 
-	@ApiModelProperty("数据提交类型，1：预约 2：报价 3：报名 4：抽奖")
+	@ApiModelProperty("描述")
 	private String problemDescription;// 问题描述
 
 	@ApiModelProperty("填写房屋面积")
@@ -19,15 +19,15 @@ public class CustomerInformationRequest0 {
 	@ApiModelProperty("填写楼盘名称")
 	private String housesName;// 楼盘名称
 
-	@ApiModelProperty("描述")
-	private String ciComment;//描述
+	@ApiModelProperty("数据来源")
+	private String from;// 数据来源
 
-	public String getCiComment() {
-		return ciComment;
+	public String getFrom() {
+		return from;
 	}
 
-	public void setCiComment(String ciComment) {
-		this.ciComment = ciComment;
+	public void setFrom(String from) {
+		this.from = from;
 	}
 
 	public String getName() {

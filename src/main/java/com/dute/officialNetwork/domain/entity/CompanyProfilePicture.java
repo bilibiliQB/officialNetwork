@@ -12,8 +12,7 @@ import java.util.Date;
 @DynamicInsert
 @DynamicUpdate
 public class CompanyProfilePicture  implements Serializable {
-
-	private static final long serialVersionUID = 6926097416077407859L;
+	private static final long serialVersionUID = 1L;
 
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

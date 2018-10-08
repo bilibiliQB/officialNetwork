@@ -15,7 +15,6 @@ import java.util.Date;
 @DynamicInsert
 @DynamicUpdate
 public class DrawLotteryRaffle implements Serializable {
-    
 	private static final long serialVersionUID = 1L;
 
 	@Id
